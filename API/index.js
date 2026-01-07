@@ -122,6 +122,57 @@ const swaggerIndexHtml = `<!doctype html>
   </body>
 </html>`;
 
+const rootIndexHtml = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Piano SIM</title>
+    <meta name="theme-color" content="#f7f2ea" />
+    <meta property="og:title" content="Piano SIM" />
+    <meta property="og:description" content="Piano POS Simulator for local development and CI." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Piano SIM" />
+    <meta name="twitter:description" content="Piano POS Simulator for local development and CI." />
+    <meta name="twitter:image" content="/og-image.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-[#f7f2ea] flex items-center justify-center px-6">
+    <div class="w-full max-w-lg rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-10 py-12 text-center shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
+      <img class="mx-auto mb-6 h-20 w-20" src="/assets/wolf.png" alt="Unlike Other AI" />
+      <h1 class="text-3xl font-semibold tracking-wide text-[#1d1b16]">Piano SIM</h1>
+      <p class="mt-3 text-sm text-[#4b443b]">
+        Node.js API simulator for the Piano POS integration API. Built for deterministic
+        local development and CI workflows.
+      </p>
+      <div class="mt-8 flex flex-col gap-3">
+        <a
+          class="w-full rounded-full border border-[#1d1b16] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-[#1d1b16] transition hover:bg-[#1d1b16] hover:text-[#fffaf0]"
+          href="https://github.com/UnlikeOtherAI/PianoPOSSimulator/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
+        <a
+          class="w-full rounded-full bg-[#1d1b16] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-[#fffaf0] transition hover:opacity-90"
+          href="https://www.unlikeotherai.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Unlike Other AI
+        </a>
+      </div>
+    </div>
+  </body>
+</html>`;
+
 const SIM_ACCESS_TOKEN = "sim_access_token";
 const SIM_REFRESH_TOKEN = "sim_refresh_token";
 const SIM_AUTH_CODE = "sim_auth_code";
@@ -308,6 +359,9 @@ app.post("/api/v1/auth/login", loginHandler);
 app.get("/api/v1/auth/whoami", whoAmIHandler);
 app.post("/api/v1/auth/pair", pairHandler);
 
+app.get("/", (req, res) => {
+  res.status(200).type("html").send(rootIndexHtml);
+});
 app.use("/swagger", express.static(swaggerAssetPath, { index: false }));
 app.get("/swagger", (req, res) => {
   res.status(200).type("html").send(swaggerIndexHtml);
