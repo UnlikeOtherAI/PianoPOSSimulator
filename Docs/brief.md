@@ -20,6 +20,7 @@ Build a Node.js API simulator that mimics the Piano integration API defined in `
 ## Inputs
 
 - OpenAPI source of truth: `Docs/piano.api.json`.
+- Model reference: `Docs/model-structure.md`.
 - Simulator endpoint: `/sim/trigger` (not in OpenAPI).
 - Runtime: Node.js API, package manager `pnpm`, database PostgreSQL (`psql`).
 
