@@ -70,6 +70,14 @@ curl -s -X POST https://pianosim.unlikeotherai.com/sim/trigger \\
 - Install deps: `make install`
 - Run API (defaults to port 6080): `make launch`
 
+## Makefile Targets
+
+- `make install`: install API dependencies with `pnpm`.
+- `make launch`: install deps and start the API server.
+- `make test`: run the local purchase simulation summary.
+- `make read [staging]`: fetch the DigitalOcean app spec into `app.yaml` (or `app.staging.yaml`).
+- `make deploy [staging]`: deploy the DigitalOcean app from the spec file.
+
 ## DigitalOcean App
 
 - `make read` fetches the live app spec into `app.yaml` (requires `doctl auth init`).
