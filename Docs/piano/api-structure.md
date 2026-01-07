@@ -47,4 +47,4 @@ The simulator represents three establishments:
 
 ## Tokens
 
-Fixed tokens are documented in `Docs/model-structure.md` and should be reused for authenticated access in later endpoints.
+Fixed tokens are documented in `Docs/piano/model-structure.md` and should be reused for authenticated access in later endpoints.

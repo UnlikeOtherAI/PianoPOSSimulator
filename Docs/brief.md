@@ -20,7 +20,7 @@ Build a Node.js POS purchase simulator that sends realistic payloads to downstre
 ## Inputs
 
 - OpenAPI reference spec: `Docs/piano/piano.api.json`.
-- Model reference: `Docs/model-structure.md`.
+- Model reference: `Docs/piano/model-structure.md`.
 - Sales and catalog plan: `Docs/sales-plan.md` and `Docs/establishments/`.
 - Simulator endpoint: `/sim/trigger` (not in OpenAPI).
 - Runtime: Node.js API, package manager `pnpm`, database PostgreSQL (`psql`).
