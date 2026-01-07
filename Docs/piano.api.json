@@ -1,0 +1,1564 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/healthcheck": {
+      "get": {
+        "operationId": "AppController_getHealthCheck",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/debug-sentry": {
+      "get": {
+        "operationId": "AppController_getError",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/oauth/authorize": {
+      "get": {
+        "description": "Initiates the OAuth2 authorization code flow",
+        "operationId": "OAuth2Controller_authorize",
+        "parameters": [
+          {
+            "name": "response_type",
+            "required": true,
+            "in": "query",
+            "description": "OAuth2 response type",
+            "schema": {
+              "example": "code",
+              "type": "string"
+            }
+          },
+          {
+            "name": "client_id",
+            "required": true,
+            "in": "query",
+            "description": "OAuth2 client identifier",
+            "schema": {
+              "example": "my-client-id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "redirect_uri",
+            "required": true,
+            "in": "query",
+            "description": "Redirect URI",
+            "schema": {
+              "example": "https://client-app.com/callback",
+              "type": "string"
+            }
+          },
+          {
+            "name": "scope",
+            "required": false,
+            "in": "query",
+            "description": "Requested scopes",
+            "schema": {
+              "example": "read:profile",
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "required": false,
+            "in": "query",
+            "description": "State parameter for CSRF protection",
+            "schema": {
+              "example": "random-state-string",
+              "type": "string"
+            }
+          },
+          {
+            "name": "code_challenge",
+            "required": false,
+            "in": "query",
+            "description": "PKCE code challenge",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code_challenge_method",
+            "required": false,
+            "in": "query",
+            "description": "PKCE code challenge method",
+            "schema": {
+              "example": "S256",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Redirect to login or client callback"
+          },
+          "400": {
+            "description": "Invalid request parameters"
+          }
+        },
+        "summary": "OAuth2 Authorization Endpoint",
+        "tags": [
+          "OAuth"
+        ]
+      }
+    },
+    "/oauth/token": {
+      "post": {
+        "description": "Exchanges authorization code for access token or handles other grant types",
+        "operationId": "OAuth2Controller_token",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Token issued successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Invalid client credentials"
+          }
+        },
+        "summary": "OAuth2 Token Endpoint",
+        "tags": [
+          "OAuth"
+        ]
+      }
+    },
+    "/oauth/revoke": {
+      "post": {
+        "description": "Revokes an access token or refresh token",
+        "operationId": "OAuth2Controller_revoke",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Token revoked successfully"
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        },
+        "summary": "OAuth2 Token Revocation Endpoint",
+        "tags": [
+          "OAuth"
+        ]
+      }
+    },
+    "/oauth/introspect": {
+      "post": {
+        "description": "Returns information about a token",
+        "operationId": "OAuth2Controller_introspect",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Token information"
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        },
+        "summary": "OAuth2 Token Introspection Endpoint",
+        "tags": [
+          "OAuth"
+        ]
+      }
+    },
+    "/oauth/register": {
+      "post": {
+        "description": "Register a new OAuth2 client dynamically (RFC 7591). Allows MCP Inspector and other tools to auto-register.",
+        "operationId": "OAuth2Controller_register",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Client registered successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "client_id": "generated-client-id",
+                    "client_secret": "generated-client-secret",
+                    "client_name": "MCP Inspector",
+                    "redirect_uris": [
+                      "http://localhost:5173/callback"
+                    ],
+                    "grant_types": [
+                      "authorization_code",
+                      "refresh_token"
+                    ],
+                    "response_types": [
+                      "code"
+                    ],
+                    "token_endpoint_auth_method": "client_secret_post"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid registration request"
+          }
+        },
+        "summary": "Dynamic Client Registration",
+        "tags": [
+          "OAuth"
+        ]
+      }
+    },
+    "/oauth/userinfo": {
+      "get": {
+        "operationId": "OAuth2Controller_userinfo",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User information retrieved successfully"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "summary": "Get User Information",
+        "tags": [
+          "OAuth"
+        ]
+      }
+    },
+    "/.well-known/oauth-authorization-server": {
+      "get": {
+        "description": "Returns OAuth2 authorization server metadata as per RFC 8414",
+        "operationId": "WellKnownController_getAuthorizationServerMetadata",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Authorization server metadata"
+          }
+        },
+        "summary": "OAuth2 Authorization Server Metadata",
+        "tags": [
+          "OAuth2 Discovery"
+        ]
+      }
+    },
+    "/.well-known/oauth-protected-resource/mcp": {
+      "get": {
+        "description": "Returns OAuth2 protected resource metadata for MCP servers",
+        "operationId": "WellKnownController_getMcpOAuthMetadata",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OAuth2 protected resource metadata"
+          }
+        },
+        "summary": "MCP OAuth Protected Resource Metadata",
+        "tags": [
+          "OAuth2 Discovery"
+        ]
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "description": "Supports three authentication methods: 1) Application authentication with clientId and clientSecret, 2) User authentication with email and Firebase token, 3) User authentication with email and password",
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Authorization successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Invalid credentials"
+          }
+        },
+        "summary": "Login endpoint to get access token",
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/v1/auth/whoami": {
+      "get": {
+        "description": "Returns details about the currently authenticated user or application",
+        "operationId": "AuthController_whoami",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User information retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WhoAmIResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing token"
+          }
+        },
+        "summary": "Get current user information",
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/v1/orders": {
+      "put": {
+        "operationId": "VisitRestController_submitOrders",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrdersDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Orders were accepted for import"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "No establishment to link the data to"
+          }
+        },
+        "summary": "Import orders",
+        "tags": [
+          "Visit"
+        ]
+      }
+    },
+    "/api/v1/inventory/state": {
+      "put": {
+        "operationId": "InventoryRestController_importInventoryState",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InventoryStateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Inventory data was accepted"
+          },
+          "401": {
+            "description": "Access token is missing, expired or invalid"
+          },
+          "403": {
+            "description": "No establishment to link the data to"
+          }
+        },
+        "summary": "Push current state of inventory",
+        "tags": [
+          "Establishment"
+        ]
+      }
+    },
+    "/api/v1/auth/pair": {
+      "post": {
+        "operationId": "AuthPairController_pair",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PairingRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Pairing successful, returns credentials for each establishment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PairingResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "401": {
+            "description": "Invalid email or PIN"
+          }
+        },
+        "summary": "Pair establishments with the system using email and PIN verification",
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/v1/documents": {
+      "put": {
+        "operationId": "DocumentsRestController_importDocuments",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Documents were accepted for import"
+          },
+          "401": {
+            "description": "Access token is missing, expired or invalid"
+          },
+          "403": {
+            "description": "No establishment to link the data to"
+          }
+        },
+        "summary": "Import documents",
+        "tags": [
+          "Establishment"
+        ]
+      }
+    },
+    "/api/v1/llm/chat-assistants/{chatAssistantId}/files": {
+      "post": {
+        "operationId": "LlmRestController_uploadFiles",
+        "parameters": [
+          {
+            "name": "chatAssistantId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                },
+                "required": [
+                  "files"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Upload files to a chat assistant",
+        "tags": [
+          "LLM"
+        ]
+      }
+    },
+    "/api/v1/expenses": {
+      "get": {
+        "operationId": "GetController_getExpenses",
+        "parameters": [
+          {
+            "name": "establishmentUrn",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "required": false,
+            "in": "query",
+            "description": "Start date filter for invoice date (ISO 8601 format: YYYY-MM-DD)",
+            "schema": {
+              "format": "date-time",
+              "example": "2024-01-01",
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "required": false,
+            "in": "query",
+            "description": "End date filter for invoice date (ISO 8601 format: YYYY-MM-DD)",
+            "schema": {
+              "format": "date-time",
+              "example": "2024-01-31",
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdFrom",
+            "required": false,
+            "in": "query",
+            "description": "Start date filter for upload date (ISO 8601 format: YYYY-MM-DD)",
+            "schema": {
+              "format": "date-time",
+              "example": "2025-01-01",
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdTo",
+            "required": false,
+            "in": "query",
+            "description": "End date filter for upload date (ISO 8601 format: YYYY-MM-DD)",
+            "schema": {
+              "format": "date-time",
+              "example": "2025-01-31",
+              "type": "string"
+            }
+          },
+          {
+            "name": "accept",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of expenses retrieved successfully as ISDOC invoices"
+          },
+          "400": {
+            "description": "Invalid establishmentUrn or request parameters"
+          },
+          "401": {
+            "description": "Access token is missing, expired or invalid"
+          },
+          "403": {
+            "description": "You are not authorized to get expenses for this establishment"
+          }
+        },
+        "summary": "Get expenses",
+        "tags": [
+          "Expenses"
+        ]
+      }
+    },
+    "/api/v1/expenses/upload-file": {
+      "post": {
+        "operationId": "UploadFileController_uploadFile",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Upload a file to the expenses",
+        "tags": [
+          "Expenses"
+        ]
+      }
+    },
+    "/api/v1/chatkit": {
+      "post": {
+        "description": "Handles ChatKit API requests. Supports both streaming (SSE) and non-streaming responses.",
+        "operationId": "ChatkitRestController_process",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Request processed successfully"
+          },
+          "400": {
+            "description": "Invalid request"
+          }
+        },
+        "summary": "Process ChatKit requests",
+        "tags": [
+          "ChatKit"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Piano integration API",
+    "description": "REST API for integrating external systems with Piano. Enables synchronization of establishments' orders, documents, and inventory state between source systems and Piano.\n\n## Key Principles\n\n- **Idempotent Operations**: API handles duplicate requests and processes items independently of their order\n- **Unified Synchronization**: Single endpoint handles both create and update operations, determining the appropriate action based on entity existence\n- **Asynchronous Processing**: All data synchronization operations are processed asynchronously\n\n## Pairing\n\nBefore you can start synchronizing data, you'll need to pair your system and client's establishments. Here's how it works:\n\n1. Piano issues a time-limited (10 min) pairing PIN for the tenant (client) upon their request. The PIN is linked with the requester's email.\n2. When provided to an external system, it calls Piano's pairing endpoint with the following details:\n    - Source system identifier (assigned by Piano upfront)\n    - Requester's email and PIN\n    - Details of the establishments to pair (refer to the specification below for more details)\n3. When the pairing request is successful, the API responds with integration credentials (client ID/secret pair) per each paired establishment\n\n## Authentication & Authorization\n\nTo use the API, you need to authenticate your requests with a valid JWT access token. When acquired, the token should be added to the `Authorization` request header as follows:\n\n```\nAuthorization: Bearer <token>\n```\n\nJust like the credentials, the token is also linked with one establishment. When used, all the synchronized data will be linked with that establishment.\n\nRefer to the API endpoints and schemas below for more details.\n\nFor additional technical documentation about the system architecture, infrastructure, and integration workflows, please refer to our [GitHub Documentation](https://github.com/meadworks/three-sixty/tree/main/docs).\n",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "TokenRequestDto": {
+        "type": "object",
+        "properties": {
+          "grant_type": {
+            "type": "object",
+            "description": "OAuth2 grant type",
+            "example": "code"
+          },
+          "client_id": {
+            "type": "string",
+            "description": "OAuth2 client identifier",
+            "example": "my-client-id"
+          },
+          "client_secret": {
+            "type": "string",
+            "description": "OAuth2 client secret",
+            "example": "my-client-secret"
+          },
+          "code": {
+            "type": "string",
+            "description": "Authorization code"
+          },
+          "redirect_uri": {
+            "type": "string",
+            "description": "Redirect URI"
+          },
+          "code_verifier": {
+            "type": "string",
+            "description": "PKCE code verifier"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Requested scopes"
+          },
+          "refresh_token": {
+            "type": "string",
+            "description": "Refresh token"
+          }
+        },
+        "required": [
+          "grant_type",
+          "client_id",
+          "client_secret"
+        ]
+      },
+      "TokenResponseDto": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access token"
+          },
+          "token_type": {
+            "type": "string",
+            "description": "Token type",
+            "example": "Bearer"
+          },
+          "expires_in": {
+            "type": "number",
+            "description": "Token expiration in seconds",
+            "example": 3600
+          },
+          "refresh_token": {
+            "type": "string",
+            "description": "Refresh token"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Granted scopes"
+          }
+        },
+        "required": [
+          "access_token",
+          "token_type",
+          "expires_in"
+        ]
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "description": "Client ID (for application authentication)",
+            "example": "1234567890"
+          },
+          "clientSecret": {
+            "type": "string",
+            "description": "Client secret (for application authentication)",
+            "example": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address (for user authentication)",
+            "example": "user@example.com"
+          },
+          "token": {
+            "type": "string",
+            "description": "Firebase ID token (for user authentication with token)",
+            "example": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzI4OTQ4NzI..."
+          },
+          "password": {
+            "type": "string",
+            "description": "Password (for user authentication with password)",
+            "example": "userpassword123"
+          }
+        }
+      },
+      "LoginResponseDto": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "JWT access token",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6eyIxMDAxIjoiYWRtaW4ifSwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjEyMzEyMzEyMzEsImxpbmsiOiJodHRwczovL3lvdXR1LmJlL29IZzVTSllSSEEwIn0.jRjy0U-ueOzyYM0Tk9u75kNBBpWHFwbbqOU4Ckr-73w"
+          }
+        },
+        "required": [
+          "access_token"
+        ]
+      },
+      "WhoAmIResponseDto": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Account ID",
+            "example": "urn:account:1234567890"
+          },
+          "type": {
+            "type": "string",
+            "description": "Account type",
+            "example": "USER",
+            "enum": [
+              "USER",
+              "APPLICATION"
+            ]
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address (for user accounts)",
+            "example": "user@example.com"
+          },
+          "tenantPermissions": {
+            "type": "object",
+            "description": "Tenant permissions",
+            "example": {
+              "urn:tenant:123": [
+                "READ",
+                "WRITE"
+              ]
+            }
+          },
+          "establishmentPermissions": {
+            "type": "object",
+            "description": "Establishment permissions",
+            "example": {
+              "urn:establishment:456": [
+                "READ"
+              ]
+            }
+          }
+        },
+        "required": [
+          "accountId",
+          "type",
+          "tenantPermissions",
+          "establishmentPermissions"
+        ]
+      },
+      "TableDto": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Table key",
+            "example": "123"
+          },
+          "name": {
+            "type": "string",
+            "description": "Table name",
+            "example": "Table Name"
+          },
+          "areaKey": {
+            "type": "string",
+            "description": "Identifier of the area where the table is located",
+            "example": "garden-1"
+          },
+          "areaName": {
+            "type": "string",
+            "description": "Name of the area where the table is located",
+            "example": "Garden - Left"
+          }
+        },
+        "required": [
+          "key"
+        ]
+      },
+      "CustomerDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Customer ID",
+            "example": 1
+          },
+          "customerNumber": {
+            "type": "string",
+            "description": "Customer number",
+            "example": "1234567890"
+          },
+          "name": {
+            "type": "string",
+            "description": "Customer name",
+            "example": "John Doe"
+          },
+          "email": {
+            "type": "string",
+            "description": "Customer email",
+            "example": "john.doe@example.com"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Customer phone",
+            "example": "+420 123 456 789"
+          },
+          "type": {
+            "type": "string",
+            "description": "Customer type",
+            "example": "guest",
+            "enum": [
+              "vip",
+              "regular",
+              "guest",
+              "employee"
+            ]
+          },
+          "cardNumber": {
+            "type": "string",
+            "description": "Customer card number (identcode)",
+            "example": "1234567890"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "EventDetailDto": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "Event timestamp in ISO-8601 format",
+            "example": "2021-01-01T00:00:00.000Z"
+          },
+          "username": {
+            "type": "string",
+            "description": "Username",
+            "example": "johndoe"
+          },
+          "fullName": {
+            "type": "string",
+            "description": "Full name",
+            "example": "John Doe"
+          },
+          "stationKey": {
+            "type": "string",
+            "description": "Station key (e.g. register/cash box)",
+            "example": "123"
+          },
+          "stationName": {
+            "type": "string",
+            "description": "Name of the station (e.g. register/cash box)",
+            "example": "Register 1"
+          }
+        },
+        "required": [
+          "timestamp"
+        ]
+      },
+      "OrderItemDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID uniquely identifying the item in the source system",
+            "example": "1"
+          },
+          "productId": {
+            "type": "string",
+            "description": "Product identifier in the source system",
+            "example": "EST123"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name",
+            "example": "Item Name"
+          },
+          "state": {
+            "type": "string",
+            "description": "State of the item",
+            "example": "active",
+            "enum": [
+              "active",
+              "voided",
+              "damaged"
+            ]
+          },
+          "quantity": {
+            "type": "number",
+            "description": "Quantity (integer or floating point number)",
+            "example": 1.5
+          },
+          "unit": {
+            "type": "string",
+            "description": "Unit of the item (e.g.: ks, g, l, etc.)",
+            "example": "ks"
+          },
+          "fiscalDate": {
+            "type": "string",
+            "description": "Fiscal date in YYYY-MM-DD format",
+            "example": "2021-01-01"
+          },
+          "stockPrice": {
+            "type": "number",
+            "description": "Stock price of the item (at the time of purchase - may not be 100% reliable)",
+            "example": 100
+          },
+          "basePriceInclVat": {
+            "type": "number",
+            "description": "Base amount of a single unit of the item without any discounts, including VAT (regularItemPriceWiT)",
+            "example": 100
+          },
+          "netPrice": {
+            "type": "number",
+            "description": "Price of a single unit of the item excluding VAT (itemPriceWoT)",
+            "example": 100
+          },
+          "totalNetPrice": {
+            "type": "number",
+            "description": "Total price (sum of prices of all units of the item) excluding VAT (netPrice * quantity)",
+            "example": 150
+          },
+          "grossPrice": {
+            "type": "number",
+            "description": "Price of a single unit of the item including VAT (itemPriceWiT)",
+            "example": 121
+          },
+          "totalGrossPrice": {
+            "type": "number",
+            "description": "Total price (sum of prices of all units of the item) including VAT (grossPrice * quantity)",
+            "example": 181.5
+          },
+          "vatRate": {
+            "type": "number",
+            "description": "VAT rate (taxRate)",
+            "example": 21
+          },
+          "productionArea": {
+            "type": "string",
+            "description": "Area where the item is produced",
+            "example": "Kitchen"
+          },
+          "categories": {
+            "description": "Item categories (tags)",
+            "example": [
+              "alcohol",
+              "beer"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created": {
+            "description": "Creation event details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventDetailDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "quantity",
+          "unit",
+          "fiscalDate",
+          "created"
+        ]
+      },
+      "PaymentDto": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "description": "Payment method",
+            "example": "cash",
+            "enum": [
+              "cash",
+              "card",
+              "invoice",
+              "customer_balance",
+              "qerko",
+              "meal_voucher",
+              "voucher",
+              "bank_transfer",
+              "hotel_account",
+              "other"
+            ]
+          },
+          "fiscalDate": {
+            "type": "string",
+            "description": "Fiscal date in YYYY-MM-DD format",
+            "example": "2021-01-01"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Amount in the order's base currency",
+            "example": 100
+          },
+          "tipAmount": {
+            "type": "number",
+            "description": "Tip amount in the order's base currency",
+            "example": 10
+          },
+          "created": {
+            "description": "Creation event details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventDetailDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "method",
+          "fiscalDate",
+          "amount",
+          "created"
+        ]
+      },
+      "OrderDto": {
+        "type": "object",
+        "properties": {
+          "globalId": {
+            "type": "string",
+            "description": "Global unique identifier (e.g. serialNumber printed on the bill)",
+            "example": "12345"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status",
+            "example": "open",
+            "enum": [
+              "open",
+              "closed",
+              "voided",
+              "replaced"
+            ]
+          },
+          "fiscalDate": {
+            "type": "string",
+            "description": "Fiscal date in YYYY-MM-DD format",
+            "example": "2021-01-01"
+          },
+          "table": {
+            "description": "Table",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TableDto"
+              }
+            ]
+          },
+          "guestCount": {
+            "type": "number",
+            "description": "Number of guests",
+            "example": 2
+          },
+          "currency": {
+            "type": "string",
+            "description": "Base currency in ISO 4217 format",
+            "example": "CZK"
+          },
+          "customer": {
+            "description": "Customer",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CustomerDto"
+              }
+            ]
+          },
+          "items": {
+            "description": "Items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderItemDto"
+            }
+          },
+          "payments": {
+            "description": "Payments",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentDto"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "description": "Other free-structured metadata (JSON format)",
+            "example": "{ \"promoCodes\": [\"PROMO123\", \"PROMO456\"] }",
+            "additionalProperties": true
+          },
+          "created": {
+            "description": "Creation event details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventDetailDto"
+              }
+            ]
+          },
+          "closed": {
+            "description": "Closing event details",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventDetailDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "globalId",
+          "status",
+          "created"
+        ]
+      },
+      "OrdersDto": {
+        "type": "object",
+        "properties": {
+          "orders": {
+            "description": "Array of orders to import",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderDto"
+            }
+          }
+        },
+        "required": [
+          "orders"
+        ]
+      },
+      "InventoryItemDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the inventory item",
+            "example": "Tomatoes"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Current quantity of the item",
+            "example": 5.5
+          },
+          "unit": {
+            "type": "string",
+            "description": "Unit of measurement for the item",
+            "example": "kg"
+          },
+          "unitPrice": {
+            "type": "number",
+            "description": "Unit price of the inventory item",
+            "example": 129.99
+          },
+          "alert": {
+            "type": "boolean",
+            "description": "If true, the item is in alert state",
+            "example": true
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "StorageDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the storage location",
+            "example": "loc-456"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the storage location",
+            "example": "Dry storage"
+          },
+          "items": {
+            "description": "List of inventory items in this location",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InventoryItemDto"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "items"
+        ]
+      },
+      "InventoryStateDto": {
+        "type": "object",
+        "properties": {
+          "storages": {
+            "description": "List of storage locations with their inventory items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StorageDto"
+            }
+          },
+          "lastUpdated": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Timestamp of the last inventory update",
+            "example": "2023-04-15T14:30:00Z"
+          }
+        },
+        "required": [
+          "storages",
+          "lastUpdated"
+        ]
+      },
+      "EstablishmentAddressDto": {
+        "type": "object",
+        "properties": {
+          "street": {
+            "type": "string",
+            "description": "Street name",
+            "example": "Sokolovská"
+          },
+          "number": {
+            "type": "string",
+            "description": "Street number",
+            "example": "47"
+          },
+          "zip": {
+            "type": "string",
+            "description": "ZIP code",
+            "example": "70800"
+          },
+          "city": {
+            "type": "string",
+            "description": "City name",
+            "example": "Ostrava"
+          },
+          "district": {
+            "type": "string",
+            "description": "District name",
+            "example": "Poruba"
+          },
+          "region": {
+            "type": "string",
+            "description": "Region name",
+            "example": "Moravskoslezský kraj"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country name",
+            "example": "Czech republic"
+          }
+        }
+      },
+      "EstablishmentDto": {
+        "type": "object",
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "description": "Source system identifier",
+            "example": "EST123"
+          },
+          "name": {
+            "type": "string",
+            "description": "Establishment name",
+            "example": "Bistro jak cyp"
+          },
+          "address": {
+            "description": "Establishment address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EstablishmentAddressDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "sourceId",
+          "name"
+        ]
+      },
+      "PairingRequestDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "User email address",
+            "example": "user@example.com"
+          },
+          "pin": {
+            "type": "string",
+            "description": "PIN code for verification",
+            "example": "123456"
+          },
+          "sourceSystem": {
+            "type": "string",
+            "description": "Source system name",
+            "example": "POS_SYSTEM_1"
+          },
+          "establishments": {
+            "description": "List of establishments to pair",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EstablishmentDto"
+            }
+          }
+        },
+        "required": [
+          "email",
+          "pin",
+          "sourceSystem",
+          "establishments"
+        ]
+      },
+      "EstablishmentCredentialsDto": {
+        "type": "object",
+        "properties": {
+          "sourceId": {
+            "type": "string",
+            "description": "Establishment identifier in the source system",
+            "example": "EST123"
+          },
+          "clientId": {
+            "type": "string",
+            "description": "Generated client ID",
+            "example": "client_123"
+          },
+          "clientSecret": {
+            "type": "string",
+            "description": "Generated client secret",
+            "example": "secret_xyz"
+          }
+        },
+        "required": [
+          "sourceId",
+          "clientId",
+          "clientSecret"
+        ]
+      },
+      "PairingResponseDto": {
+        "type": "object",
+        "properties": {
+          "credentials": {
+            "description": "List of credentials for each paired establishment",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EstablishmentCredentialsDto"
+            }
+          }
+        },
+        "required": [
+          "credentials"
+        ]
+      },
+      "VendorDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Vendor identifier",
+            "example": "V123"
+          },
+          "name": {
+            "type": "string",
+            "description": "Vendor name",
+            "example": "Supplier Inc."
+          },
+          "email": {
+            "type": "string",
+            "description": "Vendor email",
+            "example": "contact@supplier.com"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Vendor phone number",
+            "example": "+1234567890"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "DocumentDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Globally unique document identifier",
+            "example": "DOC123"
+          },
+          "type": {
+            "type": "string",
+            "description": "Document type",
+            "enum": [
+              "invoice",
+              "delivery_note",
+              "other"
+            ],
+            "example": "invoice"
+          },
+          "name": {
+            "type": "string",
+            "description": "Document name",
+            "example": "Invoice 123"
+          },
+          "origin": {
+            "type": "string",
+            "description": "Document origin",
+            "enum": [
+              "received",
+              "issued"
+            ],
+            "example": "received"
+          },
+          "vendor": {
+            "description": "Vendor information",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/VendorDto"
+              }
+            ]
+          },
+          "netAmount": {
+            "type": "number",
+            "description": "Total net amount",
+            "example": 125.5
+          },
+          "grossAmount": {
+            "type": "number",
+            "description": "Total gross amount",
+            "example": 150
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency in ISO 4217 format",
+            "example": "CZK"
+          },
+          "documentDate": {
+            "type": "string",
+            "description": "Document date - date the document relates to or was issued (in YYYY-MM-DD format)",
+            "example": "2023-01-15"
+          },
+          "meta": {
+            "type": "object",
+            "description": "Other free-structured metadata (JSON format)",
+            "example": "{ \"notes\": \"Special delivery\", \"reference\": \"REF123\" }",
+            "additionalProperties": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "Date the document was created in the source system in ISO-8601 format",
+            "example": "2023-01-15T00:00:00.000Z"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "createdAt"
+        ]
+      },
+      "DocumentsDto": {
+        "type": "object",
+        "properties": {
+          "documents": {
+            "description": "Array of documents to import",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DocumentDto"
+            }
+          }
+        },
+        "required": [
+          "documents"
+        ]
+      }
+    }
+  }
+}
