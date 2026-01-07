@@ -22,6 +22,19 @@ const swaggerIndexHtml = `<!doctype html>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Piano SIM Swagger</title>
+    <meta name="theme-color" content="#f7f2ea" />
+    <meta property="og:title" content="Piano SIM Swagger" />
+    <meta property="og:description" content="Swagger UI for the Piano POS Simulator." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Piano SIM Swagger" />
+    <meta name="twitter:description" content="Swagger UI for the Piano POS Simulator." />
+    <meta name="twitter:image" content="/og-image.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" />
     <link rel="stylesheet" href="./swagger-ui.css" />
     <style>
       :root {
