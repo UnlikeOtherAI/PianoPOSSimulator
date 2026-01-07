@@ -1,0 +1,35 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+domains:
+- domain: pianosim.unlikeotherai.com
+  type: PRIMARY
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: api
+    match:
+      authority: {}
+      path:
+        prefix: /
+name: piano-sim
+region: lon
+services:
+- build_command: corepack enable pnpm && pnpm -C API install --frozen-lockfile
+  environment_slug: node-js
+  envs:
+  - key: DATABASE_URL
+    scope: RUN_TIME
+    value: <set-database-url>
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: UnlikeOtherAI/PianoPOSSimulator
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: api
+  run_command: pnpm -C API start
+  source_dir: .
