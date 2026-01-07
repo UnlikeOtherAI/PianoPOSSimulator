@@ -63,6 +63,12 @@ Build a Node.js API simulator that mimics the Piano integration API defined in `
 - tokens: token, establishment_id, expires_at
 - orders/documents/inventory: raw payloads + created_at
 
+## Simulated Establishments
+
+- Shop (retail): open 07:00 to 20:00 GMT
+- Pub: open 14:00 to 02:00 GMT (next day)
+- Petrol station: open 00:00 to 24:00 GMT
+
 ## Auth Simulation
 
 - Pairing creates credentials and always succeeds.
