@@ -13,6 +13,25 @@ Node.js API simulator for the Piano integration API described in `Docs/piano.api
 
 Basic API scaffold in place with `/sim/trigger` returning `{ "ok": ":)" }`.
 
+## Simulator Rules & Scenarios
+
+### Shops and Hours (GMT)
+
+- Shop (retail): 07:00 to 20:00
+- Pub: 14:00 to 02:00 (next day)
+- Petrol station: 00:00 to 24:00 (always open)
+
+### Purchase Simulation Rules
+
+- Auth always succeeds and enables access to simulated data.
+- Purchases appear only during each establishment’s opening hours.
+- The pub crosses midnight; purchases can appear between 00:00 and 02:00 GMT.
+
+### Scenario Control
+
+- `/sim/trigger` seeds deterministic data for CI scenarios.
+- Scenarios are defined in `Docs/brief.md`.
+
 ## Local Setup
 
 - Install deps: `make install`
