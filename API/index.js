@@ -144,32 +144,392 @@ const rootIndexHtml = `<!doctype html>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="min-h-screen bg-[#f7f2ea] flex items-center justify-center px-6">
-    <div class="w-full max-w-lg rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-10 py-12 text-center shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
-      <img class="mx-auto mb-6 h-20 w-20" src="/assets/wolf.png" alt="Unlike Other AI" />
-      <h1 class="text-3xl font-semibold tracking-wide text-[#1d1b16]">Piano SIM</h1>
-      <p class="mt-3 text-sm text-[#4b443b]">
-        Node.js API simulator for the Piano POS integration API. Built for deterministic
-        local development and CI workflows.
-      </p>
-      <div class="mt-8 flex flex-col gap-3">
-        <a
-          class="w-full rounded-full border border-[#1d1b16] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-[#1d1b16] transition hover:bg-[#1d1b16] hover:text-[#fffaf0]"
-          href="https://github.com/UnlikeOtherAI/PianoPOSSimulator/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub
-        </a>
-        <a
-          class="w-full rounded-full bg-[#1d1b16] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-[#fffaf0] transition hover:opacity-90"
-          href="https://www.unlikeotherai.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Unlike Other AI
-        </a>
+    <div class="w-full max-w-5xl">
+      <div class="mx-auto w-full max-w-lg rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-10 py-12 text-center shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
+        <img class="mx-auto mb-6 h-20 w-20" src="/assets/wolf.png" alt="Unlike Other AI" />
+        <h1 class="text-3xl font-semibold tracking-wide text-[#1d1b16]">Piano SIM</h1>
+        <p class="mt-3 text-sm text-[#4b443b]">
+          Node.js API simulator for the Piano POS integration API. Built for deterministic
+          local development and CI workflows.
+        </p>
+        <div class="mt-8 flex flex-col gap-3">
+          <a
+            class="w-full rounded-full border border-[#1d1b16] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-[#1d1b16] transition hover:bg-[#1d1b16] hover:text-[#fffaf0]"
+            href="https://github.com/UnlikeOtherAI/PianoPOSSimulator/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            class="w-full rounded-full bg-[#1d1b16] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-[#fffaf0] transition hover:opacity-90"
+            href="https://www.unlikeotherai.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Unlike Other AI
+          </a>
+        </div>
       </div>
+
+      <section class="mt-10">
+        <div class="flex flex-wrap gap-4 justify-center">
+          <button data-tab="rock-bottom" class="tab-button rounded-full border border-[#1d1b16] bg-[#1d1b16] px-5 py-2 text-xs font-semibold uppercase tracking-widest text-[#fffaf0]">
+            The Rock Bottom
+          </button>
+          <button data-tab="scottish-diesel" class="tab-button rounded-full border border-[#1d1b16] px-5 py-2 text-xs font-semibold uppercase tracking-widest text-[#1d1b16]">
+            Scottish Diesel
+          </button>
+          <button data-tab="get-naked" class="tab-button rounded-full border border-[#1d1b16] px-5 py-2 text-xs font-semibold uppercase tracking-widest text-[#1d1b16]">
+            Get Naked
+          </button>
+        </div>
+        <div class="mt-6 rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-8 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.12)]">
+          <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+            <div>
+              <h2 id="shop-title" class="text-xl font-semibold text-[#1d1b16]">The Rock Bottom</h2>
+              <p id="shop-meta" class="mt-2 text-sm text-[#4b443b]">Craft beer bar • Open 14:00 to 02:00 GMT</p>
+            </div>
+            <span id="shop-hours" class="rounded-full border border-[#1d1b16] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#1d1b16]">
+              14:00-02:00 GMT
+            </span>
+          </div>
+          <div id="shop-items" class="mt-6 grid gap-6 md:grid-cols-2"></div>
+        </div>
+      </section>
     </div>
+    <script>
+      const shops = {
+        "rock-bottom": {
+          title: "The Rock Bottom",
+          meta: "Craft beer bar • Open 14:00 to 02:00 GMT",
+          hours: "14:00-02:00 GMT",
+          sections: [
+            {
+              title: "Beer Taps",
+              items: [
+                "Stonecliff Hazy IPA - GBP 6.80 pint / 4.20 half",
+                "Black Harbor Stout - GBP 6.60 pint / 4.10 half",
+                "Northwind Pilsner - GBP 5.80 pint / 3.60 half",
+                "Copper Fox Amber Ale - GBP 6.10 pint / 3.80 half",
+                "Citrus Grove Pale Ale - GBP 6.00 pint / 3.70 half",
+                "Nightshift Porter - GBP 6.40 pint / 4.00 half",
+                "Salted Lime Gose - GBP 6.10 pint / 3.80 half",
+                "Maplewood Brown Ale - GBP 6.20 pint / 3.90 half",
+                "Low Tide Session IPA - GBP 5.70 pint / 3.50 half",
+                "Iron Bridge Red IPA - GBP 6.90 pint / 4.30 half",
+                "Frostline Lager - GBP 5.60 pint / 3.40 half",
+                "Orchard Dry Cider - GBP 6.20 pint / 3.90 half",
+                "Brambleberry Sour - GBP 6.80 pint / 4.20 half",
+                "Golden Field Kolsch - GBP 5.90 pint / 3.60 half",
+                "Vesper Witbier - GBP 6.00 pint / 3.70 half",
+                "Ridgeback West Coast IPA - GBP 7.20 pint / 4.50 half",
+                "Hillside ESB - GBP 6.00 pint / 3.70 half",
+                "Midnight Mocha Stout - GBP 7.40 pint / 4.70 half",
+                "Harbor Lights Helles - GBP 5.70 pint / 3.50 half",
+                "Summit Trail NEIPA - GBP 7.50 pint / 4.80 half",
+                "Smoked Maple Rauchbier - GBP 6.50 pint / 4.10 half",
+                "Crisp Apple Cider - GBP 5.80 pint / 3.60 half",
+                "Elderflower Saison - GBP 7.10 pint / 4.40 half",
+                "Darkwater Schwarzbier - GBP 6.10 pint / 3.80 half",
+                "Seabreeze Wheat - GBP 5.90 pint / 3.60 half",
+                "Pinecone DIPA - GBP 7.80 pint / 5.20 half",
+                "Velvet Vanilla Milk Stout - GBP 6.70 pint / 4.20 half",
+                "Wild Meadow Farmhouse - GBP 6.90 pint / 4.30 half",
+                "Ruby Grapefruit Radler - GBP 5.40 pint / 3.30 half",
+                "Skylark Blonde Ale - GBP 5.70 pint / 3.50 half",
+                "Raven Black IPA - GBP 7.20 pint / 4.60 half",
+                "Honeycomb Golden Ale - GBP 6.00 pint / 3.70 half",
+                "Cocoa Cherry Stout - GBP 7.60 pint / 4.90 half",
+                "Spruce Tip Pale - GBP 6.30 pint / 3.90 half"
+              ]
+            },
+            {
+              title: "Spirits",
+              items: [
+                "North Quay London Dry (Gin) - GBP 4.80",
+                "Wild Coast Botanical (Gin) - GBP 5.20",
+                "Dockside Navy Strength (Gin) - GBP 6.50",
+                "Old Town Old Tom (Gin) - GBP 5.30",
+                "Valley Sloe (Gin) - GBP 4.90",
+                "Polar Wheat (Vodka) - GBP 4.40",
+                "Blackridge Potato (Vodka) - GBP 4.80",
+                "Market Vanilla (Vodka) - GBP 4.60",
+                "Copper Still Bourbon (Whiskey) - GBP 5.40",
+                "Iron Rails Rye (Whiskey) - GBP 5.60",
+                "Glen Row 12 (Scotch) - GBP 6.20",
+                "Sea Smoke Islay (Scotch) - GBP 6.90",
+                "Highland Trail (Scotch) - GBP 5.90",
+                "Riverbank Irish (Whiskey) - GBP 5.10",
+                "Sunrise Japanese (Whiskey) - GBP 7.20",
+                "Old Pier Dark (Rum) - GBP 4.90",
+                "Island White (Rum) - GBP 4.60",
+                "Harbor Spiced (Rum) - GBP 4.80",
+                "Cane Field Agricole (Rum) - GBP 6.00",
+                "Overproof 151 (Rum) - GBP 6.20",
+                "Blue Agave Blanco (Tequila) - GBP 5.20",
+                "Sunset Reposado (Tequila) - GBP 5.80",
+                "Canyon Anejo (Tequila) - GBP 6.50",
+                "Desert Mezcal (Mezcal) - GBP 6.80",
+                "Amber Orchard VS (Brandy) - GBP 5.40",
+                "Old House VSOP (Cognac) - GBP 7.20",
+                "Sandfield Armagnac (Armagnac) - GBP 7.00",
+                "Alpine Apricot (Liqueur) - GBP 4.60",
+                "Night Owl Coffee (Liqueur) - GBP 4.60",
+                "Sweet Almond Amaretto (Liqueur) - GBP 4.70",
+                "Triple Orange Sec (Liqueur) - GBP 4.60",
+                "Red Aperitivo (Aperitivo) - GBP 5.20",
+                "Bitter Ruby (Aperitivo) - GBP 4.80",
+                "House Vermouth Dry (Vermouth) - GBP 4.90",
+                "House Vermouth Sweet (Vermouth) - GBP 4.90",
+                "Orchard Peach (Liqueur) - GBP 4.50",
+                "Dark Cherry (Liqueur) - GBP 4.60",
+                "Irish Cream (Liqueur) - GBP 4.80",
+                "Spiced Honey (Liqueur) - GBP 4.70",
+                "Elderflower (Liqueur) - GBP 4.60"
+              ]
+            },
+            {
+              title: "Cocktails",
+              items: [
+                "Rock Bottom Old Fashioned - GBP 10.50",
+                "Harbor Negroni - GBP 10.00",
+                "Midnight Espresso Martini - GBP 11.00",
+                "Orchard Whisky Sour - GBP 10.50",
+                "Dockside Mojito - GBP 10.00",
+                "Sunset Margarita - GBP 11.50",
+                "Barrel Boulevardier - GBP 11.50",
+                "Sea Breeze Collins - GBP 10.50",
+                "Highland Penicillin - GBP 12.00",
+                "Raven Black Manhattan - GBP 11.00",
+                "Bramble Gin Fizz - GBP 10.50",
+                "Smoky Paloma - GBP 12.50",
+                "Velvet White Russian - GBP 11.00",
+                "Ginger Rum Mule - GBP 10.50",
+                "Elderflower Spritz - GBP 9.80",
+                "Citrus Gimlet - GBP 10.00"
+              ]
+            },
+            {
+              title: "Merch",
+              items: [
+                "Rock Bottom Logo Tee - GBP 22.00",
+                "Taproom Crew Tee - GBP 25.00",
+                "Limited Gig Ticket (Presale) - GBP 18.00"
+              ]
+            }
+          ]
+        },
+        "scottish-diesel": {
+          title: "Scottish Diesel",
+          meta: "Petrol station • Open 24/7",
+          hours: "00:00-24:00 GMT",
+          sections: [
+            {
+              title: "Fuel",
+              items: [
+                "Unleaded 95 RON - GBP 1.56 per liter",
+                "Premium Unleaded 98 RON - GBP 1.68 per liter",
+                "Diesel B7 - GBP 1.62 per liter",
+                "Premium Diesel B7+ - GBP 1.72 per liter"
+              ]
+            },
+            {
+              title: "LPG Bottles",
+              items: [
+                "6 kg LPG bottle - GBP 26.00",
+                "11 kg LPG bottle - GBP 39.00",
+                "19 kg LPG bottle - GBP 58.00"
+              ]
+            },
+            {
+              title: "Snacks",
+              items: [
+                "Walkers Ready Salted Crisps 32g - GBP 1.20",
+                "Walkers Cheese and Onion Crisps 32g - GBP 1.20",
+                "Walkers Salt and Vinegar Crisps 32g - GBP 1.20",
+                "Kettle Sea Salt Crisps 40g - GBP 1.60",
+                "Kettle Sea Salt and Balsamic 40g - GBP 1.60",
+                "Pringles Original 165g - GBP 2.80",
+                "Pringles Sour Cream 165g - GBP 2.80",
+                "Doritos Nacho Cheese 180g - GBP 2.70",
+                "Doritos Chilli Heatwave 180g - GBP 2.70",
+                "Sensations Thai Sweet Chilli 40g - GBP 1.70",
+                "Cadbury Dairy Milk 110g - GBP 1.50",
+                "Cadbury Fruit and Nut 110g - GBP 1.60",
+                "Galaxy Smooth Milk 100g - GBP 1.50",
+                "Mars Bar 51g - GBP 0.95",
+                "Snickers Bar 48g - GBP 0.95",
+                "Twix Bar 50g - GBP 0.95",
+                "KitKat Chunky 40g - GBP 0.95",
+                "Maltesers 37g - GBP 1.10",
+                "Haribo Starmix 160g - GBP 1.60",
+                "Haribo Tangfastics 160g - GBP 1.60",
+                "Percy Pigs 170g - GBP 1.80",
+                "McVities Digestives 400g - GBP 2.10",
+                "McVities Chocolate Digestives 300g - GBP 2.30",
+                "Tuc Original 100g - GBP 1.40",
+                "Mini Cheddars Original 90g - GBP 1.30",
+                "Mini Cheddars Red Leicester 90g - GBP 1.30",
+                "KP Dry Roasted Peanuts 65g - GBP 1.10",
+                "KP Salted Peanuts 65g - GBP 1.10",
+                "Nature Valley Oats and Honey 2 bars - GBP 1.20",
+                "Nature Valley Peanut Butter 2 bars - GBP 1.20",
+                "Belvita Soft Bakes 50g - GBP 1.00",
+                "Protein Bar Chocolate 60g - GBP 2.40",
+                "Chewing Gum Peppermint 10 pcs - GBP 0.99",
+                "Chewing Gum Spearmint 10 pcs - GBP 0.99",
+                "Bottled Water 500ml - GBP 1.10",
+                "Sparkling Water 500ml - GBP 1.20",
+                "Energy Drink Original 250ml - GBP 1.60",
+                "Energy Drink Sugar Free 250ml - GBP 1.60",
+                "Cola Can 330ml - GBP 1.20",
+                "Iced Coffee Can 250ml - GBP 1.80"
+              ]
+            }
+          ]
+        },
+        "get-naked": {
+          title: "Get Naked",
+          meta: "Designer apparel • Open 07:00 to 20:00 GMT",
+          hours: "07:00-20:00 GMT",
+          sections: [
+            {
+              title: "Gents",
+              items: [
+                "Studio Logo Tee (S-XXL) - GBP 34.00",
+                "Mono Stitch Tee (S-XXL) - GBP 32.00",
+                "Contour Line Tee (S-XXL) - GBP 36.00",
+                "Ribbed Neck Tee (S-XXL) - GBP 34.00",
+                "Pocket Minimal Tee (S-XXL) - GBP 33.00",
+                "Heavyweight Core Tee (S-XXL) - GBP 38.00",
+                "Raw Hem Tee (S-XXL) - GBP 36.00",
+                "Drop Shoulder Tee (S-XXL) - GBP 39.00",
+                "Graphic Grid Tee (S-XXL) - GBP 35.00",
+                "Sunset Wash Tee (S-XXL) - GBP 40.00",
+                "Soft Touch Tee (S-XXL) - GBP 34.00",
+                "Tape Logo Tee (S-XXL) - GBP 36.00",
+                "Studio Number Tee (S-XXL) - GBP 34.00",
+                "Micro Print Tee (S-XXL) - GBP 33.00",
+                "Seamless Tee (S-XXL) - GBP 42.00",
+                "Boxy Tee (S-XXL) - GBP 38.00",
+                "Contrast Stitch Tee (S-XXL) - GBP 35.00",
+                "Air Knit Tee (S-XXL) - GBP 41.00",
+                "Vintage Wash Tee (S-XXL) - GBP 39.00",
+                "Minimal Wordmark Tee (S-XXL) - GBP 32.00",
+                "Raglan Tee (S-XXL) - GBP 35.00",
+                "Scallop Hem Tee (S-XXL) - GBP 37.00",
+                "Ringer Tee (S-XXL) - GBP 33.00",
+                "Henley Tee (S-XXL) - GBP 40.00",
+                "Longline Tee (S-XXL) - GBP 38.00",
+                "Slim Fit Chino (W28-38 L30/32) - GBP 88.00",
+                "Tapered Chino (W28-38 L30/32) - GBP 92.00",
+                "Straight Denim (W28-38 L30/32) - GBP 110.00",
+                "Stretch Denim (W28-38 L30/32) - GBP 115.00",
+                "Tailored Jogger (W28-38 L30/32) - GBP 95.00",
+                "Utility Cargo Pant (W28-38 L30/32) - GBP 120.00",
+                "Studio Hoodie (S-XXL) - GBP 82.00",
+                "Minimal Zip Hoodie (S-XXL) - GBP 88.00",
+                "Oversized Hoodie (S-XXL) - GBP 92.00",
+                "Loopback Hoodie (S-XXL) - GBP 79.00",
+                "Lightweight Bomber (S-XXL) - GBP 160.00",
+                "Denim Jacket (S-XXL) - GBP 150.00",
+                "Wool Blend Overshirt (S-XXL) - GBP 190.00",
+                "Slim Leather Wallet (One size) - GBP 65.00",
+                "Zip Card Wallet (One size) - GBP 75.00"
+              ]
+            },
+            {
+              title: "Ladies",
+              items: [
+                "Studio Logo Tee (XS-XL) - GBP 32.00",
+                "Soft Rib Tee (XS-XL) - GBP 34.00",
+                "Cropped Box Tee (XS-XL) - GBP 33.00",
+                "Drape Tee (XS-XL) - GBP 36.00",
+                "Scoop Neck Tee (XS-XL) - GBP 32.00",
+                "V-Neck Tee (XS-XL) - GBP 31.00",
+                "Pocket Tee (XS-XL) - GBP 33.00",
+                "Contrast Trim Tee (XS-XL) - GBP 34.00",
+                "Slub Knit Tee (XS-XL) - GBP 35.00",
+                "Cap Sleeve Tee (XS-XL) - GBP 32.00",
+                "Longline Tee (XS-XL) - GBP 36.00",
+                "Tie Hem Tee (XS-XL) - GBP 35.00",
+                "Minimal Wordmark Tee (XS-XL) - GBP 31.00",
+                "Ringer Tee (XS-XL) - GBP 33.00",
+                "Double Stitch Tee (XS-XL) - GBP 34.00",
+                "Oversized Tee (XS-XL) - GBP 38.00",
+                "Split Hem Tee (XS-XL) - GBP 36.00",
+                "Raglan Tee (XS-XL) - GBP 34.00",
+                "Relaxed Tee (XS-XL) - GBP 32.00",
+                "Air Knit Tee (XS-XL) - GBP 39.00",
+                "Vintage Wash Tee (XS-XL) - GBP 37.00",
+                "Satin Touch Tee (XS-XL) - GBP 40.00",
+                "Mock Neck Tee (XS-XL) - GBP 36.00",
+                "Modal Blend Tee (XS-XL) - GBP 34.00",
+                "High Rise Skinny (UK 6-16) - GBP 98.00",
+                "Wide Leg Trouser (UK 6-16) - GBP 120.00",
+                "Tailored Cigarette Pant (UK 6-16) - GBP 110.00",
+                "Midi Slip Skirt (UK 6-16) - GBP 95.00",
+                "Pleated Skirt (UK 6-16) - GBP 105.00",
+                "Utility Cargo Pant (UK 6-16) - GBP 115.00",
+                "Studio Hoodie (XS-XL) - GBP 82.00",
+                "Minimal Zip Hoodie (XS-XL) - GBP 88.00",
+                "Cropped Hoodie (XS-XL) - GBP 79.00",
+                "Loopback Hoodie (XS-XL) - GBP 84.00",
+                "Studio Mini Tote (28x20x10 cm) - GBP 150.00",
+                "Soft Edge Satchel (32x24x12 cm) - GBP 190.00",
+                "Sculpted Crossbody (24x18x8 cm) - GBP 170.00",
+                "Slim Leather Wallet (One size) - GBP 60.00",
+                "Zip Card Wallet (One size) - GBP 70.00",
+                "Cropped Leather Jacket (XS-XL) - GBP 220.00"
+              ]
+            }
+          ]
+        }
+      };
+
+      const tabButtons = Array.from(document.querySelectorAll(".tab-button"));
+      const titleEl = document.getElementById("shop-title");
+      const metaEl = document.getElementById("shop-meta");
+      const hoursEl = document.getElementById("shop-hours");
+      const itemsEl = document.getElementById("shop-items");
+
+      const renderShop = (key) => {
+        const data = shops[key];
+        if (!data) return;
+        titleEl.textContent = data.title;
+        metaEl.textContent = data.meta;
+        hoursEl.textContent = data.hours;
+        itemsEl.innerHTML = data.sections
+          .map((section) => {
+            const items = section.items
+              .map((item) => `<li class="text-sm text-[#4b443b]">${item}</li>`)
+              .join("");
+            return `
+              <div class="rounded-xl border border-[#e2d6c2] bg-white px-4 py-4">
+                <h3 class="text-sm font-semibold uppercase tracking-widest text-[#1d1b16]">${section.title}</h3>
+                <ul class="mt-3 flex flex-col gap-2">${items}</ul>
+              </div>
+            `;
+          })
+          .join("");
+
+        tabButtons.forEach((button) => {
+          const isActive = button.dataset.tab === key;
+          button.classList.toggle("bg-[#1d1b16]", isActive);
+          button.classList.toggle("text-[#fffaf0]", isActive);
+          button.classList.toggle("text-[#1d1b16]", !isActive);
+        });
+      };
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          renderShop(button.dataset.tab);
+        });
+      });
+
+      renderShop("rock-bottom");
+    </script>
   </body>
 </html>`;
 
