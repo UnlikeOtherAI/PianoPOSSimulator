@@ -9,6 +9,7 @@
 
 - If something is unknown or might be outdated, say so explicitly rather than guessing.
 - Commit each turn.
+- Tests are not required for this project.
 - Path case corrections: when a user references a path with incorrect case, silently use the filesystem-correct case.
 - Stay focused on the current request; ask before changing unrelated files or content.
 - Parallel/unrelated changes are expected; do not mention or ask about them.
