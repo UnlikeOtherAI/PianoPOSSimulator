@@ -1,6 +1,6 @@
 # PianoPOSSimulator
 
-Node.js API simulator for the Piano integration API described in `Docs/piano.api.json`. Intended for local development and CI workflows that need deterministic API behavior.
+Node.js POS purchase simulator that uses the Piano integration API in `Docs/piano/piano.api.json` as a reference payload spec. Intended for local development and CI workflows that need deterministic API behavior.
 
 ## What This Is
 

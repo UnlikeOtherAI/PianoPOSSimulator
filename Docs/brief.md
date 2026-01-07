@@ -2,14 +2,14 @@
 
 ## Purpose
 
-Build a Node.js API simulator that mimics the Piano integration API defined in `Docs/piano.api.json`. The simulator supports local development and CI-driven end-to-end tests by returning deterministic, schema-accurate responses. A GitHub Action triggers data seeding and scenario setup via a non-specified endpoint at `/sim/trigger`.
+Build a Node.js POS purchase simulator that sends realistic payloads to downstream backends for processing. The simulator still mirrors the Piano integration API defined in `Docs/piano/piano.api.json` for compatibility, but Piano is now treated as a reference payload spec rather than the core system.
 
 ## Goals
 
-- Provide a predictable simulator for the OpenAPI-defined endpoints.
+- Provide a predictable POS purchase simulator that can push payloads to external backends.
 - Support GitHub Action-driven scenarios via `/sim/trigger`.
 - Store simulated state in PostgreSQL for repeatable data and realistic flows.
-- Keep responses aligned with the OpenAPI schemas.
+- Keep payloads aligned with the Piano OpenAPI schemas (reference spec).
 
 ## Non-Goals
 
@@ -19,7 +19,7 @@ Build a Node.js API simulator that mimics the Piano integration API defined in `
 
 ## Inputs
 
-- OpenAPI source of truth: `Docs/piano.api.json`.
+- OpenAPI reference spec: `Docs/piano/piano.api.json`.
 - Model reference: `Docs/model-structure.md`.
 - Sales and catalog plan: `Docs/sales-plan.md` and `Docs/establishments/`.
 - Simulator endpoint: `/sim/trigger` (not in OpenAPI).
@@ -34,7 +34,7 @@ Build a Node.js API simulator that mimics the Piano integration API defined in `
 
 ## Endpoint Coverage Plan
 
-- Implement all paths in `Docs/piano.api.json` with schema-accurate responses.
+- Implement all paths in `Docs/piano/piano.api.json` with schema-accurate responses where required.
 - Prioritize the following endpoints for stateful behavior:
   - `POST /api/v1/auth/pair` (creates establishments + credentials)
   - `POST /api/v1/auth/login` (issues tokens for credentials)

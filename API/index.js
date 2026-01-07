@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "public")));
 
-const openApiPath = path.join(__dirname, "..", "Docs", "piano.api.json");
+const openApiPath = path.join(__dirname, "..", "Docs", "piano", "piano.api.json");
 const swaggerAssetPath = swaggerUiDist.getAbsoluteFSPath();
 
 const swaggerIndexHtml = `<!doctype html>

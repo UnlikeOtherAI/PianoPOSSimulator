@@ -1,6 +1,6 @@
-# Piano GraphQL Methods
+# Piano GraphQL Methods (Reference)
 
-Source: https://api.piano.cz/graphql
+Source: https://api.piano.cz/graphql (reference)
 
 Notes:
 - Introspection requires `content-type: application/json` and `apollo-require-preflight: true`.

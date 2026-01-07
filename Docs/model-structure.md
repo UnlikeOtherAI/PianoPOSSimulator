@@ -1,6 +1,6 @@
 # Piano POS Simulator Model Structure
 
-This document summarizes the OpenAPI model shapes defined in `Docs/piano.api.json`.
+This document summarizes the OpenAPI model shapes defined in `Docs/piano/piano.api.json` (reference spec).
 
 ## Overview
 

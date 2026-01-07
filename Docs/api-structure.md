@@ -1,10 +1,10 @@
 # Piano POS Simulator API Structure
 
-This document explains how the simulator API is organized and how the simulated business data should behave.
+This document explains how the POS purchase simulator API is organized and how the simulated business data should behave.
 
 ## API Overview
 
-- The simulator mirrors the OpenAPI definition in `Docs/piano.api.json`.
+- The simulator mirrors the Piano OpenAPI definition in `Docs/piano/piano.api.json` as a reference payload spec.
 - Authentication endpoints always succeed and return fixed tokens.
 - Data ingestion endpoints accept payloads and respond with schema-accurate success responses.
 - Simulator-only controls live under `/sim/trigger`.
