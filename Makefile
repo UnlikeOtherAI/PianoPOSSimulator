@@ -35,7 +35,7 @@ DEPLOY_SPEC_FILE := $(if $(filter staging,$(DEPLOY_ENVIRONMENT)),$(SPEC_STAGING)
 DEPLOY_APP_ID := $(if $(filter staging,$(DEPLOY_ENVIRONMENT)),$(APP_ID_STAGING),$(APP_ID))
 endif
 
-.PHONY: install migrate launch read deploy staging
+.PHONY: install migrate launch read deploy staging test
 
 staging:
 	@:
@@ -114,6 +114,9 @@ migrate:
 
 launch: install
 	@pnpm -C API start
+
+test:
+	@node API/sim/simulate-purchases.js
 
 read:
 	@if ! command -v $(DOCTL) >/dev/null 2>&1; then \
