@@ -144,7 +144,7 @@ const rootIndexHtml = `<!doctype html>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       .panel-animate-out {
-        animation: panelOut 0.35s ease-in forwards;
+        animation: panelOut 0.25s ease-in forwards;
       }
       .panel-animate-in {
         animation: panelIn 0.45s cubic-bezier(0.2, 0.9, 0.2, 1) both;
@@ -557,6 +557,7 @@ const rootIndexHtml = `<!doctype html>
       const statusEl = document.getElementById("shop-status");
       const panelEl = document.getElementById("shop-panel");
       let currentShopKey = "rock-bottom";
+      let animationTimer = null;
 
       const getLondonMinutes = () => {
         const parts = new Intl.DateTimeFormat("en-GB", {
@@ -587,6 +588,19 @@ const rootIndexHtml = `<!doctype html>
         if (!data || !statusEl) return;
         const openNow = isOpenNow(data.schedule);
         statusEl.textContent = (openNow ? "Open now" : "Closed now") + " (Edinburgh)";
+      };
+
+      const updateTabs = (key) => {
+        tabButtons.forEach((button) => {
+          const isActive = button.dataset.tab === key;
+          button.classList.toggle("bg-[#1d1b16]", isActive);
+          button.classList.toggle("text-[#fffaf0]", isActive);
+          button.classList.toggle("text-[#1d1b16]", !isActive);
+          button.classList.toggle("hover:bg-[#1d1b16]", !isActive);
+          button.classList.toggle("hover:text-[#fffaf0]", !isActive);
+          button.style.backgroundColor = isActive ? "#1d1b16" : "transparent";
+          button.style.color = isActive ? "#fffaf0" : "#1d1b16";
+        });
       };
 
       const renderShop = (key) => {
@@ -623,17 +637,7 @@ const rootIndexHtml = `<!doctype html>
           .join("");
         itemsEl.innerHTML = sectionMarkup;
         updateStatus(key);
-
-        tabButtons.forEach((button) => {
-          const isActive = button.dataset.tab === key;
-          button.classList.toggle("bg-[#1d1b16]", isActive);
-          button.classList.toggle("text-[#fffaf0]", isActive);
-          button.classList.toggle("text-[#1d1b16]", !isActive);
-          button.classList.toggle("hover:bg-[#1d1b16]", !isActive);
-          button.classList.toggle("hover:text-[#fffaf0]", !isActive);
-          button.style.backgroundColor = isActive ? "#1d1b16" : "transparent";
-          button.style.color = isActive ? "#fffaf0" : "#1d1b16";
-        });
+        updateTabs(key);
       };
 
       const animateSwitch = (key) => {
@@ -642,15 +646,18 @@ const rootIndexHtml = `<!doctype html>
           return;
         }
         if (key === currentShopKey) return;
+        updateTabs(key);
+        if (animationTimer) {
+          clearTimeout(animationTimer);
+        }
         panelEl.classList.remove("panel-animate-in");
         panelEl.classList.add("panel-animate-out");
-        const onEnd = () => {
+        animationTimer = setTimeout(() => {
           renderShop(key);
           panelEl.classList.remove("panel-animate-out");
           void panelEl.offsetWidth;
           panelEl.classList.add("panel-animate-in");
-        };
-        panelEl.addEventListener("animationend", onEnd, { once: true });
+        }, 240);
       };
 
       tabButtons.forEach((button) => {
