@@ -21,10 +21,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
       .panel-animate-out {
-        animation: panelOut 0.25s ease-in forwards;
+        animation: panelOut 0.18s cubic-bezier(0.4, 0, 1, 1) forwards;
       }
       .panel-animate-in {
-        animation: panelIn 0.4s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+        animation: panelIn 0.55s cubic-bezier(0.2, 0.9, 0.22, 1.1) both;
       }
       @keyframes panelOut {
         from {
@@ -33,13 +33,17 @@
         }
         to {
           opacity: 0;
-          transform: translateX(-36px);
+          transform: translateX(-140px);
         }
       }
       @keyframes panelIn {
         0% {
           opacity: 0;
-          transform: translateX(36px);
+          transform: translateX(140px);
+        }
+        70% {
+          opacity: 1;
+          transform: translateX(-10px);
         }
         100% {
           opacity: 1;
