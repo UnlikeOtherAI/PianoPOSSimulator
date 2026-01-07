@@ -1,0 +1,16 @@
+name: Trigger Simulator
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call simulator trigger
+        run: |
+          curl -sS -X POST "https://pianosim.unlikeotherai.com/sim/trigger" \
+            -H "content-type: application/json" \
+            -d '{"source":"github-actions"}'
