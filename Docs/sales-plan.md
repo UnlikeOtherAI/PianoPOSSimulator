@@ -17,7 +17,7 @@ This document defines how simulated sales should be generated across establishme
 ## The "Magic Number" (Daily Cap)
 
 - Every catalog item has a `daily cap` value in its establishment document.
-- Without a database, per-day caps are approximated using a deterministic \"magic number\" per item.
+- Without a database, per-day caps are approximated using a deterministic \"magic number\" per item. These caps are statistical guidance only (e.g., a `daily cap` of 1–3 means "roughly 1–3 per day", not a hard limit).
 - Magic number algorithm:
   - `base = 30 + (hash(date|establishment|item) % 61)` (range 30-90).
   - Adjust by price: very expensive items reduce the number; very cheap items increase it.
