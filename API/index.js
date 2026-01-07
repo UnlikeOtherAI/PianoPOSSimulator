@@ -202,8 +202,11 @@ const rootIndexHtml = `<!doctype html>
           <div id="shop-items" class="mt-6 grid gap-6 md:grid-cols-2"></div>
         </div>
       </section>
+      <div class="mt-[75px] flex justify-center">
+        <img class="h-[150px] w-auto" src="/assets/thistle.png" alt="Thistle" />
+      </div>
     </div>
-    <footer class="h-[75px] w-full bg-[#1d1b16] text-center text-[11px] uppercase tracking-[0.32em] text-[#f7f2ea]/70">
+    <footer class="mt-[44px] h-[75px] w-full bg-[#1d1b16] text-center text-[11px] uppercase tracking-[0.32em] text-[#f7f2ea]/70">
       <div class="mx-auto flex h-full max-w-5xl items-center justify-center px-6">
         <span>
           Made in love in Scotland by
