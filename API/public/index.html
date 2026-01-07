@@ -115,25 +115,62 @@
         return hour * 60 + minute;
       };
 
+      const weekdayIndex = (day) => {
+        const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+        return days.indexOf(day);
+      };
+
       const parseHours = (hours) => {
-        const match = hours.match(/(\d{2}):(\d{2})-(\d{2}):(\d{2})/);
+        const match = hours.match(
+          /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun)(?:-(Mon|Tue|Wed|Thu|Fri|Sat|Sun))\s+)?(\d{2}):(\d{2})-(\d{2}):(\d{2})\s*GMT$/
+        );
         if (!match) return null;
         return {
-          open: Number(match[1]) * 60 + Number(match[2]),
-          close: Number(match[3]) * 60 + Number(match[4]),
+          dayStart: match[1] ? weekdayIndex(match[1]) : null,
+          dayEnd: match[2] ? weekdayIndex(match[2]) : match[1] ? weekdayIndex(match[1]) : null,
+          open: Number(match[3]) * 60 + Number(match[4]),
+          close: Number(match[5]) * 60 + Number(match[6]),
         };
+      };
+
+      const getEdinburghWeekday = () => {
+        const parts = new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Europe/London",
+          weekday: "short",
+        }).formatToParts(new Date());
+        const label = parts.find((part) => part.type === "weekday")?.value ?? "Mon";
+        return weekdayIndex(label.slice(0, 3));
+      };
+
+      const isDayAllowed = (dayStart, dayEnd, today) => {
+        if (dayStart === null || dayEnd === null) return true;
+        if (dayStart <= dayEnd) {
+          return today >= dayStart && today <= dayEnd;
+        }
+        return today >= dayStart || today <= dayEnd;
       };
 
       const isOpenNow = (hours) => {
         if (!hours) return false;
-        if (hours === "00:00-24:00 GMT") return true;
         const parsed = parseHours(hours);
         if (!parsed) return false;
         const now = getEdinburghMinutes();
-        if (parsed.close <= parsed.open) {
-          return now >= parsed.open || now < parsed.close;
+        const today = getEdinburghWeekday();
+        const yesterday = (today + 6) % 7;
+        const dayAllowedToday = isDayAllowed(parsed.dayStart, parsed.dayEnd, today);
+        const dayAllowedYesterday = isDayAllowed(parsed.dayStart, parsed.dayEnd, yesterday);
+
+        if (parsed.open === 0 && parsed.close === 1440) {
+          return dayAllowedToday;
         }
-        return now >= parsed.open && now < parsed.close;
+
+        if (parsed.close <= parsed.open) {
+          if (now >= parsed.open) {
+            return dayAllowedToday;
+          }
+          return dayAllowedYesterday;
+        }
+        return dayAllowedToday && now >= parsed.open && now < parsed.close;
       };
 
       const updateStatus = (establishment) => {
