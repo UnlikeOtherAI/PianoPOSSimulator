@@ -18,6 +18,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" href="/favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
       .panel-animate-out {
         animation: panelOut 0.25s ease-in forwards;
@@ -77,18 +78,32 @@
       <section class="mt-10">
         <div id="shop-tabs" class="flex flex-wrap gap-4 justify-center"></div>
         <div id="shop-panel" class="mt-6 rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-8 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.12)]">
-          <div class="flex flex-col items-center gap-3 text-center">
-            <img
-              id="shop-logo"
-              class="h-[180px] w-[180px] object-contain"
-              src=""
-              alt=""
-            />
-            <h2 id="shop-title" class="text-2xl font-semibold text-[#1d1b16]"></h2>
-            <p id="shop-meta" class="text-sm text-[#4b443b]"></p>
-            <p id="shop-hours" class="text-xs uppercase tracking-[0.28em] text-[#1d1b16]"></p>
-            <p id="shop-status" class="text-[11px] uppercase tracking-[0.28em] text-[#4b443b]"></p>
-            <div id="shop-items" class="text-sm text-[#4b443b]"></div>
+          <div class="grid gap-6 md:grid-cols-[1fr_auto_1fr] md:items-center">
+            <div class="flex flex-col gap-2">
+              <p class="text-xs font-semibold uppercase tracking-[0.28em] text-[#4b443b]">Weekly flow</p>
+              <div class="h-44 rounded-xl border border-[#e2d6c2] bg-white p-3">
+                <canvas id="shop-week-chart"></canvas>
+              </div>
+            </div>
+            <div class="flex flex-col items-center gap-3 text-center">
+              <img
+                id="shop-logo"
+                class="h-[180px] w-[180px] object-contain"
+                src=""
+                alt=""
+              />
+              <h2 id="shop-title" class="text-2xl font-semibold text-[#1d1b16]"></h2>
+              <p id="shop-meta" class="text-sm text-[#4b443b]"></p>
+              <p id="shop-hours" class="text-xs uppercase tracking-[0.28em] text-[#1d1b16]"></p>
+              <p id="shop-status" class="text-[11px] uppercase tracking-[0.28em] text-[#4b443b]"></p>
+              <div id="shop-items" class="text-sm text-[#4b443b]"></div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <p class="text-xs font-semibold uppercase tracking-[0.28em] text-[#4b443b]">Daily flow</p>
+              <div class="h-44 rounded-xl border border-[#e2d6c2] bg-white p-3">
+                <canvas id="shop-hour-chart"></canvas>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -120,9 +135,28 @@
       const hoursEl = document.getElementById("shop-hours");
       const statusEl = document.getElementById("shop-status");
       const itemsEl = document.getElementById("shop-items");
+      const weekChartEl = document.getElementById("shop-week-chart");
+      const hourChartEl = document.getElementById("shop-hour-chart");
       let currentShop = null;
       let animationTimer = null;
       let dataCache = null;
+      let weeklyChart = null;
+      let hourlyChart = null;
+      let chartToken = 0;
+
+      const BUSYNESS_WEEKLY = {
+        "urn:establishment:sim-pub-001": "/data/busyness-weekly-rock-bottom.json",
+        "urn:establishment:sim-petrol-001": "/data/busyness-weekly-scottish-diesel.json",
+        "urn:establishment:sim-shop-001": "/data/busyness-weekly-get-naked.json",
+        "urn:establishment:sim-truck-001": "/data/busyness-weekly-la-mordida.json",
+      };
+      const BUSYNESS_HOURLY = {
+        "urn:establishment:sim-pub-001": "/data/busyness-rock-bottom.json",
+        "urn:establishment:sim-petrol-001": "/data/busyness-scottish-diesel.json",
+        "urn:establishment:sim-shop-001": "/data/busyness-get-naked.json",
+        "urn:establishment:sim-truck-001": "/data/busyness-la-mordida.json",
+      };
+      const busynessCache = { weekly: {}, hourly: {} };
 
       const fetchData = async () => {
         const response = await fetch("/data/items.json");
@@ -130,6 +164,157 @@
           throw new Error("Unable to load items.json");
         }
         return response.json();
+      };
+
+      const fetchBusyness = async (url, cache, key) => {
+        if (!url) return null;
+        if (cache[key]) return cache[key];
+        const response = await fetch(url);
+        if (!response.ok) return null;
+        const data = await response.json();
+        cache[key] = data;
+        return data;
+      };
+
+      const toMinutes = (value) => {
+        const [hour, minute] = value.split(":").map(Number);
+        return hour * 60 + minute;
+      };
+
+      const isMinuteInRange = (minute, start, end) => {
+        if (start === end) return true;
+        if (start < end) return minute >= start && minute < end;
+        return minute >= start || minute < end;
+      };
+
+      const buildHourlySeries = (hourlyData) => {
+        if (!hourlyData?.baselinePurchasesPer5Min) return Array(24).fill(0);
+        const segments = hourlyData.baselinePurchasesPer5Min.map((seg) => ({
+          start: toMinutes(seg.start),
+          end: toMinutes(seg.end),
+          avg: (seg.min + seg.max) / 2,
+        }));
+        return Array.from({ length: 24 }, (_, hour) => {
+          const minute = hour * 60;
+          const segment = segments.find((seg) =>
+            isMinuteInRange(minute, seg.start, seg.end)
+          );
+          if (!segment) return 0;
+          return Number((segment.avg * 12).toFixed(1));
+        });
+      };
+
+      const buildWeeklySeries = (weeklyData) => {
+        const days = [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ];
+        return days.map((day) => {
+          const entries = weeklyData?.days?.[day] || [];
+          if (!entries.length) return 0;
+          const total = entries.reduce(
+            (sum, entry) => sum + (entry.min + entry.max) / 2,
+            0
+          );
+          return Number((total / entries.length).toFixed(1));
+        });
+      };
+
+      const renderCharts = async (establishment) => {
+        if (!window.Chart || !establishment) return;
+        const token = ++chartToken;
+        const weekly = await fetchBusyness(
+          BUSYNESS_WEEKLY[establishment.id],
+          busynessCache.weekly,
+          establishment.id
+        );
+        const hourly = await fetchBusyness(
+          BUSYNESS_HOURLY[establishment.id],
+          busynessCache.hourly,
+          establishment.id
+        );
+        if (token !== chartToken) return;
+        const weeklySeries = buildWeeklySeries(weekly);
+        const hourlySeries = buildHourlySeries(hourly);
+
+        if (weeklyChart) weeklyChart.destroy();
+        if (hourlyChart) hourlyChart.destroy();
+
+        weeklyChart = new Chart(weekChartEl, {
+          type: "bar",
+          data: {
+            labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            datasets: [
+              {
+                data: weeklySeries,
+                backgroundColor: "#d2c1a5",
+                borderRadius: 6,
+              },
+            ],
+          },
+          options: {
+            animation: false,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: { enabled: false },
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: { color: "#4b443b", font: { size: 10 } },
+              },
+              y: {
+                grid: { color: "rgba(0,0,0,0.06)" },
+                ticks: { color: "#4b443b", font: { size: 10 }, maxTicksLimit: 4 },
+              },
+            },
+          },
+        });
+
+        hourlyChart = new Chart(hourChartEl, {
+          type: "line",
+          data: {
+            labels: Array.from({ length: 24 }, (_, hour) => String(hour)),
+            datasets: [
+              {
+                data: hourlySeries,
+                borderColor: "#1d1b16",
+                backgroundColor: "rgba(29,27,22,0.12)",
+                fill: true,
+                tension: 0.35,
+                pointRadius: 0,
+              },
+            ],
+          },
+          options: {
+            animation: false,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: { enabled: false },
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: {
+                  color: "#4b443b",
+                  font: { size: 10 },
+                  callback: (value) => (value % 4 === 0 ? value : ""),
+                },
+              },
+              y: {
+                grid: { color: "rgba(0,0,0,0.06)" },
+                ticks: { color: "#4b443b", font: { size: 10 }, maxTicksLimit: 4 },
+              },
+            },
+          },
+        });
       };
 
       const getEdinburghMinutes = () => {
@@ -231,6 +416,7 @@
         updateStatus(establishment);
         updateTabs(establishment.id);
         itemsEl.textContent = "";
+        renderCharts(establishment);
       };
 
       const animateSwitch = (establishment) => {
