@@ -75,6 +75,15 @@
           </a>
         </div>
       </div>
+      <div class="mt-10 flex justify-center">
+        <button
+          id="make-sale-button"
+          class="rounded-full border border-[#1d1b16] bg-[#1d1b16] px-8 py-3 text-xs font-semibold uppercase tracking-[0.36em] text-[#fffaf0] transition hover:opacity-90"
+          type="button"
+        >
+          Make Sale
+        </button>
+      </div>
       <section class="mt-10">
         <div id="shop-tabs" class="flex flex-wrap gap-4 justify-center"></div>
         <div id="shop-panel" class="mt-6 rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-8 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.12)]">
@@ -134,6 +143,27 @@
         </span>
       </div>
     </footer>
+    <div
+      id="sale-modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 px-6"
+    >
+      <div class="w-full max-w-4xl rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.3)]">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-semibold text-[#1d1b16]">Generated Sales</h3>
+          <button
+            id="close-sale-modal"
+            class="rounded-full border border-[#1d1b16] px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#1d1b16]"
+            type="button"
+          >
+            Close
+          </button>
+        </div>
+        <div
+          id="sale-results"
+          class="mt-5 grid gap-4 md:grid-cols-2"
+        ></div>
+      </div>
+    </div>
     <script>
       const panelEl = document.getElementById("shop-panel");
       const tabsEl = document.getElementById("shop-tabs");
@@ -147,6 +177,10 @@
       const hourChartEl = document.getElementById("shop-hour-chart");
       const sectionTabsEl = document.getElementById("shop-section-tabs");
       const sectionRowsEl = document.getElementById("shop-section-rows");
+      const saleButtonEl = document.getElementById("make-sale-button");
+      const saleModalEl = document.getElementById("sale-modal");
+      const saleResultsEl = document.getElementById("sale-results");
+      const closeSaleModalEl = document.getElementById("close-sale-modal");
       let currentShop = null;
       let animationTimer = null;
       let dataCache = null;
@@ -454,6 +488,85 @@
         });
       };
 
+      const summarizeOrders = (orders) => {
+        const summary = {};
+        let total = 0;
+        for (const order of orders) {
+          for (const item of order.items || []) {
+            const key = item.name;
+            if (!summary[key]) {
+              summary[key] = { name: item.name, quantity: 0, total: 0 };
+            }
+            summary[key].quantity += item.quantity;
+            summary[key].total += item.totalGrossPrice;
+            total += item.totalGrossPrice;
+          }
+        }
+        return {
+          items: Object.values(summary).sort((a, b) => b.total - a.total),
+          total,
+        };
+      };
+
+      const openSaleModal = (payload) => {
+        if (!payload?.results) return;
+        saleResultsEl.innerHTML = payload.results
+          .map((result) => {
+            const summary = summarizeOrders(result.orders || []);
+            const items = summary.items.length
+              ? summary.items
+                  .slice(0, 8)
+                  .map(
+                    (item) =>
+                      '<li class="flex justify-between text-xs text-[#4b443b]">' +
+                      '<span>' +
+                      item.name +
+                      "</span>" +
+                      '<span class="text-[#1d1b16]">' +
+                      item.quantity +
+                      "x £" +
+                      formatPrice(item.total) +
+                      "</span>" +
+                      "</li>"
+                  )
+                  .join("")
+              : '<li class="text-xs text-[#7a6f62]">No sales generated.</li>';
+            return (
+              '<div class="rounded-xl border border-[#e2d6c2] bg-white p-4">' +
+              '<div class="flex items-center gap-3">' +
+              '<img class="h-10 w-10 object-contain" src="' +
+              result.logo +
+              '" alt="' +
+              result.name +
+              ' logo" />' +
+              '<div>' +
+              '<div class="text-sm font-semibold text-[#1d1b16]">' +
+              result.name +
+              "</div>" +
+              '<div class="text-[11px] uppercase tracking-[0.22em] text-[#7a6f62]">' +
+              (result.orders?.length || 0) +
+              " orders</div>" +
+              "</div>" +
+              "</div>" +
+              '<div class="mt-3 text-xs text-[#1d1b16]">Total £' +
+              formatPrice(summary.total) +
+              "</div>" +
+              '<ul class="mt-2 space-y-2">' +
+              items +
+              "</ul>" +
+              "</div>"
+            );
+          })
+          .join("");
+        saleModalEl.classList.remove("hidden");
+        saleModalEl.classList.add("flex");
+      };
+
+      const closeSaleModal = () => {
+        saleModalEl.classList.add("hidden");
+        saleModalEl.classList.remove("flex");
+      };
+
       const getEdinburghMinutes = () => {
         const parts = new Intl.DateTimeFormat("en-GB", {
           timeZone: "Europe/London",
@@ -610,6 +723,49 @@
           panelEl.classList.add("panel-animate-in");
           setInterval(() => updateStatus(currentShop), 60000);
         }
+        if (saleButtonEl) {
+          saleButtonEl.addEventListener("click", async () => {
+            try {
+              saleButtonEl.disabled = true;
+              saleButtonEl.textContent = "Generating...";
+              const response = await fetch("/sim/trigger", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  businessIds: establishments.map((item) => item.id),
+                }),
+              });
+              const payload = await response.json();
+              openSaleModal(payload);
+            } catch (error) {
+              openSaleModal({
+                results: [
+                  {
+                    name: "Error",
+                    logo: "/assets/wolf.png",
+                    orders: [],
+                  },
+                ],
+              });
+            } finally {
+              saleButtonEl.disabled = false;
+              saleButtonEl.textContent = "Make Sale";
+            }
+          });
+        }
+        if (closeSaleModalEl) {
+          closeSaleModalEl.addEventListener("click", closeSaleModal);
+        }
+        if (saleModalEl) {
+          saleModalEl.addEventListener("click", (event) => {
+            if (event.target === saleModalEl) {
+              closeSaleModal();
+            }
+          });
+        }
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeSaleModal();
+        });
       };
 
       init().catch((error) => {
