@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Piano SIM POS</title>
+    <meta name="theme-color" content="#f7f2ea" />
+    <meta property="og:title" content="Piano SIM POS" />
+    <meta property="og:description" content="POS purchase simulator catalog." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Piano SIM POS" />
+    <meta name="twitter:description" content="POS purchase simulator catalog." />
+    <meta name="twitter:image" content="/og-image.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .panel-animate-out {
+        animation: panelOut 0.25s ease-in forwards;
+      }
+      .panel-animate-in {
+        animation: panelIn 0.45s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+      }
+      @keyframes panelOut {
+        from {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateX(-40px);
+        }
+      }
+      @keyframes panelIn {
+        0% {
+          opacity: 0;
+          transform: translateX(40px) scale(0.98);
+        }
+        60% {
+          opacity: 1;
+          transform: translateX(-6px) scale(1.01);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[#f7f2ea] flex flex-col items-center px-6">
+    <div class="w-full max-w-5xl flex-1 py-12">
+      <div class="mx-auto w-full max-w-lg rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-10 py-12 text-center shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
+        <img class="mx-auto mb-6 h-20 w-20" src="/assets/wolf.png" alt="Unlike Other AI" />
+        <h1 class="text-3xl font-semibold tracking-wide text-[#1d1b16]">Piano SIM POS</h1>
+        <p class="mt-3 text-sm text-[#4b443b]">
+          POS purchase simulator catalog. Data is loaded from a single JSON file.
+        </p>
+        <div class="mt-8 flex flex-col gap-3">
+          <a
+            class="w-full rounded-full border border-[#1d1b16] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-[#1d1b16] transition hover:bg-[#1d1b16] hover:text-[#fffaf0]"
+            href="https://github.com/UnlikeOtherAI/PianoPOSSimulator/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            class="w-full rounded-full bg-[#1d1b16] px-6 py-3 text-sm font-semibold uppercase tracking-widest text-[#fffaf0] transition hover:opacity-90"
+            href="https://www.unlikeotherai.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Unlike Other AI
+          </a>
+        </div>
+      </div>
+
+      <section class="mt-10">
+        <div id="shop-tabs" class="flex flex-wrap gap-4 justify-center"></div>
+        <div id="shop-panel" class="mt-6 rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-8 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.12)]">
+          <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+            <div>
+              <h2 id="shop-title" class="flex items-center gap-3 text-xl font-semibold text-[#1d1b16]"></h2>
+              <p id="shop-meta" class="mt-1 text-sm text-[#4b443b]"></p>
+            </div>
+            <div class="flex flex-col items-start gap-2">
+              <span id="shop-hours" class="rounded-full border border-[#1d1b16] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#1d1b16]"></span>
+              <span id="shop-status" class="text-[11px] uppercase tracking-[0.28em] text-[#4b443b]"></span>
+            </div>
+          </div>
+          <div id="shop-items" class="mt-6 grid gap-6 md:grid-cols-2"></div>
+        </div>
+      </section>
+      <div class="mt-[75px] flex justify-center">
+        <img class="h-[150px] w-auto" src="/assets/thistle.png" alt="Thistle" />
+      </div>
+    </div>
+    <footer class="mt-[44px] h-[75px] w-full bg-[#1d1b16] text-center text-[11px] uppercase tracking-[0.32em] text-[#f7f2ea]/70">
+      <div class="mx-auto flex h-full max-w-5xl items-center justify-center px-6">
+        <span>
+          Made in love in Scotland by
+          <a
+            class="ml-2 text-[#fffaf0] no-underline"
+            href="https://www.unlikeotherai.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Unlike Other AI
+          </a>
+        </span>
+      </div>
+    </footer>
+    <script>
+      const panelEl = document.getElementById("shop-panel");
+      const tabsEl = document.getElementById("shop-tabs");
+      const titleEl = document.getElementById("shop-title");
+      const metaEl = document.getElementById("shop-meta");
+      const hoursEl = document.getElementById("shop-hours");
+      const statusEl = document.getElementById("shop-status");
+      const itemsEl = document.getElementById("shop-items");
+      let currentShop = null;
+      let animationTimer = null;
+      let dataCache = null;
+
+      const fetchData = async () => {
+        const response = await fetch("/data/items.json");
+        if (!response.ok) {
+          throw new Error("Unable to load items.json");
+        }
+        return response.json();
+      };
+
+      const getEdinburghMinutes = () => {
+        const parts = new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Europe/Edinburgh",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).formatToParts(new Date());
+        const hour = Number(parts.find((part) => part.type === "hour")?.value ?? 0);
+        const minute = Number(parts.find((part) => part.type === "minute")?.value ?? 0);
+        return hour * 60 + minute;
+      };
+
+      const parseHours = (hours) => {
+        const match = hours.match(/(\d{2}):(\d{2})-(\d{2}):(\d{2})/);
+        if (!match) return null;
+        return {
+          open: Number(match[1]) * 60 + Number(match[2]),
+          close: Number(match[3]) * 60 + Number(match[4]),
+        };
+      };
+
+      const isOpenNow = (hours) => {
+        if (!hours) return false;
+        if (hours === "00:00-24:00 GMT") return true;
+        const parsed = parseHours(hours);
+        if (!parsed) return false;
+        const now = getEdinburghMinutes();
+        if (parsed.close <= parsed.open) {
+          return now >= parsed.open || now < parsed.close;
+        }
+        return now >= parsed.open && now < parsed.close;
+      };
+
+      const updateStatus = (establishment) => {
+        if (!establishment) return;
+        statusEl.textContent =
+          (isOpenNow(establishment.hours) ? "Open now" : "Closed now") +
+          " (Edinburgh)";
+      };
+
+      const updateTabs = (activeId) => {
+        Array.from(tabsEl.querySelectorAll("button")).forEach((button) => {
+          const isActive = button.dataset.id === activeId;
+          button.classList.toggle("bg-[#1d1b16]", isActive);
+          button.classList.toggle("text-[#fffaf0]", isActive);
+          button.classList.toggle("text-[#1d1b16]", !isActive);
+          button.style.backgroundColor = isActive ? "#1d1b16" : "transparent";
+          button.style.color = isActive ? "#fffaf0" : "#1d1b16";
+        });
+      };
+
+      const renderEstablishment = (establishment) => {
+        if (!establishment) return;
+        currentShop = establishment;
+        titleEl.innerHTML =
+          '<img class="h-[192px] w-[192px] object-contain" src="' +
+          establishment.logo +
+          '" alt="' +
+          establishment.name +
+          ' logo" />' +
+          "<span>" +
+          establishment.name +
+          "</span>";
+        metaEl.textContent = establishment.meta;
+        hoursEl.textContent = establishment.hours;
+        updateStatus(establishment);
+        updateTabs(establishment.id);
+
+        itemsEl.innerHTML = establishment.sections
+          .map((section) => {
+            const rows = section.rows
+              .map((row) =>
+                '<li class="text-sm text-[#4b443b]">' +
+                row.join(" • ") +
+                "</li>"
+              )
+              .join("");
+            return (
+              '<div class="rounded-xl border border-[#e2d6c2] bg-white px-4 py-4">' +
+              '<h3 class="text-sm font-semibold uppercase tracking-widest text-[#1d1b16]">' +
+              section.title +
+              "</h3>" +
+              '<ul class="mt-3 flex flex-col gap-2">' +
+              rows +
+              "</ul>" +
+              "</div>"
+            );
+          })
+          .join("");
+      };
+
+      const animateSwitch = (establishment) => {
+        if (!panelEl) {
+          renderEstablishment(establishment);
+          return;
+        }
+        if (currentShop && establishment.id === currentShop.id) return;
+        updateTabs(establishment.id);
+        if (animationTimer) {
+          clearTimeout(animationTimer);
+        }
+        panelEl.classList.remove("panel-animate-in");
+        panelEl.classList.add("panel-animate-out");
+        animationTimer = setTimeout(() => {
+          renderEstablishment(establishment);
+          panelEl.classList.remove("panel-animate-out");
+          void panelEl.offsetWidth;
+          panelEl.classList.add("panel-animate-in");
+        }, 240);
+      };
+
+      const renderTabs = (establishments) => {
+        tabsEl.innerHTML = establishments
+          .map(
+            (est) =>
+              '<button data-id="' +
+              est.id +
+              '" class="tab-button rounded-full border border-[#1d1b16] px-5 py-2 text-xs font-semibold uppercase tracking-widest text-[#1d1b16]">' +
+              est.name +
+              "</button>"
+          )
+          .join("");
+
+        Array.from(tabsEl.querySelectorAll("button")).forEach((button) => {
+          button.addEventListener("click", () => {
+            const selected = establishments.find(
+              (est) => est.id === button.dataset.id
+            );
+            if (selected) {
+              animateSwitch(selected);
+            }
+          });
+        });
+      };
+
+      const init = async () => {
+        dataCache = await fetchData();
+        const establishments = dataCache.establishments || [];
+        renderTabs(establishments);
+        if (establishments.length > 0) {
+          renderEstablishment(establishments[0]);
+          panelEl.classList.add("panel-animate-in");
+          setInterval(() => updateStatus(currentShop), 60000);
+        }
+      };
+
+      init().catch((error) => {
+        itemsEl.innerHTML =
+          '<p class="text-sm text-[#4b443b]">' +
+          error.message +
+          "</p>";
+      });
+    </script>
+  </body>
+</html>

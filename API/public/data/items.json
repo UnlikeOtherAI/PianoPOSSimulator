@@ -1,0 +1,5852 @@
+{
+  "generatedAt": "2026-01-07T13:03:27+00:00",
+  "establishments": [
+    {
+      "id": "urn:establishment:sim-pub-001",
+      "name": "The Rock Bottom",
+      "meta": "Real pub in Falkirk, fake menu",
+      "hours": "14:00-02:00 GMT",
+      "timezone": "Europe/London",
+      "logo": "/businesses/rock_bottom.png",
+      "sections": [
+        {
+          "title": "Beer Taps (32)",
+          "headers": [
+            "Tap ID",
+            "Name",
+            "Style",
+            "ABV",
+            "Serving",
+            "Price (pint)",
+            "Price (half)",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-TAP-01",
+              "Stonecliff Hazy IPA",
+              "Hazy IPA",
+              "5.8%",
+              "568ml",
+              "6.80",
+              "4.20",
+              "42"
+            ],
+            [
+              "RB-TAP-02",
+              "Black Harbor Stout",
+              "Stout",
+              "6.2%",
+              "568ml",
+              "6.60",
+              "4.10",
+              "26"
+            ],
+            [
+              "RB-TAP-03",
+              "Northwind Pilsner",
+              "Pilsner",
+              "4.8%",
+              "568ml",
+              "5.80",
+              "3.60",
+              "55"
+            ],
+            [
+              "RB-TAP-04",
+              "Copper Fox Amber Ale",
+              "Amber Ale",
+              "5.2%",
+              "568ml",
+              "6.10",
+              "3.80",
+              "40"
+            ],
+            [
+              "RB-TAP-05",
+              "Citrus Grove Pale Ale",
+              "Pale Ale",
+              "4.9%",
+              "568ml",
+              "6.00",
+              "3.70",
+              "48"
+            ],
+            [
+              "RB-TAP-06",
+              "Nightshift Porter",
+              "Porter",
+              "5.6%",
+              "568ml",
+              "6.40",
+              "4.00",
+              "32"
+            ],
+            [
+              "RB-TAP-07",
+              "Salted Lime Gose",
+              "Gose",
+              "4.2%",
+              "568ml",
+              "6.10",
+              "3.80",
+              "28"
+            ],
+            [
+              "RB-TAP-08",
+              "Maplewood Brown Ale",
+              "Brown Ale",
+              "5.4%",
+              "568ml",
+              "6.20",
+              "3.90",
+              "30"
+            ],
+            [
+              "RB-TAP-09",
+              "Low Tide Session IPA",
+              "Session IPA",
+              "4.4%",
+              "568ml",
+              "5.70",
+              "3.50",
+              "58"
+            ],
+            [
+              "RB-TAP-10",
+              "Iron Bridge Red IPA",
+              "Red IPA",
+              "6.0%",
+              "568ml",
+              "6.90",
+              "4.30",
+              "30"
+            ],
+            [
+              "RB-TAP-11",
+              "Frostline Lager",
+              "Lager",
+              "4.7%",
+              "568ml",
+              "5.60",
+              "3.40",
+              "60"
+            ],
+            [
+              "RB-TAP-12",
+              "Orchard Dry Cider",
+              "Cider",
+              "5.0%",
+              "568ml",
+              "6.20",
+              "3.90",
+              "36"
+            ],
+            [
+              "RB-TAP-13",
+              "Brambleberry Sour",
+              "Fruited Sour",
+              "5.2%",
+              "568ml",
+              "6.80",
+              "4.20",
+              "24"
+            ],
+            [
+              "RB-TAP-14",
+              "Golden Field Kolsch",
+              "Kolsch",
+              "4.9%",
+              "568ml",
+              "5.90",
+              "3.60",
+              "45"
+            ],
+            [
+              "RB-TAP-15",
+              "Vesper Witbier",
+              "Witbier",
+              "5.1%",
+              "568ml",
+              "6.00",
+              "3.70",
+              "40"
+            ],
+            [
+              "RB-TAP-16",
+              "Ridgeback West Coast IPA",
+              "West Coast IPA",
+              "6.5%",
+              "568ml",
+              "7.20",
+              "4.50",
+              "26"
+            ],
+            [
+              "RB-TAP-17",
+              "Hillside ESB",
+              "ESB",
+              "5.0%",
+              "568ml",
+              "6.00",
+              "3.70",
+              "34"
+            ],
+            [
+              "RB-TAP-18",
+              "Midnight Mocha Stout",
+              "Stout",
+              "7.0%",
+              "568ml",
+              "7.40",
+              "4.70",
+              "18"
+            ],
+            [
+              "RB-TAP-19",
+              "Harbor Lights Helles",
+              "Helles",
+              "4.6%",
+              "568ml",
+              "5.70",
+              "3.50",
+              "52"
+            ],
+            [
+              "RB-TAP-20",
+              "Summit Trail NEIPA",
+              "NEIPA",
+              "6.8%",
+              "568ml",
+              "7.50",
+              "4.80",
+              "22"
+            ],
+            [
+              "RB-TAP-21",
+              "Smoked Maple Rauchbier",
+              "Rauchbier",
+              "5.3%",
+              "568ml",
+              "6.50",
+              "4.10",
+              "18"
+            ],
+            [
+              "RB-TAP-22",
+              "Crisp Apple Cider",
+              "Cider",
+              "4.5%",
+              "568ml",
+              "5.80",
+              "3.60",
+              "38"
+            ],
+            [
+              "RB-TAP-23",
+              "Elderflower Saison",
+              "Saison",
+              "6.2%",
+              "568ml",
+              "7.10",
+              "4.40",
+              "20"
+            ],
+            [
+              "RB-TAP-24",
+              "Darkwater Schwarzbier",
+              "Schwarzbier",
+              "5.0%",
+              "568ml",
+              "6.10",
+              "3.80",
+              "28"
+            ],
+            [
+              "RB-TAP-25",
+              "Seabreeze Wheat",
+              "Wheat",
+              "4.6%",
+              "568ml",
+              "5.90",
+              "3.60",
+              "46"
+            ],
+            [
+              "RB-TAP-26",
+              "Pinecone DIPA",
+              "DIPA",
+              "8.0%",
+              "568ml",
+              "7.80",
+              "5.20",
+              "12"
+            ],
+            [
+              "RB-TAP-27",
+              "Velvet Vanilla Milk Stout",
+              "Milk Stout",
+              "5.8%",
+              "568ml",
+              "6.70",
+              "4.20",
+              "24"
+            ],
+            [
+              "RB-TAP-28",
+              "Wild Meadow Farmhouse",
+              "Farmhouse Ale",
+              "6.0%",
+              "568ml",
+              "6.90",
+              "4.30",
+              "20"
+            ],
+            [
+              "RB-TAP-29",
+              "Ruby Grapefruit Radler",
+              "Radler",
+              "3.5%",
+              "568ml",
+              "5.40",
+              "3.30",
+              "40"
+            ],
+            [
+              "RB-TAP-30",
+              "Skylark Blonde Ale",
+              "Blonde Ale",
+              "4.5%",
+              "568ml",
+              "5.70",
+              "3.50",
+              "50"
+            ],
+            [
+              "RB-TAP-31",
+              "Raven Black IPA",
+              "Black IPA",
+              "6.7%",
+              "568ml",
+              "7.20",
+              "4.60",
+              "22"
+            ],
+            [
+              "RB-TAP-32",
+              "Honeycomb Golden Ale",
+              "Golden Ale",
+              "5.0%",
+              "568ml",
+              "6.00",
+              "3.70",
+              "34"
+            ]
+          ]
+        },
+        {
+          "title": "Spirits (40)",
+          "headers": [
+            "SKU",
+            "Name",
+            "Category",
+            "ABV",
+            "Pour",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-SP-01",
+              "North Quay London Dry",
+              "Gin",
+              "40%",
+              "25ml",
+              "4.80",
+              "18"
+            ],
+            [
+              "RB-SP-02",
+              "Wild Coast Botanical",
+              "Gin",
+              "43%",
+              "25ml",
+              "5.20",
+              "16"
+            ],
+            [
+              "RB-SP-03",
+              "Dockside Navy Strength",
+              "Gin",
+              "57%",
+              "25ml",
+              "6.50",
+              "8"
+            ],
+            [
+              "RB-SP-04",
+              "Old Town Old Tom",
+              "Gin",
+              "42%",
+              "25ml",
+              "5.30",
+              "12"
+            ],
+            [
+              "RB-SP-05",
+              "Valley Sloe",
+              "Gin",
+              "26%",
+              "25ml",
+              "4.90",
+              "10"
+            ],
+            [
+              "RB-SP-06",
+              "Polar Wheat",
+              "Vodka",
+              "40%",
+              "25ml",
+              "4.40",
+              "16"
+            ],
+            [
+              "RB-SP-07",
+              "Blackridge Potato",
+              "Vodka",
+              "40%",
+              "25ml",
+              "4.80",
+              "12"
+            ],
+            [
+              "RB-SP-08",
+              "Market Vanilla",
+              "Vodka",
+              "37.5%",
+              "25ml",
+              "4.60",
+              "10"
+            ],
+            [
+              "RB-SP-09",
+              "Copper Still Bourbon",
+              "Whiskey",
+              "45%",
+              "25ml",
+              "5.40",
+              "14"
+            ],
+            [
+              "RB-SP-10",
+              "Iron Rails Rye",
+              "Whiskey",
+              "45%",
+              "25ml",
+              "5.60",
+              "12"
+            ],
+            [
+              "RB-SP-11",
+              "Glen Row 12",
+              "Scotch",
+              "40%",
+              "25ml",
+              "6.20",
+              "10"
+            ],
+            [
+              "RB-SP-12",
+              "Sea Smoke Islay",
+              "Scotch",
+              "46%",
+              "25ml",
+              "6.90",
+              "8"
+            ],
+            [
+              "RB-SP-13",
+              "Highland Trail",
+              "Scotch",
+              "43%",
+              "25ml",
+              "5.90",
+              "10"
+            ],
+            [
+              "RB-SP-14",
+              "Riverbank Irish",
+              "Whiskey",
+              "40%",
+              "25ml",
+              "5.10",
+              "14"
+            ],
+            [
+              "RB-SP-15",
+              "Sunrise Japanese",
+              "Whiskey",
+              "43%",
+              "25ml",
+              "7.20",
+              "6"
+            ],
+            [
+              "RB-SP-16",
+              "Old Pier Dark",
+              "Rum",
+              "40%",
+              "25ml",
+              "4.90",
+              "14"
+            ],
+            [
+              "RB-SP-17",
+              "Island White",
+              "Rum",
+              "40%",
+              "25ml",
+              "4.60",
+              "16"
+            ],
+            [
+              "RB-SP-18",
+              "Harbor Spiced",
+              "Rum",
+              "37.5%",
+              "25ml",
+              "4.80",
+              "14"
+            ],
+            [
+              "RB-SP-19",
+              "Cane Field Agricole",
+              "Rum",
+              "45%",
+              "25ml",
+              "6.00",
+              "8"
+            ],
+            [
+              "RB-SP-20",
+              "Overproof 151",
+              "Rum",
+              "57%",
+              "25ml",
+              "6.20",
+              "6"
+            ],
+            [
+              "RB-SP-21",
+              "Blue Agave Blanco",
+              "Tequila",
+              "38%",
+              "25ml",
+              "5.20",
+              "12"
+            ],
+            [
+              "RB-SP-22",
+              "Sunset Reposado",
+              "Tequila",
+              "38%",
+              "25ml",
+              "5.80",
+              "10"
+            ],
+            [
+              "RB-SP-23",
+              "Canyon Anejo",
+              "Tequila",
+              "40%",
+              "25ml",
+              "6.50",
+              "8"
+            ],
+            [
+              "RB-SP-24",
+              "Desert Mezcal",
+              "Mezcal",
+              "40%",
+              "25ml",
+              "6.80",
+              "8"
+            ],
+            [
+              "RB-SP-25",
+              "Amber Orchard VS",
+              "Brandy",
+              "40%",
+              "25ml",
+              "5.40",
+              "10"
+            ],
+            [
+              "RB-SP-26",
+              "Old House VSOP",
+              "Cognac",
+              "40%",
+              "25ml",
+              "7.20",
+              "6"
+            ],
+            [
+              "RB-SP-27",
+              "Sandfield Armagnac",
+              "Armagnac",
+              "40%",
+              "25ml",
+              "7.00",
+              "6"
+            ],
+            [
+              "RB-SP-28",
+              "Alpine Apricot",
+              "Liqueur",
+              "25%",
+              "25ml",
+              "4.60",
+              "8"
+            ],
+            [
+              "RB-SP-29",
+              "Night Owl Coffee",
+              "Liqueur",
+              "20%",
+              "25ml",
+              "4.60",
+              "10"
+            ],
+            [
+              "RB-SP-30",
+              "Sweet Almond Amaretto",
+              "Liqueur",
+              "28%",
+              "25ml",
+              "4.70",
+              "10"
+            ],
+            [
+              "RB-SP-31",
+              "Triple Orange Sec",
+              "Liqueur",
+              "30%",
+              "25ml",
+              "4.60",
+              "12"
+            ],
+            [
+              "RB-SP-32",
+              "Red Aperitivo",
+              "Aperitivo",
+              "11%",
+              "50ml",
+              "5.20",
+              "10"
+            ],
+            [
+              "RB-SP-33",
+              "Bitter Ruby",
+              "Aperitivo",
+              "25%",
+              "25ml",
+              "4.80",
+              "10"
+            ],
+            [
+              "RB-SP-34",
+              "House Vermouth Dry",
+              "Vermouth",
+              "18%",
+              "50ml",
+              "4.90",
+              "8"
+            ],
+            [
+              "RB-SP-35",
+              "House Vermouth Sweet",
+              "Vermouth",
+              "16%",
+              "50ml",
+              "4.90",
+              "8"
+            ],
+            [
+              "RB-SP-36",
+              "Orchard Peach",
+              "Liqueur",
+              "20%",
+              "25ml",
+              "4.50",
+              "8"
+            ],
+            [
+              "RB-SP-37",
+              "Dark Cherry",
+              "Liqueur",
+              "20%",
+              "25ml",
+              "4.60",
+              "8"
+            ],
+            [
+              "RB-SP-38",
+              "Irish Cream",
+              "Liqueur",
+              "17%",
+              "25ml",
+              "4.80",
+              "10"
+            ],
+            [
+              "RB-SP-39",
+              "Spiced Honey",
+              "Liqueur",
+              "25%",
+              "25ml",
+              "4.70",
+              "8"
+            ],
+            [
+              "RB-SP-40",
+              "Elderflower",
+              "Liqueur",
+              "20%",
+              "25ml",
+              "4.60",
+              "8"
+            ]
+          ]
+        },
+        {
+          "title": "Cocktails (16)",
+          "headers": [
+            "SKU",
+            "Name",
+            "Base",
+            "Volume",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-CK-01",
+              "Rock Bottom Old Fashioned",
+              "Bourbon",
+              "140ml",
+              "10.50",
+              "18"
+            ],
+            [
+              "RB-CK-02",
+              "Harbor Negroni",
+              "Gin",
+              "120ml",
+              "10.00",
+              "16"
+            ],
+            [
+              "RB-CK-03",
+              "Midnight Espresso Martini",
+              "Vodka",
+              "140ml",
+              "11.00",
+              "20"
+            ],
+            [
+              "RB-CK-04",
+              "Orchard Whisky Sour",
+              "Whiskey",
+              "160ml",
+              "10.50",
+              "18"
+            ],
+            [
+              "RB-CK-05",
+              "Dockside Mojito",
+              "Rum",
+              "220ml",
+              "10.00",
+              "22"
+            ],
+            [
+              "RB-CK-06",
+              "Sunset Margarita",
+              "Tequila",
+              "180ml",
+              "11.50",
+              "18"
+            ],
+            [
+              "RB-CK-07",
+              "Barrel Boulevardier",
+              "Bourbon",
+              "140ml",
+              "11.50",
+              "14"
+            ],
+            [
+              "RB-CK-08",
+              "Sea Breeze Collins",
+              "Gin",
+              "220ml",
+              "10.50",
+              "20"
+            ],
+            [
+              "RB-CK-09",
+              "Highland Penicillin",
+              "Scotch",
+              "150ml",
+              "12.00",
+              "12"
+            ],
+            [
+              "RB-CK-10",
+              "Raven Black Manhattan",
+              "Rye",
+              "140ml",
+              "11.00",
+              "12"
+            ],
+            [
+              "RB-CK-11",
+              "Bramble Gin Fizz",
+              "Gin",
+              "200ml",
+              "10.50",
+              "18"
+            ],
+            [
+              "RB-CK-12",
+              "Smoky Paloma",
+              "Mezcal",
+              "220ml",
+              "12.50",
+              "10"
+            ],
+            [
+              "RB-CK-13",
+              "Velvet White Russian",
+              "Vodka",
+              "160ml",
+              "11.00",
+              "12"
+            ],
+            [
+              "RB-CK-14",
+              "Ginger Rum Mule",
+              "Rum",
+              "220ml",
+              "10.50",
+              "18"
+            ],
+            [
+              "RB-CK-15",
+              "Elderflower Spritz",
+              "Aperitivo",
+              "240ml",
+              "9.80",
+              "20"
+            ],
+            [
+              "RB-CK-16",
+              "Citrus Gimlet",
+              "Gin",
+              "140ml",
+              "10.00",
+              "16"
+            ]
+          ]
+        },
+        {
+          "title": "Merch (Occasional)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Sizes",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-MR-01",
+              "Rock Bottom Logo Tee",
+              "S, M, L, XL, XXL",
+              "22.00",
+              "3"
+            ],
+            [
+              "RB-MR-02",
+              "Taproom Crew Tee",
+              "S, M, L, XL, XXL",
+              "25.00",
+              "2"
+            ],
+            [
+              "RB-MR-03",
+              "Limited Gig Ticket (Presale)",
+              "N/A",
+              "18.00",
+              "4"
+            ]
+          ]
+        },
+        {
+          "title": "Bottled Beer (24)",
+          "headers": [
+            "SKU",
+            "Name",
+            "Size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-BB-001",
+              "Harbor Lager",
+              "330ml",
+              "4.80",
+              "18"
+            ],
+            [
+              "RB-BB-002",
+              "Harbor Lager",
+              "500ml",
+              "5.60",
+              "16"
+            ],
+            [
+              "RB-BB-003",
+              "North Coast Pale",
+              "330ml",
+              "4.90",
+              "18"
+            ],
+            [
+              "RB-BB-004",
+              "North Coast Pale",
+              "500ml",
+              "5.80",
+              "16"
+            ],
+            [
+              "RB-BB-005",
+              "Midtown Pils",
+              "330ml",
+              "4.70",
+              "18"
+            ],
+            [
+              "RB-BB-006",
+              "Midtown Pils",
+              "500ml",
+              "5.50",
+              "16"
+            ],
+            [
+              "RB-BB-007",
+              "Red Brick Amber",
+              "330ml",
+              "5.00",
+              "16"
+            ],
+            [
+              "RB-BB-008",
+              "Red Brick Amber",
+              "500ml",
+              "5.90",
+              "14"
+            ],
+            [
+              "RB-BB-009",
+              "Forest IPA",
+              "330ml",
+              "5.20",
+              "14"
+            ],
+            [
+              "RB-BB-010",
+              "Forest IPA",
+              "500ml",
+              "6.10",
+              "12"
+            ],
+            [
+              "RB-BB-011",
+              "Golden Kolsch",
+              "330ml",
+              "4.80",
+              "18"
+            ],
+            [
+              "RB-BB-012",
+              "Golden Kolsch",
+              "500ml",
+              "5.70",
+              "16"
+            ],
+            [
+              "RB-BB-013",
+              "Seaside Wheat",
+              "330ml",
+              "4.90",
+              "18"
+            ],
+            [
+              "RB-BB-014",
+              "Seaside Wheat",
+              "500ml",
+              "5.80",
+              "16"
+            ],
+            [
+              "RB-BB-015",
+              "Nightfall Stout",
+              "330ml",
+              "5.10",
+              "14"
+            ],
+            [
+              "RB-BB-016",
+              "Nightfall Stout",
+              "500ml",
+              "6.00",
+              "12"
+            ],
+            [
+              "RB-BB-017",
+              "Copper Porter",
+              "330ml",
+              "5.00",
+              "16"
+            ],
+            [
+              "RB-BB-018",
+              "Copper Porter",
+              "500ml",
+              "5.90",
+              "14"
+            ],
+            [
+              "RB-BB-019",
+              "Citrus Pale",
+              "330ml",
+              "4.80",
+              "18"
+            ],
+            [
+              "RB-BB-020",
+              "Citrus Pale",
+              "500ml",
+              "5.70",
+              "16"
+            ],
+            [
+              "RB-BB-021",
+              "Hillside ESB",
+              "330ml",
+              "4.90",
+              "16"
+            ],
+            [
+              "RB-BB-022",
+              "Hillside ESB",
+              "500ml",
+              "5.80",
+              "14"
+            ],
+            [
+              "RB-BB-023",
+              "Harbor Helles",
+              "330ml",
+              "4.70",
+              "18"
+            ],
+            [
+              "RB-BB-024",
+              "Harbor Helles",
+              "500ml",
+              "5.60",
+              "16"
+            ]
+          ]
+        },
+        {
+          "title": "Canned Beer (6)",
+          "headers": [
+            "SKU",
+            "Name",
+            "Size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-BC-001",
+              "Hazy Skyline IPA",
+              "330ml",
+              "4.90",
+              "18"
+            ],
+            [
+              "RB-BC-002",
+              "Hazy Skyline IPA",
+              "440ml",
+              "5.40",
+              "16"
+            ],
+            [
+              "RB-BC-003",
+              "Tropic Session IPA",
+              "330ml",
+              "4.70",
+              "18"
+            ],
+            [
+              "RB-BC-004",
+              "Tropic Session IPA",
+              "440ml",
+              "5.20",
+              "16"
+            ],
+            [
+              "RB-BC-005",
+              "Dark Tide Stout",
+              "330ml",
+              "5.10",
+              "14"
+            ],
+            [
+              "RB-BC-006",
+              "Dark Tide Stout",
+              "440ml",
+              "5.60",
+              "12"
+            ]
+          ]
+        },
+        {
+          "title": "Wine (24)",
+          "headers": [
+            "SKU",
+            "Name",
+            "Serve",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-WN-001",
+              "Cabernet Sauvignon",
+              "175ml",
+              "7.20",
+              "14"
+            ],
+            [
+              "RB-WN-002",
+              "Merlot",
+              "175ml",
+              "7.60",
+              "14"
+            ],
+            [
+              "RB-WN-003",
+              "Pinot Noir",
+              "175ml",
+              "8.00",
+              "14"
+            ],
+            [
+              "RB-WN-004",
+              "Shiraz",
+              "175ml",
+              "6.80",
+              "14"
+            ],
+            [
+              "RB-WN-005",
+              "Malbec",
+              "175ml",
+              "7.20",
+              "14"
+            ],
+            [
+              "RB-WN-006",
+              "Zinfandel",
+              "175ml",
+              "7.60",
+              "14"
+            ],
+            [
+              "RB-WN-007",
+              "Chardonnay",
+              "175ml",
+              "8.00",
+              "14"
+            ],
+            [
+              "RB-WN-008",
+              "Sauvignon Blanc",
+              "175ml",
+              "6.80",
+              "14"
+            ],
+            [
+              "RB-WN-009",
+              "Pinot Grigio",
+              "175ml",
+              "7.20",
+              "14"
+            ],
+            [
+              "RB-WN-010",
+              "Riesling",
+              "175ml",
+              "7.60",
+              "14"
+            ],
+            [
+              "RB-WN-011",
+              "Viognier",
+              "175ml",
+              "8.00",
+              "14"
+            ],
+            [
+              "RB-WN-012",
+              "Verdicchio",
+              "175ml",
+              "6.80",
+              "14"
+            ],
+            [
+              "RB-WN-013",
+              "Prosecco",
+              "175ml",
+              "7.20",
+              "14"
+            ],
+            [
+              "RB-WN-014",
+              "Cava",
+              "175ml",
+              "7.60",
+              "14"
+            ],
+            [
+              "RB-WN-015",
+              "Brut Rose",
+              "175ml",
+              "8.00",
+              "14"
+            ],
+            [
+              "RB-WN-016",
+              "Champagne",
+              "175ml",
+              "6.80",
+              "14"
+            ],
+            [
+              "RB-WN-017",
+              "Cabernet Sauvignon Reserve",
+              "175ml",
+              "8.30",
+              "10"
+            ],
+            [
+              "RB-WN-018",
+              "Merlot Reserve",
+              "175ml",
+              "8.80",
+              "10"
+            ],
+            [
+              "RB-WN-019",
+              "Pinot Noir Reserve",
+              "175ml",
+              "9.30",
+              "10"
+            ],
+            [
+              "RB-WN-020",
+              "Shiraz Reserve",
+              "175ml",
+              "7.80",
+              "10"
+            ],
+            [
+              "RB-WN-021",
+              "Malbec Reserve",
+              "175ml",
+              "8.30",
+              "10"
+            ],
+            [
+              "RB-WN-022",
+              "Zinfandel Reserve",
+              "175ml",
+              "8.80",
+              "10"
+            ],
+            [
+              "RB-WN-023",
+              "Chardonnay Reserve",
+              "175ml",
+              "9.30",
+              "10"
+            ],
+            [
+              "RB-WN-024",
+              "Sauvignon Blanc Reserve",
+              "175ml",
+              "7.80",
+              "10"
+            ]
+          ]
+        },
+        {
+          "title": "Soft Drinks (20)",
+          "headers": [
+            "SKU",
+            "Name",
+            "Size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-SD-001",
+              "Cola",
+              "330ml",
+              "3.00",
+              "30"
+            ],
+            [
+              "RB-SD-002",
+              "Diet Cola",
+              "330ml",
+              "3.20",
+              "30"
+            ],
+            [
+              "RB-SD-003",
+              "Lemonade",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-004",
+              "Ginger Beer",
+              "330ml",
+              "3.00",
+              "30"
+            ],
+            [
+              "RB-SD-005",
+              "Tonic Water",
+              "330ml",
+              "3.20",
+              "30"
+            ],
+            [
+              "RB-SD-006",
+              "Soda Water",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-007",
+              "Sparkling Water",
+              "330ml",
+              "3.00",
+              "30"
+            ],
+            [
+              "RB-SD-008",
+              "Still Water",
+              "330ml",
+              "3.20",
+              "30"
+            ],
+            [
+              "RB-SD-009",
+              "Orange Juice",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-010",
+              "Apple Juice",
+              "330ml",
+              "3.00",
+              "30"
+            ],
+            [
+              "RB-SD-011",
+              "Cola Zero",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-012",
+              "Diet Cola Zero",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-013",
+              "Lemonade Zero",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-014",
+              "Ginger Beer Zero",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-015",
+              "Tonic Water Zero",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-016",
+              "Soda Water Zero",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-017",
+              "Sparkling Water Zero",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-018",
+              "Still Water Zero",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-019",
+              "Orange Juice Zero",
+              "330ml",
+              "2.80",
+              "30"
+            ],
+            [
+              "RB-SD-020",
+              "Apple Juice Zero",
+              "330ml",
+              "2.80",
+              "30"
+            ]
+          ]
+        },
+        {
+          "title": "Bar Snacks (20)",
+          "headers": [
+            "SKU",
+            "Name",
+            "Serve",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-BS-001",
+              "Salted Nuts",
+              "bowl",
+              "3.80",
+              "24"
+            ],
+            [
+              "RB-BS-002",
+              "Chilli Nuts",
+              "bowl",
+              "4.10",
+              "24"
+            ],
+            [
+              "RB-BS-003",
+              "Olives",
+              "bowl",
+              "3.50",
+              "24"
+            ],
+            [
+              "RB-BS-004",
+              "Crisps",
+              "bowl",
+              "3.80",
+              "24"
+            ],
+            [
+              "RB-BS-005",
+              "Pretzels",
+              "bowl",
+              "4.10",
+              "24"
+            ],
+            [
+              "RB-BS-006",
+              "Jerky",
+              "bowl",
+              "3.50",
+              "24"
+            ],
+            [
+              "RB-BS-007",
+              "Popcorn",
+              "bowl",
+              "3.80",
+              "24"
+            ],
+            [
+              "RB-BS-008",
+              "Cheese Bites",
+              "bowl",
+              "4.10",
+              "24"
+            ],
+            [
+              "RB-BS-009",
+              "Mixed Nuts",
+              "bowl",
+              "3.50",
+              "24"
+            ],
+            [
+              "RB-BS-010",
+              "Wasabi Peas",
+              "bowl",
+              "3.80",
+              "24"
+            ],
+            [
+              "RB-BS-011",
+              "Salted Nuts Large",
+              "bowl",
+              "4.20",
+              "20"
+            ],
+            [
+              "RB-BS-012",
+              "Chilli Nuts Large",
+              "bowl",
+              "4.20",
+              "20"
+            ],
+            [
+              "RB-BS-013",
+              "Olives Large",
+              "bowl",
+              "4.20",
+              "20"
+            ],
+            [
+              "RB-BS-014",
+              "Crisps Large",
+              "bowl",
+              "4.20",
+              "20"
+            ],
+            [
+              "RB-BS-015",
+              "Pretzels Large",
+              "bowl",
+              "4.20",
+              "20"
+            ],
+            [
+              "RB-BS-016",
+              "Jerky Large",
+              "bowl",
+              "4.20",
+              "20"
+            ],
+            [
+              "RB-BS-017",
+              "Popcorn Large",
+              "bowl",
+              "4.20",
+              "20"
+            ],
+            [
+              "RB-BS-018",
+              "Cheese Bites Large",
+              "bowl",
+              "4.20",
+              "20"
+            ],
+            [
+              "RB-BS-019",
+              "Mixed Nuts Large",
+              "bowl",
+              "4.20",
+              "20"
+            ],
+            [
+              "RB-BS-020",
+              "Wasabi Peas Large",
+              "bowl",
+              "4.20",
+              "20"
+            ]
+          ]
+        },
+        {
+          "title": "Hot Drinks (10)",
+          "headers": [
+            "SKU",
+            "Name",
+            "Serve",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-HD-001",
+              "Espresso",
+              "cup",
+              "3.50",
+              "18"
+            ],
+            [
+              "RB-HD-002",
+              "Americano",
+              "cup",
+              "3.80",
+              "18"
+            ],
+            [
+              "RB-HD-003",
+              "Flat White",
+              "cup",
+              "3.20",
+              "18"
+            ],
+            [
+              "RB-HD-004",
+              "Cappuccino",
+              "cup",
+              "3.50",
+              "18"
+            ],
+            [
+              "RB-HD-005",
+              "Latte",
+              "cup",
+              "3.80",
+              "18"
+            ],
+            [
+              "RB-HD-006",
+              "Hot Chocolate",
+              "cup",
+              "3.20",
+              "18"
+            ],
+            [
+              "RB-HD-007",
+              "Espresso Large",
+              "cup",
+              "3.80",
+              "16"
+            ],
+            [
+              "RB-HD-008",
+              "Americano Large",
+              "cup",
+              "3.80",
+              "16"
+            ],
+            [
+              "RB-HD-009",
+              "Flat White Large",
+              "cup",
+              "3.80",
+              "16"
+            ],
+            [
+              "RB-HD-010",
+              "Cappuccino Large",
+              "cup",
+              "3.80",
+              "16"
+            ]
+          ]
+        },
+        {
+          "title": "Non-Alcoholic Cocktails (10)",
+          "headers": [
+            "SKU",
+            "Name",
+            "Serve",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "RB-NA-001",
+              "No-ABV Spritz",
+              "200ml",
+              "6.50",
+              "16"
+            ],
+            [
+              "RB-NA-002",
+              "Citrus Cooler",
+              "200ml",
+              "6.00",
+              "16"
+            ],
+            [
+              "RB-NA-003",
+              "Ginger Mojito",
+              "200ml",
+              "6.50",
+              "16"
+            ],
+            [
+              "RB-NA-004",
+              "Berry Fizz",
+              "200ml",
+              "6.00",
+              "16"
+            ],
+            [
+              "RB-NA-005",
+              "Cucumber Tonic",
+              "200ml",
+              "6.50",
+              "16"
+            ],
+            [
+              "RB-NA-006",
+              "No-ABV Spritz Zero",
+              "200ml",
+              "6.50",
+              "14"
+            ],
+            [
+              "RB-NA-007",
+              "Citrus Cooler Zero",
+              "200ml",
+              "6.50",
+              "14"
+            ],
+            [
+              "RB-NA-008",
+              "Ginger Mojito Zero",
+              "200ml",
+              "6.50",
+              "14"
+            ],
+            [
+              "RB-NA-009",
+              "Berry Fizz Zero",
+              "200ml",
+              "6.50",
+              "14"
+            ],
+            [
+              "RB-NA-010",
+              "Cucumber Tonic Zero",
+              "200ml",
+              "6.50",
+              "14"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "urn:establishment:sim-petrol-001",
+      "name": "Scottish Diesel",
+      "meta": "No fuel here, just selling air",
+      "hours": "00:00-24:00 GMT",
+      "timezone": "Europe/London",
+      "logo": "/businesses/scottish_diesel.png",
+      "sections": [
+        {
+          "title": "Fuel Types (4)",
+          "headers": [
+            "SKU",
+            "Fuel",
+            "Grade",
+            "Unit",
+            "Price (per liter)",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-FL-01",
+              "Unleaded",
+              "95 RON",
+              "liter",
+              "1.56",
+              "220"
+            ],
+            [
+              "SD-FL-02",
+              "Premium Unleaded",
+              "98 RON",
+              "liter",
+              "1.68",
+              "140"
+            ],
+            [
+              "SD-FL-03",
+              "Diesel",
+              "B7",
+              "liter",
+              "1.62",
+              "260"
+            ],
+            [
+              "SD-FL-04",
+              "Premium Diesel",
+              "B7+",
+              "liter",
+              "1.72",
+              "160"
+            ]
+          ]
+        },
+        {
+          "title": "LPG Gas Bottles",
+          "headers": [
+            "SKU",
+            "Size",
+            "Unit",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-LPG-01",
+              "6 kg",
+              "bottle",
+              "26.00",
+              "1"
+            ],
+            [
+              "SD-LPG-02",
+              "11 kg",
+              "bottle",
+              "39.00",
+              "2"
+            ],
+            [
+              "SD-LPG-03",
+              "19 kg",
+              "bottle",
+              "58.00",
+              "1"
+            ]
+          ]
+        },
+        {
+          "title": "Snacks (40)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Pack size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-SN-01",
+              "Walkers Ready Salted Crisps",
+              "32g",
+              "1.20",
+              "18"
+            ],
+            [
+              "SD-SN-02",
+              "Walkers Cheese and Onion Crisps",
+              "32g",
+              "1.20",
+              "16"
+            ],
+            [
+              "SD-SN-03",
+              "Walkers Salt and Vinegar Crisps",
+              "32g",
+              "1.20",
+              "16"
+            ],
+            [
+              "SD-SN-04",
+              "Kettle Sea Salt Crisps",
+              "40g",
+              "1.60",
+              "12"
+            ],
+            [
+              "SD-SN-05",
+              "Kettle Sea Salt and Balsamic",
+              "40g",
+              "1.60",
+              "12"
+            ],
+            [
+              "SD-SN-06",
+              "Pringles Original",
+              "165g",
+              "2.80",
+              "10"
+            ],
+            [
+              "SD-SN-07",
+              "Pringles Sour Cream",
+              "165g",
+              "2.80",
+              "10"
+            ],
+            [
+              "SD-SN-08",
+              "Doritos Nacho Cheese",
+              "180g",
+              "2.70",
+              "10"
+            ],
+            [
+              "SD-SN-09",
+              "Doritos Chilli Heatwave",
+              "180g",
+              "2.70",
+              "10"
+            ],
+            [
+              "SD-SN-10",
+              "Sensations Thai Sweet Chilli",
+              "40g",
+              "1.70",
+              "10"
+            ],
+            [
+              "SD-SN-11",
+              "Cadbury Dairy Milk",
+              "110g",
+              "1.50",
+              "14"
+            ],
+            [
+              "SD-SN-12",
+              "Cadbury Fruit and Nut",
+              "110g",
+              "1.60",
+              "10"
+            ],
+            [
+              "SD-SN-13",
+              "Galaxy Smooth Milk",
+              "100g",
+              "1.50",
+              "12"
+            ],
+            [
+              "SD-SN-14",
+              "Mars Bar",
+              "51g",
+              "0.95",
+              "18"
+            ],
+            [
+              "SD-SN-15",
+              "Snickers Bar",
+              "48g",
+              "0.95",
+              "18"
+            ],
+            [
+              "SD-SN-16",
+              "Twix Bar",
+              "50g",
+              "0.95",
+              "18"
+            ],
+            [
+              "SD-SN-17",
+              "KitKat Chunky",
+              "40g",
+              "0.95",
+              "18"
+            ],
+            [
+              "SD-SN-18",
+              "Maltesers",
+              "37g",
+              "1.10",
+              "16"
+            ],
+            [
+              "SD-SN-19",
+              "Haribo Starmix",
+              "160g",
+              "1.60",
+              "12"
+            ],
+            [
+              "SD-SN-20",
+              "Haribo Tangfastics",
+              "160g",
+              "1.60",
+              "12"
+            ],
+            [
+              "SD-SN-21",
+              "Percy Pigs",
+              "170g",
+              "1.80",
+              "10"
+            ],
+            [
+              "SD-SN-22",
+              "McVities Digestives",
+              "400g",
+              "2.10",
+              "8"
+            ],
+            [
+              "SD-SN-23",
+              "McVities Chocolate Digestives",
+              "300g",
+              "2.30",
+              "8"
+            ],
+            [
+              "SD-SN-24",
+              "Tuc Original",
+              "100g",
+              "1.40",
+              "10"
+            ],
+            [
+              "SD-SN-25",
+              "Mini Cheddars Original",
+              "90g",
+              "1.30",
+              "10"
+            ],
+            [
+              "SD-SN-26",
+              "Mini Cheddars Red Leicester",
+              "90g",
+              "1.30",
+              "10"
+            ],
+            [
+              "SD-SN-27",
+              "KP Dry Roasted Peanuts",
+              "65g",
+              "1.10",
+              "12"
+            ],
+            [
+              "SD-SN-28",
+              "KP Salted Peanuts",
+              "65g",
+              "1.10",
+              "12"
+            ],
+            [
+              "SD-SN-29",
+              "Nature Valley Oats and Honey",
+              "2 bars",
+              "1.20",
+              "14"
+            ],
+            [
+              "SD-SN-30",
+              "Nature Valley Peanut Butter",
+              "2 bars",
+              "1.20",
+              "12"
+            ],
+            [
+              "SD-SN-31",
+              "Belvita Soft Bakes",
+              "50g",
+              "1.00",
+              "14"
+            ],
+            [
+              "SD-SN-32",
+              "Protein Bar Chocolate",
+              "60g",
+              "2.40",
+              "8"
+            ],
+            [
+              "SD-SN-33",
+              "Chewing Gum Peppermint",
+              "10 pcs",
+              "0.99",
+              "16"
+            ],
+            [
+              "SD-SN-34",
+              "Chewing Gum Spearmint",
+              "10 pcs",
+              "0.99",
+              "16"
+            ],
+            [
+              "SD-SN-35",
+              "Bottled Water",
+              "500ml",
+              "1.10",
+              "20"
+            ],
+            [
+              "SD-SN-36",
+              "Sparkling Water",
+              "500ml",
+              "1.20",
+              "14"
+            ],
+            [
+              "SD-SN-37",
+              "Energy Drink Original",
+              "250ml",
+              "1.60",
+              "18"
+            ],
+            [
+              "SD-SN-38",
+              "Energy Drink Sugar Free",
+              "250ml",
+              "1.60",
+              "16"
+            ],
+            [
+              "SD-SN-39",
+              "Cola Can",
+              "330ml",
+              "1.20",
+              "20"
+            ],
+            [
+              "SD-SN-40",
+              "Iced Coffee Can",
+              "250ml",
+              "1.80",
+              "12"
+            ]
+          ]
+        },
+        {
+          "title": "Drinks (60)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-DR-001",
+              "Cola 330ml",
+              "330ml",
+              "1.4",
+              "24"
+            ],
+            [
+              "SD-DR-002",
+              "Cola 500ml",
+              "500ml",
+              "1.6",
+              "24"
+            ],
+            [
+              "SD-DR-003",
+              "Diet Cola 330ml",
+              "330ml",
+              "1.8",
+              "24"
+            ],
+            [
+              "SD-DR-004",
+              "Diet Cola 500ml",
+              "500ml",
+              "1.2",
+              "24"
+            ],
+            [
+              "SD-DR-005",
+              "Lemonade 330ml",
+              "330ml",
+              "1.4",
+              "24"
+            ],
+            [
+              "SD-DR-006",
+              "Lemonade 500ml",
+              "500ml",
+              "1.6",
+              "24"
+            ],
+            [
+              "SD-DR-007",
+              "Orange Soda 330ml",
+              "330ml",
+              "1.8",
+              "24"
+            ],
+            [
+              "SD-DR-008",
+              "Orange Soda 500ml",
+              "500ml",
+              "1.2",
+              "24"
+            ],
+            [
+              "SD-DR-009",
+              "Ginger Ale 330ml",
+              "330ml",
+              "1.4",
+              "24"
+            ],
+            [
+              "SD-DR-010",
+              "Ginger Ale 500ml",
+              "500ml",
+              "1.6",
+              "24"
+            ],
+            [
+              "SD-DR-011",
+              "Iced Tea 330ml",
+              "330ml",
+              "1.8",
+              "24"
+            ],
+            [
+              "SD-DR-012",
+              "Iced Tea 500ml",
+              "500ml",
+              "1.2",
+              "24"
+            ],
+            [
+              "SD-DR-013",
+              "Energy Drink 330ml",
+              "330ml",
+              "1.4",
+              "24"
+            ],
+            [
+              "SD-DR-014",
+              "Energy Drink 500ml",
+              "500ml",
+              "1.6",
+              "24"
+            ],
+            [
+              "SD-DR-015",
+              "Energy Drink Sugar Free 330ml",
+              "330ml",
+              "1.8",
+              "24"
+            ],
+            [
+              "SD-DR-016",
+              "Energy Drink Sugar Free 500ml",
+              "500ml",
+              "1.2",
+              "24"
+            ],
+            [
+              "SD-DR-017",
+              "Sparkling Water 330ml",
+              "330ml",
+              "1.4",
+              "24"
+            ],
+            [
+              "SD-DR-018",
+              "Sparkling Water 500ml",
+              "500ml",
+              "1.6",
+              "24"
+            ],
+            [
+              "SD-DR-019",
+              "Still Water 330ml",
+              "330ml",
+              "1.8",
+              "24"
+            ],
+            [
+              "SD-DR-020",
+              "Still Water 500ml",
+              "500ml",
+              "1.2",
+              "24"
+            ],
+            [
+              "SD-DR-021",
+              "Apple Juice 330ml",
+              "330ml",
+              "1.4",
+              "24"
+            ],
+            [
+              "SD-DR-022",
+              "Apple Juice 500ml",
+              "500ml",
+              "1.6",
+              "24"
+            ],
+            [
+              "SD-DR-023",
+              "Orange Juice 330ml",
+              "330ml",
+              "1.8",
+              "24"
+            ],
+            [
+              "SD-DR-024",
+              "Orange Juice 500ml",
+              "500ml",
+              "1.2",
+              "24"
+            ]
+          ]
+        },
+        {
+          "title": "Confectionery (50)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Pack size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-CN-001",
+              "Milk Chocolate Bar 45g",
+              "45g",
+              "1.1",
+              "20"
+            ],
+            [
+              "SD-CN-002",
+              "Milk Chocolate Bar 90g",
+              "90g",
+              "1.3",
+              "20"
+            ],
+            [
+              "SD-CN-003",
+              "Milk Chocolate Bar 120g",
+              "120g",
+              "1.5",
+              "20"
+            ],
+            [
+              "SD-CN-004",
+              "Milk Chocolate Bar 160g",
+              "160g",
+              "1.7000000000000002",
+              "20"
+            ],
+            [
+              "SD-CN-005",
+              "Milk Chocolate Bar 200g",
+              "200g",
+              "0.9",
+              "20"
+            ],
+            [
+              "SD-CN-006",
+              "Dark Chocolate Bar 45g",
+              "45g",
+              "1.1",
+              "20"
+            ],
+            [
+              "SD-CN-007",
+              "Dark Chocolate Bar 90g",
+              "90g",
+              "1.3",
+              "20"
+            ],
+            [
+              "SD-CN-008",
+              "Dark Chocolate Bar 120g",
+              "120g",
+              "1.5",
+              "20"
+            ],
+            [
+              "SD-CN-009",
+              "Dark Chocolate Bar 160g",
+              "160g",
+              "1.7000000000000002",
+              "20"
+            ],
+            [
+              "SD-CN-010",
+              "Dark Chocolate Bar 200g",
+              "200g",
+              "0.9",
+              "20"
+            ],
+            [
+              "SD-CN-011",
+              "Caramel Bar 45g",
+              "45g",
+              "1.1",
+              "20"
+            ],
+            [
+              "SD-CN-012",
+              "Caramel Bar 90g",
+              "90g",
+              "1.3",
+              "20"
+            ],
+            [
+              "SD-CN-013",
+              "Caramel Bar 120g",
+              "120g",
+              "1.5",
+              "20"
+            ],
+            [
+              "SD-CN-014",
+              "Caramel Bar 160g",
+              "160g",
+              "1.7000000000000002",
+              "20"
+            ],
+            [
+              "SD-CN-015",
+              "Caramel Bar 200g",
+              "200g",
+              "0.9",
+              "20"
+            ],
+            [
+              "SD-CN-016",
+              "Nougat Bar 45g",
+              "45g",
+              "1.1",
+              "20"
+            ],
+            [
+              "SD-CN-017",
+              "Nougat Bar 90g",
+              "90g",
+              "1.3",
+              "20"
+            ],
+            [
+              "SD-CN-018",
+              "Nougat Bar 120g",
+              "120g",
+              "1.5",
+              "20"
+            ],
+            [
+              "SD-CN-019",
+              "Nougat Bar 160g",
+              "160g",
+              "1.7000000000000002",
+              "20"
+            ],
+            [
+              "SD-CN-020",
+              "Nougat Bar 200g",
+              "200g",
+              "0.9",
+              "20"
+            ],
+            [
+              "SD-CN-021",
+              "Gummy Mix 45g",
+              "45g",
+              "1.1",
+              "20"
+            ],
+            [
+              "SD-CN-022",
+              "Gummy Mix 90g",
+              "90g",
+              "1.3",
+              "20"
+            ],
+            [
+              "SD-CN-023",
+              "Gummy Mix 120g",
+              "120g",
+              "1.5",
+              "20"
+            ],
+            [
+              "SD-CN-024",
+              "Gummy Mix 160g",
+              "160g",
+              "1.7000000000000002",
+              "20"
+            ],
+            [
+              "SD-CN-025",
+              "Gummy Mix 200g",
+              "200g",
+              "0.9",
+              "20"
+            ],
+            [
+              "SD-CN-026",
+              "Sour Gummies 45g",
+              "45g",
+              "1.1",
+              "20"
+            ],
+            [
+              "SD-CN-027",
+              "Sour Gummies 90g",
+              "90g",
+              "1.3",
+              "20"
+            ],
+            [
+              "SD-CN-028",
+              "Sour Gummies 120g",
+              "120g",
+              "1.5",
+              "20"
+            ],
+            [
+              "SD-CN-029",
+              "Sour Gummies 160g",
+              "160g",
+              "1.7000000000000002",
+              "20"
+            ],
+            [
+              "SD-CN-030",
+              "Sour Gummies 200g",
+              "200g",
+              "0.9",
+              "20"
+            ],
+            [
+              "SD-CN-031",
+              "Mint Chews 45g",
+              "45g",
+              "1.1",
+              "20"
+            ],
+            [
+              "SD-CN-032",
+              "Mint Chews 90g",
+              "90g",
+              "1.3",
+              "20"
+            ],
+            [
+              "SD-CN-033",
+              "Mint Chews 120g",
+              "120g",
+              "1.5",
+              "20"
+            ],
+            [
+              "SD-CN-034",
+              "Mint Chews 160g",
+              "160g",
+              "1.7000000000000002",
+              "20"
+            ],
+            [
+              "SD-CN-035",
+              "Mint Chews 200g",
+              "200g",
+              "0.9",
+              "20"
+            ],
+            [
+              "SD-CN-036",
+              "Fruit Chews 45g",
+              "45g",
+              "1.1",
+              "20"
+            ],
+            [
+              "SD-CN-037",
+              "Fruit Chews 90g",
+              "90g",
+              "1.3",
+              "20"
+            ],
+            [
+              "SD-CN-038",
+              "Fruit Chews 120g",
+              "120g",
+              "1.5",
+              "20"
+            ],
+            [
+              "SD-CN-039",
+              "Fruit Chews 160g",
+              "160g",
+              "1.7000000000000002",
+              "20"
+            ],
+            [
+              "SD-CN-040",
+              "Fruit Chews 200g",
+              "200g",
+              "0.9",
+              "20"
+            ],
+            [
+              "SD-CN-041",
+              "Toffee Bites 45g",
+              "45g",
+              "1.1",
+              "20"
+            ],
+            [
+              "SD-CN-042",
+              "Toffee Bites 90g",
+              "90g",
+              "1.3",
+              "20"
+            ],
+            [
+              "SD-CN-043",
+              "Toffee Bites 120g",
+              "120g",
+              "1.5",
+              "20"
+            ],
+            [
+              "SD-CN-044",
+              "Toffee Bites 160g",
+              "160g",
+              "1.7000000000000002",
+              "20"
+            ],
+            [
+              "SD-CN-045",
+              "Toffee Bites 200g",
+              "200g",
+              "0.9",
+              "20"
+            ],
+            [
+              "SD-CN-046",
+              "Chocolate Cookies 45g",
+              "45g",
+              "1.1",
+              "20"
+            ],
+            [
+              "SD-CN-047",
+              "Chocolate Cookies 90g",
+              "90g",
+              "1.3",
+              "20"
+            ],
+            [
+              "SD-CN-048",
+              "Chocolate Cookies 120g",
+              "120g",
+              "1.5",
+              "20"
+            ],
+            [
+              "SD-CN-049",
+              "Chocolate Cookies 160g",
+              "160g",
+              "1.7000000000000002",
+              "20"
+            ],
+            [
+              "SD-CN-050",
+              "Chocolate Cookies 200g",
+              "200g",
+              "0.9",
+              "20"
+            ]
+          ]
+        },
+        {
+          "title": "Savory Snacks (40)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Pack size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-SV-001",
+              "Salted Crisps 35g",
+              "35g",
+              "1.3",
+              "18"
+            ],
+            [
+              "SD-SV-002",
+              "Salted Crisps 45g",
+              "45g",
+              "1.5",
+              "18"
+            ],
+            [
+              "SD-SV-003",
+              "Salted Crisps 60g",
+              "60g",
+              "1.7000000000000002",
+              "18"
+            ],
+            [
+              "SD-SV-004",
+              "Salted Crisps 80g",
+              "80g",
+              "1.1",
+              "18"
+            ],
+            [
+              "SD-SV-005",
+              "Salted Crisps 120g",
+              "120g",
+              "1.3",
+              "18"
+            ],
+            [
+              "SD-SV-006",
+              "Cheese Crisps 35g",
+              "35g",
+              "1.5",
+              "18"
+            ],
+            [
+              "SD-SV-007",
+              "Cheese Crisps 45g",
+              "45g",
+              "1.7000000000000002",
+              "18"
+            ],
+            [
+              "SD-SV-008",
+              "Cheese Crisps 60g",
+              "60g",
+              "1.1",
+              "18"
+            ],
+            [
+              "SD-SV-009",
+              "Cheese Crisps 80g",
+              "80g",
+              "1.3",
+              "18"
+            ],
+            [
+              "SD-SV-010",
+              "Cheese Crisps 120g",
+              "120g",
+              "1.5",
+              "18"
+            ],
+            [
+              "SD-SV-011",
+              "Salt and Vinegar Crisps 35g",
+              "35g",
+              "1.7000000000000002",
+              "18"
+            ],
+            [
+              "SD-SV-012",
+              "Salt and Vinegar Crisps 45g",
+              "45g",
+              "1.1",
+              "18"
+            ],
+            [
+              "SD-SV-013",
+              "Salt and Vinegar Crisps 60g",
+              "60g",
+              "1.3",
+              "18"
+            ],
+            [
+              "SD-SV-014",
+              "Salt and Vinegar Crisps 80g",
+              "80g",
+              "1.5",
+              "18"
+            ],
+            [
+              "SD-SV-015",
+              "Salt and Vinegar Crisps 120g",
+              "120g",
+              "1.7000000000000002",
+              "18"
+            ],
+            [
+              "SD-SV-016",
+              "BBQ Crisps 35g",
+              "35g",
+              "1.1",
+              "18"
+            ],
+            [
+              "SD-SV-017",
+              "BBQ Crisps 45g",
+              "45g",
+              "1.3",
+              "18"
+            ],
+            [
+              "SD-SV-018",
+              "BBQ Crisps 60g",
+              "60g",
+              "1.5",
+              "18"
+            ],
+            [
+              "SD-SV-019",
+              "BBQ Crisps 80g",
+              "80g",
+              "1.7000000000000002",
+              "18"
+            ],
+            [
+              "SD-SV-020",
+              "BBQ Crisps 120g",
+              "120g",
+              "1.1",
+              "18"
+            ],
+            [
+              "SD-SV-021",
+              "Pretzels 35g",
+              "35g",
+              "1.3",
+              "18"
+            ],
+            [
+              "SD-SV-022",
+              "Pretzels 45g",
+              "45g",
+              "1.5",
+              "18"
+            ],
+            [
+              "SD-SV-023",
+              "Pretzels 60g",
+              "60g",
+              "1.7000000000000002",
+              "18"
+            ],
+            [
+              "SD-SV-024",
+              "Pretzels 80g",
+              "80g",
+              "1.1",
+              "18"
+            ],
+            [
+              "SD-SV-025",
+              "Pretzels 120g",
+              "120g",
+              "1.3",
+              "18"
+            ],
+            [
+              "SD-SV-026",
+              "Popcorn 35g",
+              "35g",
+              "1.5",
+              "18"
+            ],
+            [
+              "SD-SV-027",
+              "Popcorn 45g",
+              "45g",
+              "1.7000000000000002",
+              "18"
+            ],
+            [
+              "SD-SV-028",
+              "Popcorn 60g",
+              "60g",
+              "1.1",
+              "18"
+            ],
+            [
+              "SD-SV-029",
+              "Popcorn 80g",
+              "80g",
+              "1.3",
+              "18"
+            ],
+            [
+              "SD-SV-030",
+              "Popcorn 120g",
+              "120g",
+              "1.5",
+              "18"
+            ],
+            [
+              "SD-SV-031",
+              "Mixed Nuts 35g",
+              "35g",
+              "1.7000000000000002",
+              "18"
+            ],
+            [
+              "SD-SV-032",
+              "Mixed Nuts 45g",
+              "45g",
+              "1.1",
+              "18"
+            ],
+            [
+              "SD-SV-033",
+              "Mixed Nuts 60g",
+              "60g",
+              "1.3",
+              "18"
+            ],
+            [
+              "SD-SV-034",
+              "Mixed Nuts 80g",
+              "80g",
+              "1.5",
+              "18"
+            ],
+            [
+              "SD-SV-035",
+              "Mixed Nuts 120g",
+              "120g",
+              "1.7000000000000002",
+              "18"
+            ],
+            [
+              "SD-SV-036",
+              "Chilli Nuts 35g",
+              "35g",
+              "1.1",
+              "18"
+            ],
+            [
+              "SD-SV-037",
+              "Chilli Nuts 45g",
+              "45g",
+              "1.3",
+              "18"
+            ],
+            [
+              "SD-SV-038",
+              "Chilli Nuts 60g",
+              "60g",
+              "1.5",
+              "18"
+            ],
+            [
+              "SD-SV-039",
+              "Chilli Nuts 80g",
+              "80g",
+              "1.7000000000000002",
+              "18"
+            ],
+            [
+              "SD-SV-040",
+              "Chilli Nuts 120g",
+              "120g",
+              "1.1",
+              "18"
+            ]
+          ]
+        },
+        {
+          "title": "Quick Meals (30)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Pack size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-QM-001",
+              "Sandwich regular",
+              "regular",
+              "2.8",
+              "14"
+            ],
+            [
+              "SD-QM-002",
+              "Sandwich large",
+              "large",
+              "3.2",
+              "14"
+            ],
+            [
+              "SD-QM-003",
+              "Sandwich family",
+              "family",
+              "3.6",
+              "14"
+            ],
+            [
+              "SD-QM-004",
+              "Wrap regular",
+              "regular",
+              "4.0",
+              "14"
+            ],
+            [
+              "SD-QM-005",
+              "Wrap large",
+              "large",
+              "2.4",
+              "14"
+            ],
+            [
+              "SD-QM-006",
+              "Wrap family",
+              "family",
+              "2.8",
+              "14"
+            ],
+            [
+              "SD-QM-007",
+              "Panini regular",
+              "regular",
+              "3.2",
+              "14"
+            ],
+            [
+              "SD-QM-008",
+              "Panini large",
+              "large",
+              "3.6",
+              "14"
+            ],
+            [
+              "SD-QM-009",
+              "Panini family",
+              "family",
+              "4.0",
+              "14"
+            ],
+            [
+              "SD-QM-010",
+              "Salad regular",
+              "regular",
+              "2.4",
+              "14"
+            ],
+            [
+              "SD-QM-011",
+              "Salad large",
+              "large",
+              "2.8",
+              "14"
+            ],
+            [
+              "SD-QM-012",
+              "Salad family",
+              "family",
+              "3.2",
+              "14"
+            ],
+            [
+              "SD-QM-013",
+              "Yogurt regular",
+              "regular",
+              "3.6",
+              "14"
+            ],
+            [
+              "SD-QM-014",
+              "Yogurt large",
+              "large",
+              "4.0",
+              "14"
+            ],
+            [
+              "SD-QM-015",
+              "Yogurt family",
+              "family",
+              "2.4",
+              "14"
+            ],
+            [
+              "SD-QM-016",
+              "Fruit Pot regular",
+              "regular",
+              "2.8",
+              "14"
+            ],
+            [
+              "SD-QM-017",
+              "Fruit Pot large",
+              "large",
+              "3.2",
+              "14"
+            ],
+            [
+              "SD-QM-018",
+              "Fruit Pot family",
+              "family",
+              "3.6",
+              "14"
+            ],
+            [
+              "SD-QM-019",
+              "Protein Pot regular",
+              "regular",
+              "4.0",
+              "14"
+            ],
+            [
+              "SD-QM-020",
+              "Protein Pot large",
+              "large",
+              "2.4",
+              "14"
+            ],
+            [
+              "SD-QM-021",
+              "Protein Pot family",
+              "family",
+              "2.8",
+              "14"
+            ],
+            [
+              "SD-QM-022",
+              "Pasta Pot regular",
+              "regular",
+              "3.2",
+              "14"
+            ],
+            [
+              "SD-QM-023",
+              "Pasta Pot large",
+              "large",
+              "3.6",
+              "14"
+            ],
+            [
+              "SD-QM-024",
+              "Pasta Pot family",
+              "family",
+              "4.0",
+              "14"
+            ],
+            [
+              "SD-QM-025",
+              "Soup Cup regular",
+              "regular",
+              "2.4",
+              "14"
+            ],
+            [
+              "SD-QM-026",
+              "Soup Cup large",
+              "large",
+              "2.8",
+              "14"
+            ],
+            [
+              "SD-QM-027",
+              "Soup Cup family",
+              "family",
+              "3.2",
+              "14"
+            ],
+            [
+              "SD-QM-028",
+              "Breakfast Bar regular",
+              "regular",
+              "3.6",
+              "14"
+            ],
+            [
+              "SD-QM-029",
+              "Breakfast Bar large",
+              "large",
+              "4.0",
+              "14"
+            ],
+            [
+              "SD-QM-030",
+              "Breakfast Bar family",
+              "family",
+              "2.4",
+              "14"
+            ]
+          ]
+        },
+        {
+          "title": "Car Care (20)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Pack size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-CC-001",
+              "Screen Wash small",
+              "small",
+              "5.1",
+              "8"
+            ],
+            [
+              "SD-CC-002",
+              "Screen Wash large",
+              "large",
+              "5.7",
+              "8"
+            ],
+            [
+              "SD-CC-003",
+              "Engine Oil 5W-30 small",
+              "small",
+              "6.3",
+              "8"
+            ],
+            [
+              "SD-CC-004",
+              "Engine Oil 5W-30 large",
+              "large",
+              "6.9",
+              "8"
+            ],
+            [
+              "SD-CC-005",
+              "Engine Oil 5W-40 small",
+              "small",
+              "4.5",
+              "8"
+            ],
+            [
+              "SD-CC-006",
+              "Engine Oil 5W-40 large",
+              "large",
+              "5.1",
+              "8"
+            ],
+            [
+              "SD-CC-007",
+              "Air Freshener small",
+              "small",
+              "5.7",
+              "8"
+            ],
+            [
+              "SD-CC-008",
+              "Air Freshener large",
+              "large",
+              "6.3",
+              "8"
+            ],
+            [
+              "SD-CC-009",
+              "Microfiber Cloth small",
+              "small",
+              "6.9",
+              "8"
+            ],
+            [
+              "SD-CC-010",
+              "Microfiber Cloth large",
+              "large",
+              "4.5",
+              "8"
+            ],
+            [
+              "SD-CC-011",
+              "De-Icer small",
+              "small",
+              "5.1",
+              "8"
+            ],
+            [
+              "SD-CC-012",
+              "De-Icer large",
+              "large",
+              "5.7",
+              "8"
+            ],
+            [
+              "SD-CC-013",
+              "Car Shampoo small",
+              "small",
+              "6.3",
+              "8"
+            ],
+            [
+              "SD-CC-014",
+              "Car Shampoo large",
+              "large",
+              "6.9",
+              "8"
+            ],
+            [
+              "SD-CC-015",
+              "Tyre Shine small",
+              "small",
+              "4.5",
+              "8"
+            ],
+            [
+              "SD-CC-016",
+              "Tyre Shine large",
+              "large",
+              "5.1",
+              "8"
+            ],
+            [
+              "SD-CC-017",
+              "Wiper Blades small",
+              "small",
+              "5.7",
+              "8"
+            ],
+            [
+              "SD-CC-018",
+              "Wiper Blades large",
+              "large",
+              "6.3",
+              "8"
+            ],
+            [
+              "SD-CC-019",
+              "Fuel Additive small",
+              "small",
+              "6.9",
+              "8"
+            ],
+            [
+              "SD-CC-020",
+              "Fuel Additive large",
+              "large",
+              "4.5",
+              "8"
+            ]
+          ]
+        },
+        {
+          "title": "Travel Essentials (10)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Pack size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-TR-001",
+              "Hand Sanitizer small",
+              "small",
+              "1.9",
+              "12"
+            ],
+            [
+              "SD-TR-002",
+              "Hand Sanitizer regular",
+              "regular",
+              "2.3",
+              "12"
+            ],
+            [
+              "SD-TR-003",
+              "Travel Tissues small",
+              "small",
+              "1.5",
+              "12"
+            ],
+            [
+              "SD-TR-004",
+              "Travel Tissues regular",
+              "regular",
+              "1.9",
+              "12"
+            ],
+            [
+              "SD-TR-005",
+              "Wet Wipes small",
+              "small",
+              "2.3",
+              "12"
+            ],
+            [
+              "SD-TR-006",
+              "Wet Wipes regular",
+              "regular",
+              "1.5",
+              "12"
+            ],
+            [
+              "SD-TR-007",
+              "Lip Balm small",
+              "small",
+              "1.9",
+              "12"
+            ],
+            [
+              "SD-TR-008",
+              "Lip Balm regular",
+              "regular",
+              "2.3",
+              "12"
+            ],
+            [
+              "SD-TR-009",
+              "Toothpaste Mini small",
+              "small",
+              "1.5",
+              "12"
+            ],
+            [
+              "SD-TR-010",
+              "Toothpaste Mini regular",
+              "regular",
+              "1.9",
+              "12"
+            ]
+          ]
+        },
+        {
+          "title": "Seasonal (10)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Pack size",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-SE-001",
+              "Bagged Ice single",
+              "single",
+              "3.1",
+              "6"
+            ],
+            [
+              "SD-SE-002",
+              "Bagged Ice bundle",
+              "bundle",
+              "3.7",
+              "6"
+            ],
+            [
+              "SD-SE-003",
+              "De-Icer Spray single",
+              "single",
+              "2.5",
+              "6"
+            ],
+            [
+              "SD-SE-004",
+              "De-Icer Spray bundle",
+              "bundle",
+              "3.1",
+              "6"
+            ],
+            [
+              "SD-SE-005",
+              "Sun Screen single",
+              "single",
+              "3.7",
+              "6"
+            ],
+            [
+              "SD-SE-006",
+              "Sun Screen bundle",
+              "bundle",
+              "2.5",
+              "6"
+            ],
+            [
+              "SD-SE-007",
+              "Umbrella single",
+              "single",
+              "3.1",
+              "6"
+            ],
+            [
+              "SD-SE-008",
+              "Umbrella bundle",
+              "bundle",
+              "3.7",
+              "6"
+            ],
+            [
+              "SD-SE-009",
+              "Glow Stick single",
+              "single",
+              "2.5",
+              "6"
+            ],
+            [
+              "SD-SE-010",
+              "Glow Stick bundle",
+              "bundle",
+              "3.1",
+              "6"
+            ]
+          ]
+        },
+        {
+          "title": "Hot Drinks (20)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Serve",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "SD-HD-001",
+              "Espresso small",
+              "cup",
+              "2.50",
+              "16"
+            ],
+            [
+              "SD-HD-002",
+              "Espresso large",
+              "cup",
+              "2.80",
+              "16"
+            ],
+            [
+              "SD-HD-003",
+              "Americano small",
+              "cup",
+              "2.20",
+              "16"
+            ],
+            [
+              "SD-HD-004",
+              "Americano large",
+              "cup",
+              "2.50",
+              "16"
+            ],
+            [
+              "SD-HD-005",
+              "Latte small",
+              "cup",
+              "2.80",
+              "16"
+            ],
+            [
+              "SD-HD-006",
+              "Latte large",
+              "cup",
+              "2.20",
+              "16"
+            ],
+            [
+              "SD-HD-007",
+              "Cappuccino small",
+              "cup",
+              "2.50",
+              "16"
+            ],
+            [
+              "SD-HD-008",
+              "Cappuccino large",
+              "cup",
+              "2.80",
+              "16"
+            ],
+            [
+              "SD-HD-009",
+              "Hot Chocolate small",
+              "cup",
+              "2.20",
+              "16"
+            ],
+            [
+              "SD-HD-010",
+              "Hot Chocolate large",
+              "cup",
+              "2.50",
+              "16"
+            ],
+            [
+              "SD-HD-011",
+              "Espresso extra",
+              "cup",
+              "2.60",
+              "14"
+            ],
+            [
+              "SD-HD-012",
+              "Americano extra",
+              "cup",
+              "2.60",
+              "14"
+            ],
+            [
+              "SD-HD-013",
+              "Latte extra",
+              "cup",
+              "2.60",
+              "14"
+            ],
+            [
+              "SD-HD-014",
+              "Cappuccino extra",
+              "cup",
+              "2.60",
+              "14"
+            ],
+            [
+              "SD-HD-015",
+              "Hot Chocolate extra",
+              "cup",
+              "2.60",
+              "14"
+            ],
+            [
+              "SD-HD-016",
+              "Espresso extra",
+              "cup",
+              "2.60",
+              "14"
+            ],
+            [
+              "SD-HD-017",
+              "Americano extra",
+              "cup",
+              "2.60",
+              "14"
+            ],
+            [
+              "SD-HD-018",
+              "Latte extra",
+              "cup",
+              "2.60",
+              "14"
+            ],
+            [
+              "SD-HD-019",
+              "Cappuccino extra",
+              "cup",
+              "2.60",
+              "14"
+            ],
+            [
+              "SD-HD-020",
+              "Hot Chocolate extra",
+              "cup",
+              "2.60",
+              "14"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "urn:establishment:sim-shop-001",
+      "name": "Get Naked",
+      "meta": "No need for clothes baby",
+      "hours": "07:00-20:00 GMT",
+      "timezone": "Europe/London",
+      "logo": "/businesses/get_naked.png",
+      "sections": [
+        {
+          "title": "Gents Collection (40)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Category",
+            "Sizes",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "GN-G-001",
+              "Studio Logo Tee",
+              "T-shirt",
+              "S-XXL",
+              "34.00",
+              "6"
+            ],
+            [
+              "GN-G-002",
+              "Mono Stitch Tee",
+              "T-shirt",
+              "S-XXL",
+              "32.00",
+              "6"
+            ],
+            [
+              "GN-G-003",
+              "Contour Line Tee",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-004",
+              "Ribbed Neck Tee",
+              "T-shirt",
+              "S-XXL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-G-005",
+              "Pocket Minimal Tee",
+              "T-shirt",
+              "S-XXL",
+              "33.00",
+              "6"
+            ],
+            [
+              "GN-G-006",
+              "Heavyweight Core Tee",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-007",
+              "Raw Hem Tee",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "4"
+            ],
+            [
+              "GN-G-008",
+              "Drop Shoulder Tee",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "4"
+            ],
+            [
+              "GN-G-009",
+              "Graphic Grid Tee",
+              "T-shirt",
+              "S-XXL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-G-010",
+              "Sunset Wash Tee",
+              "T-shirt",
+              "S-XXL",
+              "40.00",
+              "4"
+            ],
+            [
+              "GN-G-011",
+              "Soft Touch Tee",
+              "T-shirt",
+              "S-XXL",
+              "34.00",
+              "6"
+            ],
+            [
+              "GN-G-012",
+              "Tape Logo Tee",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-013",
+              "Studio Number Tee",
+              "T-shirt",
+              "S-XXL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-G-014",
+              "Micro Print Tee",
+              "T-shirt",
+              "S-XXL",
+              "33.00",
+              "6"
+            ],
+            [
+              "GN-G-015",
+              "Seamless Tee",
+              "T-shirt",
+              "S-XXL",
+              "42.00",
+              "4"
+            ],
+            [
+              "GN-G-016",
+              "Boxy Tee",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "4"
+            ],
+            [
+              "GN-G-017",
+              "Contrast Stitch Tee",
+              "T-shirt",
+              "S-XXL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-G-018",
+              "Air Knit Tee",
+              "T-shirt",
+              "S-XXL",
+              "41.00",
+              "4"
+            ],
+            [
+              "GN-G-019",
+              "Vintage Wash Tee",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "4"
+            ],
+            [
+              "GN-G-020",
+              "Minimal Wordmark Tee",
+              "T-shirt",
+              "S-XXL",
+              "32.00",
+              "6"
+            ],
+            [
+              "GN-G-021",
+              "Raglan Tee",
+              "T-shirt",
+              "S-XXL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-G-022",
+              "Scallop Hem Tee",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "4"
+            ],
+            [
+              "GN-G-023",
+              "Ringer Tee",
+              "T-shirt",
+              "S-XXL",
+              "33.00",
+              "5"
+            ],
+            [
+              "GN-G-024",
+              "Henley Tee",
+              "T-shirt",
+              "S-XXL",
+              "40.00",
+              "4"
+            ],
+            [
+              "GN-G-025",
+              "Longline Tee",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "4"
+            ],
+            [
+              "GN-G-026",
+              "Slim Fit Chino",
+              "Pants",
+              "W28-38 L30/32",
+              "88.00",
+              "2"
+            ],
+            [
+              "GN-G-027",
+              "Tapered Chino",
+              "Pants",
+              "W28-38 L30/32",
+              "92.00",
+              "2"
+            ],
+            [
+              "GN-G-028",
+              "Straight Denim",
+              "Pants",
+              "W28-38 L30/32",
+              "110.00",
+              "2"
+            ],
+            [
+              "GN-G-029",
+              "Stretch Denim",
+              "Pants",
+              "W28-38 L30/32",
+              "115.00",
+              "2"
+            ],
+            [
+              "GN-G-030",
+              "Tailored Jogger",
+              "Pants",
+              "W28-38 L30/32",
+              "95.00",
+              "2"
+            ],
+            [
+              "GN-G-031",
+              "Utility Cargo Pant",
+              "Pants",
+              "W28-38 L30/32",
+              "120.00",
+              "2"
+            ],
+            [
+              "GN-G-032",
+              "Studio Hoodie",
+              "Hoodie",
+              "S-XXL",
+              "82.00",
+              "3"
+            ],
+            [
+              "GN-G-033",
+              "Minimal Zip Hoodie",
+              "Hoodie",
+              "S-XXL",
+              "88.00",
+              "3"
+            ],
+            [
+              "GN-G-034",
+              "Oversized Hoodie",
+              "Hoodie",
+              "S-XXL",
+              "92.00",
+              "2"
+            ],
+            [
+              "GN-G-035",
+              "Loopback Hoodie",
+              "Hoodie",
+              "S-XXL",
+              "79.00",
+              "3"
+            ],
+            [
+              "GN-G-036",
+              "Lightweight Bomber",
+              "Jacket",
+              "S-XXL",
+              "160.00",
+              "1"
+            ],
+            [
+              "GN-G-037",
+              "Denim Jacket",
+              "Jacket",
+              "S-XXL",
+              "150.00",
+              "1"
+            ],
+            [
+              "GN-G-038",
+              "Wool Blend Overshirt",
+              "Jacket",
+              "S-XXL",
+              "190.00",
+              "1"
+            ],
+            [
+              "GN-G-039",
+              "Slim Leather Wallet",
+              "Wallet",
+              "One size",
+              "65.00",
+              "2"
+            ],
+            [
+              "GN-G-040",
+              "Zip Card Wallet",
+              "Wallet",
+              "One size",
+              "75.00",
+              "2"
+            ]
+          ]
+        },
+        {
+          "title": "Ladies Collection (40)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Category",
+            "Sizes",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "GN-L-001",
+              "Studio Logo Tee",
+              "T-shirt",
+              "XS-XL",
+              "32.00",
+              "6"
+            ],
+            [
+              "GN-L-002",
+              "Soft Rib Tee",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-003",
+              "Cropped Box Tee",
+              "T-shirt",
+              "XS-XL",
+              "33.00",
+              "5"
+            ],
+            [
+              "GN-L-004",
+              "Drape Tee",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "4"
+            ],
+            [
+              "GN-L-005",
+              "Scoop Neck Tee",
+              "T-shirt",
+              "XS-XL",
+              "32.00",
+              "6"
+            ],
+            [
+              "GN-L-006",
+              "V-Neck Tee",
+              "T-shirt",
+              "XS-XL",
+              "31.00",
+              "6"
+            ],
+            [
+              "GN-L-007",
+              "Pocket Tee",
+              "T-shirt",
+              "XS-XL",
+              "33.00",
+              "5"
+            ],
+            [
+              "GN-L-008",
+              "Contrast Trim Tee",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-009",
+              "Slub Knit Tee",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "4"
+            ],
+            [
+              "GN-L-010",
+              "Cap Sleeve Tee",
+              "T-shirt",
+              "XS-XL",
+              "32.00",
+              "6"
+            ],
+            [
+              "GN-L-011",
+              "Longline Tee",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "4"
+            ],
+            [
+              "GN-L-012",
+              "Tie Hem Tee",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "4"
+            ],
+            [
+              "GN-L-013",
+              "Minimal Wordmark Tee",
+              "T-shirt",
+              "XS-XL",
+              "31.00",
+              "6"
+            ],
+            [
+              "GN-L-014",
+              "Ringer Tee",
+              "T-shirt",
+              "XS-XL",
+              "33.00",
+              "5"
+            ],
+            [
+              "GN-L-015",
+              "Double Stitch Tee",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-016",
+              "Oversized Tee",
+              "T-shirt",
+              "XS-XL",
+              "38.00",
+              "4"
+            ],
+            [
+              "GN-L-017",
+              "Split Hem Tee",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "4"
+            ],
+            [
+              "GN-L-018",
+              "Raglan Tee",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-019",
+              "Relaxed Tee",
+              "T-shirt",
+              "XS-XL",
+              "32.00",
+              "6"
+            ],
+            [
+              "GN-L-020",
+              "Air Knit Tee",
+              "T-shirt",
+              "XS-XL",
+              "39.00",
+              "4"
+            ],
+            [
+              "GN-L-021",
+              "Vintage Wash Tee",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "4"
+            ],
+            [
+              "GN-L-022",
+              "Satin Touch Tee",
+              "T-shirt",
+              "XS-XL",
+              "40.00",
+              "3"
+            ],
+            [
+              "GN-L-023",
+              "Mock Neck Tee",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "4"
+            ],
+            [
+              "GN-L-024",
+              "Modal Blend Tee",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-025",
+              "High Rise Skinny",
+              "Pants",
+              "UK 6-16",
+              "98.00",
+              "2"
+            ],
+            [
+              "GN-L-026",
+              "Wide Leg Trouser",
+              "Pants",
+              "UK 6-16",
+              "120.00",
+              "2"
+            ],
+            [
+              "GN-L-027",
+              "Tailored Cigarette Pant",
+              "Pants",
+              "UK 6-16",
+              "110.00",
+              "2"
+            ],
+            [
+              "GN-L-028",
+              "Midi Slip Skirt",
+              "Skirt",
+              "UK 6-16",
+              "95.00",
+              "2"
+            ],
+            [
+              "GN-L-029",
+              "Pleated Skirt",
+              "Skirt",
+              "UK 6-16",
+              "105.00",
+              "2"
+            ],
+            [
+              "GN-L-030",
+              "Utility Cargo Pant",
+              "Pants",
+              "UK 6-16",
+              "115.00",
+              "2"
+            ],
+            [
+              "GN-L-031",
+              "Studio Hoodie",
+              "Hoodie",
+              "XS-XL",
+              "82.00",
+              "3"
+            ],
+            [
+              "GN-L-032",
+              "Minimal Zip Hoodie",
+              "Hoodie",
+              "XS-XL",
+              "88.00",
+              "3"
+            ],
+            [
+              "GN-L-033",
+              "Cropped Hoodie",
+              "Hoodie",
+              "XS-XL",
+              "79.00",
+              "3"
+            ],
+            [
+              "GN-L-034",
+              "Loopback Hoodie",
+              "Hoodie",
+              "XS-XL",
+              "84.00",
+              "3"
+            ],
+            [
+              "GN-L-035",
+              "Studio Mini Tote",
+              "Handbag",
+              "28x20x10 cm",
+              "150.00",
+              "1"
+            ],
+            [
+              "GN-L-036",
+              "Soft Edge Satchel",
+              "Handbag",
+              "32x24x12 cm",
+              "190.00",
+              "1"
+            ],
+            [
+              "GN-L-037",
+              "Sculpted Crossbody",
+              "Handbag",
+              "24x18x8 cm",
+              "170.00",
+              "1"
+            ],
+            [
+              "GN-L-038",
+              "Slim Leather Wallet",
+              "Wallet",
+              "One size",
+              "60.00",
+              "2"
+            ],
+            [
+              "GN-L-039",
+              "Zip Card Wallet",
+              "Wallet",
+              "One size",
+              "70.00",
+              "2"
+            ],
+            [
+              "GN-L-040",
+              "Cropped Leather Jacket",
+              "Jacket",
+              "XS-XL",
+              "220.00",
+              "1"
+            ]
+          ]
+        },
+        {
+          "title": "Gents Colorways (60)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Category",
+            "Sizes",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "GN-G-041",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-042",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-043",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-044",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-045",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-046",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-047",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-048",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-049",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-050",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-051",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-052",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-053",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-054",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-055",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-056",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-057",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-058",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-059",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-060",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-061",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-062",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-063",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-064",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-065",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-066",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-067",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-068",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-069",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-070",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-071",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-072",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-073",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-074",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-075",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-076",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-077",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-078",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-079",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-080",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-081",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-082",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-083",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-084",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-085",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-086",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-087",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-088",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-089",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-090",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-091",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-092",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-093",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-094",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-095",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-096",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ],
+            [
+              "GN-G-097",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "S-XXL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-G-098",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "S-XXL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-G-099",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "S-XXL",
+              "38.00",
+              "5"
+            ],
+            [
+              "GN-G-100",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "S-XXL",
+              "39.00",
+              "5"
+            ]
+          ]
+        },
+        {
+          "title": "Gents Accessories (30)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Category",
+            "Sizes",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "GN-G-101",
+              "Canvas Cap 1",
+              "Accessory",
+              "One size",
+              "28.00",
+              "2"
+            ],
+            [
+              "GN-G-102",
+              "Ribbed Beanie 2",
+              "Accessory",
+              "One size",
+              "34.00",
+              "2"
+            ],
+            [
+              "GN-G-103",
+              "Crew Socks 3",
+              "Accessory",
+              "M-L",
+              "24.00",
+              "2"
+            ],
+            [
+              "GN-G-104",
+              "Leather Belt 4",
+              "Accessory",
+              "S-XL",
+              "55.00",
+              "2"
+            ],
+            [
+              "GN-G-105",
+              "Weekender Tote 5",
+              "Handbag",
+              "48x30x18 cm",
+              "144.00",
+              "2"
+            ],
+            [
+              "GN-G-106",
+              "Canvas Cap 6",
+              "Accessory",
+              "One size",
+              "36.00",
+              "2"
+            ],
+            [
+              "GN-G-107",
+              "Ribbed Beanie 1",
+              "Accessory",
+              "One size",
+              "30.00",
+              "2"
+            ],
+            [
+              "GN-G-108",
+              "Crew Socks 2",
+              "Accessory",
+              "M-L",
+              "20.00",
+              "2"
+            ],
+            [
+              "GN-G-109",
+              "Leather Belt 3",
+              "Accessory",
+              "S-XL",
+              "63.00",
+              "2"
+            ],
+            [
+              "GN-G-110",
+              "Weekender Tote 4",
+              "Handbag",
+              "48x30x18 cm",
+              "140.00",
+              "2"
+            ],
+            [
+              "GN-G-111",
+              "Canvas Cap 5",
+              "Accessory",
+              "One size",
+              "32.00",
+              "2"
+            ],
+            [
+              "GN-G-112",
+              "Ribbed Beanie 6",
+              "Accessory",
+              "One size",
+              "38.00",
+              "2"
+            ],
+            [
+              "GN-G-113",
+              "Crew Socks 1",
+              "Accessory",
+              "M-L",
+              "16.00",
+              "2"
+            ],
+            [
+              "GN-G-114",
+              "Leather Belt 2",
+              "Accessory",
+              "S-XL",
+              "59.00",
+              "2"
+            ],
+            [
+              "GN-G-115",
+              "Weekender Tote 3",
+              "Handbag",
+              "48x30x18 cm",
+              "148.00",
+              "2"
+            ],
+            [
+              "GN-G-116",
+              "Canvas Cap 4",
+              "Accessory",
+              "One size",
+              "28.00",
+              "2"
+            ],
+            [
+              "GN-G-117",
+              "Ribbed Beanie 5",
+              "Accessory",
+              "One size",
+              "34.00",
+              "2"
+            ],
+            [
+              "GN-G-118",
+              "Crew Socks 6",
+              "Accessory",
+              "M-L",
+              "24.00",
+              "2"
+            ],
+            [
+              "GN-G-119",
+              "Leather Belt 1",
+              "Accessory",
+              "S-XL",
+              "55.00",
+              "2"
+            ],
+            [
+              "GN-G-120",
+              "Weekender Tote 2",
+              "Handbag",
+              "48x30x18 cm",
+              "144.00",
+              "2"
+            ],
+            [
+              "GN-G-121",
+              "Canvas Cap 3",
+              "Accessory",
+              "One size",
+              "36.00",
+              "2"
+            ],
+            [
+              "GN-G-122",
+              "Ribbed Beanie 4",
+              "Accessory",
+              "One size",
+              "30.00",
+              "2"
+            ],
+            [
+              "GN-G-123",
+              "Crew Socks 5",
+              "Accessory",
+              "M-L",
+              "20.00",
+              "2"
+            ],
+            [
+              "GN-G-124",
+              "Leather Belt 6",
+              "Accessory",
+              "S-XL",
+              "63.00",
+              "2"
+            ],
+            [
+              "GN-G-125",
+              "Weekender Tote 1",
+              "Handbag",
+              "48x30x18 cm",
+              "140.00",
+              "2"
+            ],
+            [
+              "GN-G-126",
+              "Canvas Cap 2",
+              "Accessory",
+              "One size",
+              "32.00",
+              "2"
+            ],
+            [
+              "GN-G-127",
+              "Ribbed Beanie 3",
+              "Accessory",
+              "One size",
+              "38.00",
+              "2"
+            ],
+            [
+              "GN-G-128",
+              "Crew Socks 4",
+              "Accessory",
+              "M-L",
+              "16.00",
+              "2"
+            ],
+            [
+              "GN-G-129",
+              "Leather Belt 5",
+              "Accessory",
+              "S-XL",
+              "59.00",
+              "2"
+            ],
+            [
+              "GN-G-130",
+              "Weekender Tote 6",
+              "Handbag",
+              "48x30x18 cm",
+              "148.00",
+              "2"
+            ]
+          ]
+        },
+        {
+          "title": "Ladies Colorways (60)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Category",
+            "Sizes",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "GN-L-041",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-042",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-043",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-044",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-045",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-046",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-047",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-048",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-049",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-050",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-051",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-052",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-053",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-054",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-055",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-056",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-057",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-058",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-059",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-060",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-061",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-062",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-063",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-064",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-065",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-066",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-067",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-068",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-069",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-070",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-071",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-072",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-073",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-074",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-075",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-076",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-077",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-078",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-079",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-080",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-081",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-082",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-083",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-084",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-085",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-086",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-087",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-088",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-089",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-090",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-091",
+              "Studio Logo Tee - Black",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-092",
+              "Studio Logo Tee - White",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-093",
+              "Studio Logo Tee - Stone",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-094",
+              "Studio Logo Tee - Navy",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-095",
+              "Studio Logo Tee - Olive",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-096",
+              "Studio Logo Tee - Sand",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ],
+            [
+              "GN-L-097",
+              "Studio Logo Tee - Charcoal",
+              "T-shirt",
+              "XS-XL",
+              "34.00",
+              "5"
+            ],
+            [
+              "GN-L-098",
+              "Studio Logo Tee - Burgundy",
+              "T-shirt",
+              "XS-XL",
+              "35.00",
+              "5"
+            ],
+            [
+              "GN-L-099",
+              "Studio Logo Tee - Slate",
+              "T-shirt",
+              "XS-XL",
+              "36.00",
+              "5"
+            ],
+            [
+              "GN-L-100",
+              "Studio Logo Tee - Ink",
+              "T-shirt",
+              "XS-XL",
+              "37.00",
+              "5"
+            ]
+          ]
+        },
+        {
+          "title": "Ladies Accessories (30)",
+          "headers": [
+            "SKU",
+            "Item",
+            "Category",
+            "Sizes",
+            "Price",
+            "Daily cap"
+          ],
+          "rows": [
+            [
+              "GN-L-101",
+              "Silk Scarf 1",
+              "Accessory",
+              "One size",
+              "45.00",
+              "2"
+            ],
+            [
+              "GN-L-102",
+              "Leather Belt 2",
+              "Accessory",
+              "XS-L",
+              "63.00",
+              "2"
+            ],
+            [
+              "GN-L-103",
+              "Crew Socks 3",
+              "Accessory",
+              "S-M",
+              "26.00",
+              "2"
+            ],
+            [
+              "GN-L-104",
+              "Mini Pouch 4",
+              "Handbag",
+              "18x12 cm",
+              "85.00",
+              "2"
+            ],
+            [
+              "GN-L-105",
+              "Canvas Tote 5",
+              "Handbag",
+              "40x32x12 cm",
+              "125.00",
+              "2"
+            ],
+            [
+              "GN-L-106",
+              "Silk Scarf 6",
+              "Accessory",
+              "One size",
+              "55.00",
+              "2"
+            ],
+            [
+              "GN-L-107",
+              "Leather Belt 1",
+              "Accessory",
+              "XS-L",
+              "58.00",
+              "2"
+            ],
+            [
+              "GN-L-108",
+              "Crew Socks 2",
+              "Accessory",
+              "S-M",
+              "21.00",
+              "2"
+            ],
+            [
+              "GN-L-109",
+              "Mini Pouch 3",
+              "Handbag",
+              "18x12 cm",
+              "95.00",
+              "2"
+            ],
+            [
+              "GN-L-110",
+              "Canvas Tote 4",
+              "Handbag",
+              "40x32x12 cm",
+              "120.00",
+              "2"
+            ],
+            [
+              "GN-L-111",
+              "Silk Scarf 5",
+              "Accessory",
+              "One size",
+              "50.00",
+              "2"
+            ],
+            [
+              "GN-L-112",
+              "Leather Belt 6",
+              "Accessory",
+              "XS-L",
+              "68.00",
+              "2"
+            ],
+            [
+              "GN-L-113",
+              "Crew Socks 1",
+              "Accessory",
+              "S-M",
+              "16.00",
+              "2"
+            ],
+            [
+              "GN-L-114",
+              "Mini Pouch 2",
+              "Handbag",
+              "18x12 cm",
+              "90.00",
+              "2"
+            ],
+            [
+              "GN-L-115",
+              "Canvas Tote 3",
+              "Handbag",
+              "40x32x12 cm",
+              "130.00",
+              "2"
+            ],
+            [
+              "GN-L-116",
+              "Silk Scarf 4",
+              "Accessory",
+              "One size",
+              "45.00",
+              "2"
+            ],
+            [
+              "GN-L-117",
+              "Leather Belt 5",
+              "Accessory",
+              "XS-L",
+              "63.00",
+              "2"
+            ],
+            [
+              "GN-L-118",
+              "Crew Socks 6",
+              "Accessory",
+              "S-M",
+              "26.00",
+              "2"
+            ],
+            [
+              "GN-L-119",
+              "Mini Pouch 1",
+              "Handbag",
+              "18x12 cm",
+              "85.00",
+              "2"
+            ],
+            [
+              "GN-L-120",
+              "Canvas Tote 2",
+              "Handbag",
+              "40x32x12 cm",
+              "125.00",
+              "2"
+            ],
+            [
+              "GN-L-121",
+              "Silk Scarf 3",
+              "Accessory",
+              "One size",
+              "55.00",
+              "2"
+            ],
+            [
+              "GN-L-122",
+              "Leather Belt 4",
+              "Accessory",
+              "XS-L",
+              "58.00",
+              "2"
+            ],
+            [
+              "GN-L-123",
+              "Crew Socks 5",
+              "Accessory",
+              "S-M",
+              "21.00",
+              "2"
+            ],
+            [
+              "GN-L-124",
+              "Mini Pouch 6",
+              "Handbag",
+              "18x12 cm",
+              "95.00",
+              "2"
+            ],
+            [
+              "GN-L-125",
+              "Canvas Tote 1",
+              "Handbag",
+              "40x32x12 cm",
+              "120.00",
+              "2"
+            ],
+            [
+              "GN-L-126",
+              "Silk Scarf 2",
+              "Accessory",
+              "One size",
+              "50.00",
+              "2"
+            ],
+            [
+              "GN-L-127",
+              "Leather Belt 3",
+              "Accessory",
+              "XS-L",
+              "68.00",
+              "2"
+            ],
+            [
+              "GN-L-128",
+              "Crew Socks 4",
+              "Accessory",
+              "S-M",
+              "16.00",
+              "2"
+            ],
+            [
+              "GN-L-129",
+              "Mini Pouch 5",
+              "Handbag",
+              "18x12 cm",
+              "90.00",
+              "2"
+            ],
+            [
+              "GN-L-130",
+              "Canvas Tote 6",
+              "Handbag",
+              "40x32x12 cm",
+              "130.00",
+              "2"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
