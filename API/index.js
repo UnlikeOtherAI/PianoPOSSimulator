@@ -524,7 +524,7 @@ const rootIndexHtml = `<!doctype html>
 
       const getLondonMinutes = () => {
         const parts = new Intl.DateTimeFormat("en-GB", {
-          timeZone: "Europe/London",
+          timeZone: "Europe/Edinburgh",
           hour: "2-digit",
           minute: "2-digit",
           hour12: false,
@@ -550,7 +550,7 @@ const rootIndexHtml = `<!doctype html>
         const data = shops[key];
         if (!data || !statusEl) return;
         const openNow = isOpenNow(data.schedule);
-        statusEl.textContent = (openNow ? "Open now" : "Closed now") + " (London)";
+        statusEl.textContent = (openNow ? "Open now" : "Closed now") + " (Edinburgh)";
       };
 
       const renderShop = (key) => {
