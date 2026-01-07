@@ -17,9 +17,13 @@ This document defines how simulated sales should be generated across establishme
 ## The "Magic Number" (Daily Cap)
 
 - Every catalog item has a `daily cap` value in its establishment document.
-- The cap is the upper bound for daily sales volume for that item.
-- When generating sales, do not exceed `daily cap` for any item within a 24-hour window.
-- If the selection pool is exhausted, fall back to the next best item in the same category with remaining cap.
+- Without a database, per-day caps are approximated using a deterministic \"magic number\" per item.
+- Magic number algorithm:
+  - `base = 30 + (hash(date|establishment|item) % 61)` (range 30-90).
+  - Adjust by price: very expensive items reduce the number; very cheap items increase it.
+  - Clamp to 5-95 to avoid extremes.
+- When selecting items, compute a per-slot roll `1-100` from `hash(date|establishment|item|slot|attempt)` and include the item only if `roll <= magicNumber`.
+- If all attempts fail, fall back to a random item from the same category.
 
 ## Trigger Behavior
 

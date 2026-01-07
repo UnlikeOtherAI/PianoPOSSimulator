@@ -42,6 +42,17 @@ const pickWeighted = (choices) => {
   return choices[choices.length - 1].value;
 };
 
+const hashString = (value) => {
+  let hash = 2166136261;
+  for (let i = 0; i < value.length; i += 1) {
+    hash ^= value.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+};
+
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
 const getDateParts = (now = new Date()) => {
   const iso = now.toISOString();
   return {
@@ -62,6 +73,7 @@ class PurchaseGenerator {
   generateOrders() {
     const now = new Date();
     const { timestamp, fiscalDate } = getDateParts(now);
+    const slotKey = Math.floor(now.getTime() / (5 * 60 * 1000));
     const eventDetail = {
       timestamp,
       username: "sim-bot",
@@ -70,7 +82,7 @@ class PurchaseGenerator {
       stationName: "Simulator",
     };
 
-    const items = this.#buildItems({ now, fiscalDate, eventDetail });
+    const items = this.#buildItems({ now, fiscalDate, eventDetail, slotKey });
     const totalAmount = items.reduce(
       (sum, item) => sum + item.totalGrossPrice,
       0
@@ -97,20 +109,38 @@ class PurchaseGenerator {
     return { orders: [order] };
   }
 
-  #buildItems({ now, fiscalDate, eventDetail }) {
+  #buildItems({ now, fiscalDate, eventDetail, slotKey }) {
     const establishment = ESTABLISHMENT_INDEX[this.establishmentId];
     const sections = establishment?.sections ?? [];
 
     if (this.establishment === Establishment.ROCK_BOTTOM) {
-      return this.#buildPubItems({ now, fiscalDate, eventDetail, sections });
+      return this.#buildPubItems({
+        now,
+        fiscalDate,
+        eventDetail,
+        sections,
+        slotKey,
+      });
     }
     if (this.establishment === Establishment.SCOTTISH_DIESEL) {
-      return this.#buildPetrolItems({ now, fiscalDate, eventDetail, sections });
+      return this.#buildPetrolItems({
+        now,
+        fiscalDate,
+        eventDetail,
+        sections,
+        slotKey,
+      });
     }
-    return this.#buildRetailItems({ now, fiscalDate, eventDetail, sections });
+    return this.#buildRetailItems({
+      now,
+      fiscalDate,
+      eventDetail,
+      sections,
+      slotKey,
+    });
   }
 
-  #buildPubItems({ now, fiscalDate, eventDetail, sections }) {
+  #buildPubItems({ now, fiscalDate, eventDetail, sections, slotKey }) {
     const beerPool = this.#sectionRows(sections, [
       "Beer Taps",
       "Bottled Beer",
@@ -153,7 +183,11 @@ class PurchaseGenerator {
           ? winePool
           : merchPool;
 
-      const item = pickOne(pool);
+      const item = this.#pickWithMagic(pool, {
+        fiscalDate,
+        slotKey,
+        fallback: pool,
+      });
       items.push(
         this.#buildOrderItem({ now, item, quantity: 1, fiscalDate, eventDetail })
       );
@@ -161,7 +195,7 @@ class PurchaseGenerator {
     return items;
   }
 
-  #buildPetrolItems({ now, fiscalDate, eventDetail, sections }) {
+  #buildPetrolItems({ now, fiscalDate, eventDetail, sections, slotKey }) {
     const fuelPool = this.#sectionRows(sections, ["Fuel"]);
     const snackPool = this.#sectionRows(sections, [
       "Snacks",
@@ -178,7 +212,11 @@ class PurchaseGenerator {
     const items = [];
     const snackOnly = Math.random() < 0.1;
     if (!snackOnly) {
-      const fuel = pickOne(fuelPool);
+      const fuel = this.#pickWithMagic(fuelPool, {
+        fiscalDate,
+        slotKey,
+        fallback: fuelPool,
+      });
       const fuelLiters = pickWeighted([
         { value: pickInt(20, 60), weight: 60 },
         { value: pickInt(60, 90), weight: 25 },
@@ -201,7 +239,11 @@ class PurchaseGenerator {
       { value: 2, weight: 15 },
     ]);
     for (let i = 0; i < snacksCount; i += 1) {
-      const snack = pickOne(snackPool);
+      const snack = this.#pickWithMagic(snackPool, {
+        fiscalDate,
+        slotKey,
+        fallback: snackPool,
+      });
       items.push(
         this.#buildOrderItem({
           now,
@@ -214,7 +256,11 @@ class PurchaseGenerator {
     }
 
     if (Math.random() < 0.04) {
-      const lpg = pickOne(lpgPool);
+      const lpg = this.#pickWithMagic(lpgPool, {
+        fiscalDate,
+        slotKey,
+        fallback: lpgPool,
+      });
       items.push(
         this.#buildOrderItem({
           now,
@@ -229,7 +275,7 @@ class PurchaseGenerator {
     return items;
   }
 
-  #buildRetailItems({ now, fiscalDate, eventDetail, sections }) {
+  #buildRetailItems({ now, fiscalDate, eventDetail, sections, slotKey }) {
     const allRows = this.#sectionRows(sections, [
       "Gents Collection",
       "Ladies Collection",
@@ -275,7 +321,11 @@ class PurchaseGenerator {
           : category === "outerwear"
           ? outerwearPool
           : accessoriesPool;
-      const item = pickOne(pool.length ? pool : allRows);
+      const item = this.#pickWithMagic(pool.length ? pool : allRows, {
+        fiscalDate,
+        slotKey,
+        fallback: allRows,
+      });
       const sizedItem = item.size
         ? { ...item, name: `${item.name} (${item.size})` }
         : item;
@@ -304,6 +354,37 @@ class PurchaseGenerator {
       totalGrossPrice,
       created: eventDetail,
     };
+  }
+
+  #pickWithMagic(pool, { fiscalDate, slotKey, fallback }) {
+    if (!pool || pool.length === 0) return pickOne(fallback);
+    for (let attempt = 0; attempt < 6; attempt += 1) {
+      const candidate = pickOne(pool);
+      if (this.#shouldPurchase(candidate, fiscalDate, slotKey, attempt)) {
+        return candidate;
+      }
+    }
+    return pickOne(pool);
+  }
+
+  #shouldPurchase(item, fiscalDate, slotKey, attempt) {
+    const magicNumber = this.#magicNumberFor(item, fiscalDate);
+    const rollSeed = `${fiscalDate}|${this.establishmentId}|${item.name}|${slotKey}|${attempt}`;
+    const roll = (hashString(rollSeed) % 100) + 1;
+    return roll <= magicNumber;
+  }
+
+  #magicNumberFor(item, fiscalDate) {
+    const seed = `${fiscalDate}|${this.establishmentId}|${item.name}`;
+    const base = 30 + (hashString(seed) % 61);
+    const price = Number(item.price) || 0;
+    let modifier = 0;
+    if (price >= 120) modifier -= 20;
+    else if (price >= 60) modifier -= 12;
+    else if (price >= 30) modifier -= 6;
+    else if (price <= 5) modifier += 12;
+    else if (price <= 10) modifier += 6;
+    return clamp(base + modifier, 5, 95);
   }
 
   #sectionRows(sections, prefixes) {
