@@ -24,11 +24,77 @@ const swaggerIndexHtml = `<!doctype html>
     <title>Piano SIM Swagger</title>
     <link rel="stylesheet" href="./swagger-ui.css" />
     <style>
-      body { margin: 0; background: #f4efe6; }
-      .swagger-ui .topbar { background: #1d1b16; }
+      :root {
+        --sim-ink: #1d1b16;
+        --sim-cream: #f7f2ea;
+        --sim-card: #fffaf0;
+        --sim-muted: #4b443b;
+        --sim-border: #e2d6c2;
+      }
+      body {
+        margin: 0;
+        background: var(--sim-cream);
+        color: var(--sim-ink);
+        font-family: "Georgia", "Times New Roman", serif;
+      }
+      .sim-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 28px 32px 12px;
+      }
+      .sim-header img {
+        width: 52px;
+        height: 52px;
+      }
+      .sim-header h1 {
+        margin: 0;
+        font-size: 20px;
+        letter-spacing: 2px;
+      }
+      .sim-header p {
+        margin: 4px 0 0;
+        color: var(--sim-muted);
+        font-size: 13px;
+      }
+      .swagger-ui .topbar {
+        background: var(--sim-ink);
+      }
+      .swagger-ui .topbar a span {
+        color: #fffaf0;
+      }
+      .swagger-ui .opblock {
+        border-color: var(--sim-border);
+        background: var(--sim-card);
+      }
+      .swagger-ui .opblock .opblock-summary {
+        border-color: var(--sim-border);
+      }
+      .swagger-ui .btn.execute {
+        background-color: var(--sim-ink);
+        border-color: var(--sim-ink);
+      }
+      .swagger-ui .btn.authorize {
+        background-color: var(--sim-ink);
+        border-color: var(--sim-ink);
+        color: #fffaf0;
+      }
+      .swagger-ui .info .title {
+        font-family: "Georgia", "Times New Roman", serif;
+      }
+      .swagger-ui .wrapper {
+        padding: 0 24px 40px;
+      }
     </style>
   </head>
   <body>
+    <header class="sim-header">
+      <img src="/assets/wolf.png" alt="Unlike Other AI" />
+      <div>
+        <h1>Piano SIM</h1>
+        <p>by Unlike Other AI agency</p>
+      </div>
+    </header>
     <div id="swagger-ui"></div>
     <script src="./swagger-ui-bundle.js"></script>
     <script src="./swagger-ui-standalone-preset.js"></script>
