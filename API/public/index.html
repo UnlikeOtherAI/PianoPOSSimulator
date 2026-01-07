@@ -148,8 +148,17 @@
       class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 px-6"
     >
       <div class="w-full max-w-4xl rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.3)]">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col items-center gap-4">
           <h3 class="text-lg font-semibold text-[#1d1b16]">Generated Sales</h3>
+          <button
+            id="make-another-sale"
+            class="rounded-full border border-[#1d1b16] bg-[#1d1b16] px-6 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#fffaf0] transition hover:opacity-90"
+            type="button"
+          >
+            Make Another
+          </button>
+        </div>
+        <div class="mt-4 flex justify-end">
           <button
             id="close-sale-modal"
             class="rounded-full border border-[#1d1b16] px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#1d1b16]"
@@ -181,6 +190,7 @@
       const saleModalEl = document.getElementById("sale-modal");
       const saleResultsEl = document.getElementById("sale-results");
       const closeSaleModalEl = document.getElementById("close-sale-modal");
+      const makeAnotherSaleEl = document.getElementById("make-another-sale");
       let currentShop = null;
       let animationTimer = null;
       let dataCache = null;
@@ -714,6 +724,17 @@
         });
       };
 
+      const requestSales = async (establishments) => {
+        const response = await fetch("/sim/trigger", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            businessIds: establishments.map((item) => item.id),
+          }),
+        });
+        return response.json();
+      };
+
       const init = async () => {
         dataCache = await fetchData();
         const establishments = dataCache.establishments || [];
@@ -728,14 +749,7 @@
             try {
               saleButtonEl.disabled = true;
               saleButtonEl.textContent = "Generating...";
-              const response = await fetch("/sim/trigger", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  businessIds: establishments.map((item) => item.id),
-                }),
-              });
-              const payload = await response.json();
+              const payload = await requestSales(establishments);
               openSaleModal(payload);
             } catch (error) {
               openSaleModal({
@@ -750,6 +764,29 @@
             } finally {
               saleButtonEl.disabled = false;
               saleButtonEl.textContent = "Make Sale";
+            }
+          });
+        }
+        if (makeAnotherSaleEl) {
+          makeAnotherSaleEl.addEventListener("click", async () => {
+            try {
+              makeAnotherSaleEl.disabled = true;
+              makeAnotherSaleEl.textContent = "Generating...";
+              const payload = await requestSales(establishments);
+              openSaleModal(payload);
+            } catch (error) {
+              openSaleModal({
+                results: [
+                  {
+                    name: "Error",
+                    logo: "/assets/wolf.png",
+                    orders: [],
+                  },
+                ],
+              });
+            } finally {
+              makeAnotherSaleEl.disabled = false;
+              makeAnotherSaleEl.textContent = "Make Another";
             }
           });
         }
