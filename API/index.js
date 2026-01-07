@@ -190,9 +190,14 @@ const rootIndexHtml = `<!doctype html>
               <h2 id="shop-title" class="flex items-center gap-3 text-xl font-semibold text-[#1d1b16]">The Rock Bottom</h2>
               <p id="shop-meta" class="mt-2 text-sm text-[#4b443b]">Craft beer bar • Open 14:00 to 02:00 GMT</p>
             </div>
-            <span id="shop-hours" class="rounded-full border border-[#1d1b16] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#1d1b16]">
-              14:00-02:00 GMT
-            </span>
+            <div class="flex flex-col items-start gap-2">
+              <span id="shop-hours" class="rounded-full border border-[#1d1b16] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#1d1b16]">
+                14:00-02:00 GMT
+              </span>
+              <span id="shop-status" class="text-[11px] uppercase tracking-[0.28em] text-[#4b443b]">
+                Open now (London)
+              </span>
+            </div>
           </div>
           <div id="shop-items" class="mt-6 grid gap-6 md:grid-cols-2"></div>
         </div>
@@ -220,6 +225,7 @@ const rootIndexHtml = `<!doctype html>
           meta: "Craft beer bar • Open 14:00 to 02:00 GMT",
           hours: "14:00-02:00 GMT",
           logo: "/businesses/rock_bottom.png",
+          schedule: { openHour: 14, openMinute: 0, closeHour: 2, closeMinute: 0, overnight: true },
           sections: [
             {
               title: "Beer Taps",
@@ -341,6 +347,7 @@ const rootIndexHtml = `<!doctype html>
           meta: "Petrol station • Open 24/7",
           hours: "00:00-24:00 GMT",
           logo: "/businesses/scottish_diesel.png",
+          schedule: { open24: true },
           sections: [
             {
               title: "Fuel",
@@ -411,6 +418,7 @@ const rootIndexHtml = `<!doctype html>
           meta: "Designer apparel • Open 07:00 to 20:00 GMT",
           hours: "07:00-20:00 GMT",
           logo: "/businesses/get_naked.png",
+          schedule: { openHour: 7, openMinute: 0, closeHour: 20, closeMinute: 0, overnight: false },
           sections: [
             {
               title: "Gents",
@@ -511,10 +519,44 @@ const rootIndexHtml = `<!doctype html>
       const metaEl = document.getElementById("shop-meta");
       const hoursEl = document.getElementById("shop-hours");
       const itemsEl = document.getElementById("shop-items");
+      const statusEl = document.getElementById("shop-status");
+      let currentShopKey = "rock-bottom";
+
+      const getLondonMinutes = () => {
+        const parts = new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Europe/London",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).formatToParts(new Date());
+        const hour = Number(parts.find((part) => part.type === "hour")?.value ?? 0);
+        const minute = Number(parts.find((part) => part.type === "minute")?.value ?? 0);
+        return hour * 60 + minute;
+      };
+
+      const isOpenNow = (schedule) => {
+        if (!schedule) return false;
+        if (schedule.open24) return true;
+        const openMinutes = schedule.openHour * 60 + schedule.openMinute;
+        const closeMinutes = schedule.closeHour * 60 + schedule.closeMinute;
+        const nowMinutes = getLondonMinutes();
+        if (schedule.overnight || closeMinutes <= openMinutes) {
+          return nowMinutes >= openMinutes || nowMinutes < closeMinutes;
+        }
+        return nowMinutes >= openMinutes && nowMinutes < closeMinutes;
+      };
+
+      const updateStatus = (key) => {
+        const data = shops[key];
+        if (!data || !statusEl) return;
+        const openNow = isOpenNow(data.schedule);
+        statusEl.textContent = (openNow ? "Open now" : "Closed now") + " (London)";
+      };
 
       const renderShop = (key) => {
         const data = shops[key];
         if (!data) return;
+        currentShopKey = key;
         titleEl.textContent = data.title;
         metaEl.textContent = data.meta;
         hoursEl.textContent = data.hours;
@@ -544,6 +586,7 @@ const rootIndexHtml = `<!doctype html>
           })
           .join("");
         itemsEl.innerHTML = sectionMarkup;
+        updateStatus(key);
 
         tabButtons.forEach((button) => {
           const isActive = button.dataset.tab === key;
@@ -560,6 +603,7 @@ const rootIndexHtml = `<!doctype html>
       });
 
       renderShop("rock-bottom");
+      setInterval(() => updateStatus(currentShopKey), 60000);
     </script>
   </body>
 </html>`;
