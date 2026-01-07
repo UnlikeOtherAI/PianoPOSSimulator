@@ -5,10 +5,7 @@
 - Opening hours: 14:00 to 02:00 (next day)
 - Currency: GBP
 
-## Beer Taps (34)
-
-Columns: Tap ID | Name | Style | ABV | Serving | Price (pint) | Price (half) | Daily cap
-
+## Beer Taps (32)
 | Tap ID | Name | Style | ABV | Serving | Price (pint) | Price (half) | Daily cap |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | RB-TAP-01 | Stonecliff Hazy IPA | Hazy IPA | 5.8% | 568ml | 6.80 | 4.20 | 42 |
@@ -43,10 +40,9 @@ Columns: Tap ID | Name | Style | ABV | Serving | Price (pint) | Price (half) | D
 | RB-TAP-30 | Skylark Blonde Ale | Blonde Ale | 4.5% | 568ml | 5.70 | 3.50 | 50 |
 | RB-TAP-31 | Raven Black IPA | Black IPA | 6.7% | 568ml | 7.20 | 4.60 | 22 |
 | RB-TAP-32 | Honeycomb Golden Ale | Golden Ale | 5.0% | 568ml | 6.00 | 3.70 | 34 |
-| RB-TAP-33 | Cocoa Cherry Stout | Stout | 7.4% | 568ml | 7.60 | 4.90 | 16 |
-| RB-TAP-34 | Spruce Tip Pale | Pale Ale | 5.3% | 568ml | 6.30 | 3.90 | 28 |
 
 ## Spirits (40)
+ (40)
 
 Columns: SKU | Name | Category | ABV | Pour | Price | Daily cap
 
@@ -127,115 +123,45 @@ Columns: SKU | Item | Sizes | Price | Daily cap
 | RB-MR-03 | Limited Gig Ticket (Presale) | N/A | 18.00 | 4 |
 
 
-## Bottled Beer (60)
+## Bottled Beer (24)
 
 | SKU | Name | Size | Price | Daily cap |
 | --- | --- | --- | --- | --- |
-| RB-BB-001 | Harbor Lager 1 | 330ml | 5.00 | 18 |
-| RB-BB-002 | Harbor Lager 2 | 330ml | 5.20 | 18 |
-| RB-BB-003 | Harbor Lager 3 | 330ml | 5.40 | 18 |
-| RB-BB-004 | Harbor Lager 1 | 500ml | 5.00 | 18 |
-| RB-BB-005 | Harbor Lager 2 | 500ml | 5.20 | 18 |
-| RB-BB-006 | Harbor Lager 3 | 500ml | 5.40 | 18 |
-| RB-BB-007 | North Coast Pale 1 | 330ml | 5.00 | 18 |
-| RB-BB-008 | North Coast Pale 2 | 330ml | 5.20 | 18 |
-| RB-BB-009 | North Coast Pale 3 | 330ml | 5.40 | 18 |
-| RB-BB-010 | North Coast Pale 1 | 500ml | 5.00 | 18 |
-| RB-BB-011 | North Coast Pale 2 | 500ml | 5.20 | 18 |
-| RB-BB-012 | North Coast Pale 3 | 500ml | 5.40 | 18 |
-| RB-BB-013 | Midtown Pils 1 | 330ml | 5.00 | 18 |
-| RB-BB-014 | Midtown Pils 2 | 330ml | 5.20 | 18 |
-| RB-BB-015 | Midtown Pils 3 | 330ml | 5.40 | 18 |
-| RB-BB-016 | Midtown Pils 1 | 500ml | 5.00 | 18 |
-| RB-BB-017 | Midtown Pils 2 | 500ml | 5.20 | 18 |
-| RB-BB-018 | Midtown Pils 3 | 500ml | 5.40 | 18 |
-| RB-BB-019 | Red Brick Amber 1 | 330ml | 5.00 | 18 |
-| RB-BB-020 | Red Brick Amber 2 | 330ml | 5.20 | 18 |
-| RB-BB-021 | Red Brick Amber 3 | 330ml | 5.40 | 18 |
-| RB-BB-022 | Red Brick Amber 1 | 500ml | 5.00 | 18 |
-| RB-BB-023 | Red Brick Amber 2 | 500ml | 5.20 | 18 |
-| RB-BB-024 | Red Brick Amber 3 | 500ml | 5.40 | 18 |
-| RB-BB-025 | Forest IPA 1 | 330ml | 5.00 | 18 |
-| RB-BB-026 | Forest IPA 2 | 330ml | 5.20 | 18 |
-| RB-BB-027 | Forest IPA 3 | 330ml | 5.40 | 18 |
-| RB-BB-028 | Forest IPA 1 | 500ml | 5.00 | 18 |
-| RB-BB-029 | Forest IPA 2 | 500ml | 5.20 | 18 |
-| RB-BB-030 | Forest IPA 3 | 500ml | 5.40 | 18 |
-| RB-BB-031 | Golden Kolsch 1 | 330ml | 5.00 | 18 |
-| RB-BB-032 | Golden Kolsch 2 | 330ml | 5.20 | 18 |
-| RB-BB-033 | Golden Kolsch 3 | 330ml | 5.40 | 18 |
-| RB-BB-034 | Golden Kolsch 1 | 500ml | 5.00 | 18 |
-| RB-BB-035 | Golden Kolsch 2 | 500ml | 5.20 | 18 |
-| RB-BB-036 | Golden Kolsch 3 | 500ml | 5.40 | 18 |
-| RB-BB-037 | Seaside Wheat 1 | 330ml | 5.00 | 18 |
-| RB-BB-038 | Seaside Wheat 2 | 330ml | 5.20 | 18 |
-| RB-BB-039 | Seaside Wheat 3 | 330ml | 5.40 | 18 |
-| RB-BB-040 | Seaside Wheat 1 | 500ml | 5.00 | 18 |
-| RB-BB-041 | Seaside Wheat 2 | 500ml | 5.20 | 18 |
-| RB-BB-042 | Seaside Wheat 3 | 500ml | 5.40 | 18 |
-| RB-BB-043 | Nightfall Stout 1 | 330ml | 5.00 | 18 |
-| RB-BB-044 | Nightfall Stout 2 | 330ml | 5.20 | 18 |
-| RB-BB-045 | Nightfall Stout 3 | 330ml | 5.40 | 18 |
-| RB-BB-046 | Nightfall Stout 1 | 500ml | 5.00 | 18 |
-| RB-BB-047 | Nightfall Stout 2 | 500ml | 5.20 | 18 |
-| RB-BB-048 | Nightfall Stout 3 | 500ml | 5.40 | 18 |
-| RB-BB-049 | Copper Porter 1 | 330ml | 5.00 | 18 |
-| RB-BB-050 | Copper Porter 2 | 330ml | 5.20 | 18 |
-| RB-BB-051 | Copper Porter 3 | 330ml | 5.40 | 18 |
-| RB-BB-052 | Copper Porter 1 | 500ml | 5.00 | 18 |
-| RB-BB-053 | Copper Porter 2 | 500ml | 5.20 | 18 |
-| RB-BB-054 | Copper Porter 3 | 500ml | 5.40 | 18 |
-| RB-BB-055 | Citrus Pale 1 | 330ml | 5.00 | 18 |
-| RB-BB-056 | Citrus Pale 2 | 330ml | 5.20 | 18 |
-| RB-BB-057 | Citrus Pale 3 | 330ml | 5.40 | 18 |
-| RB-BB-058 | Citrus Pale 1 | 500ml | 5.00 | 18 |
-| RB-BB-059 | Citrus Pale 2 | 500ml | 5.20 | 18 |
-| RB-BB-060 | Citrus Pale 3 | 500ml | 5.40 | 18 |
+| RB-BB-001 | Harbor Lager | 330ml | 4.80 | 18 |
+| RB-BB-002 | Harbor Lager | 500ml | 5.60 | 16 |
+| RB-BB-003 | North Coast Pale | 330ml | 4.90 | 18 |
+| RB-BB-004 | North Coast Pale | 500ml | 5.80 | 16 |
+| RB-BB-005 | Midtown Pils | 330ml | 4.70 | 18 |
+| RB-BB-006 | Midtown Pils | 500ml | 5.50 | 16 |
+| RB-BB-007 | Red Brick Amber | 330ml | 5.00 | 16 |
+| RB-BB-008 | Red Brick Amber | 500ml | 5.90 | 14 |
+| RB-BB-009 | Forest IPA | 330ml | 5.20 | 14 |
+| RB-BB-010 | Forest IPA | 500ml | 6.10 | 12 |
+| RB-BB-011 | Golden Kolsch | 330ml | 4.80 | 18 |
+| RB-BB-012 | Golden Kolsch | 500ml | 5.70 | 16 |
+| RB-BB-013 | Seaside Wheat | 330ml | 4.90 | 18 |
+| RB-BB-014 | Seaside Wheat | 500ml | 5.80 | 16 |
+| RB-BB-015 | Nightfall Stout | 330ml | 5.10 | 14 |
+| RB-BB-016 | Nightfall Stout | 500ml | 6.00 | 12 |
+| RB-BB-017 | Copper Porter | 330ml | 5.00 | 16 |
+| RB-BB-018 | Copper Porter | 500ml | 5.90 | 14 |
+| RB-BB-019 | Citrus Pale | 330ml | 4.80 | 18 |
+| RB-BB-020 | Citrus Pale | 500ml | 5.70 | 16 |
+| RB-BB-021 | Hillside ESB | 330ml | 4.90 | 16 |
+| RB-BB-022 | Hillside ESB | 500ml | 5.80 | 14 |
+| RB-BB-023 | Harbor Helles | 330ml | 4.70 | 18 |
+| RB-BB-024 | Harbor Helles | 500ml | 5.60 | 16 |
 
-## Canned Beer (40)
+## Canned Beer (6)
 
 | SKU | Name | Size | Price | Daily cap |
 | --- | --- | --- | --- | --- |
-| RB-BC-001 | Hazy Skyline IPA 1 | 330ml | 4.85 | 20 |
-| RB-BC-002 | Hazy Skyline IPA 2 | 330ml | 5.10 | 20 |
-| RB-BC-003 | Hazy Skyline IPA 1 | 440ml | 4.85 | 20 |
-| RB-BC-004 | Hazy Skyline IPA 2 | 440ml | 5.10 | 20 |
-| RB-BC-005 | Tropic Session IPA 1 | 330ml | 4.85 | 20 |
-| RB-BC-006 | Tropic Session IPA 2 | 330ml | 5.10 | 20 |
-| RB-BC-007 | Tropic Session IPA 1 | 440ml | 4.85 | 20 |
-| RB-BC-008 | Tropic Session IPA 2 | 440ml | 5.10 | 20 |
-| RB-BC-009 | Dark Tide Stout 1 | 330ml | 4.85 | 20 |
-| RB-BC-010 | Dark Tide Stout 2 | 330ml | 5.10 | 20 |
-| RB-BC-011 | Dark Tide Stout 1 | 440ml | 4.85 | 20 |
-| RB-BC-012 | Dark Tide Stout 2 | 440ml | 5.10 | 20 |
-| RB-BC-013 | Rooftop Pils 1 | 330ml | 4.85 | 20 |
-| RB-BC-014 | Rooftop Pils 2 | 330ml | 5.10 | 20 |
-| RB-BC-015 | Rooftop Pils 1 | 440ml | 4.85 | 20 |
-| RB-BC-016 | Rooftop Pils 2 | 440ml | 5.10 | 20 |
-| RB-BC-017 | Crisp Lager 1 | 330ml | 4.85 | 20 |
-| RB-BC-018 | Crisp Lager 2 | 330ml | 5.10 | 20 |
-| RB-BC-019 | Crisp Lager 1 | 440ml | 4.85 | 20 |
-| RB-BC-020 | Crisp Lager 2 | 440ml | 5.10 | 20 |
-| RB-BC-021 | Sourberry Gose 1 | 330ml | 4.85 | 20 |
-| RB-BC-022 | Sourberry Gose 2 | 330ml | 5.10 | 20 |
-| RB-BC-023 | Sourberry Gose 1 | 440ml | 4.85 | 20 |
-| RB-BC-024 | Sourberry Gose 2 | 440ml | 5.10 | 20 |
-| RB-BC-025 | Grapefruit Radler 1 | 330ml | 4.85 | 20 |
-| RB-BC-026 | Grapefruit Radler 2 | 330ml | 5.10 | 20 |
-| RB-BC-027 | Grapefruit Radler 1 | 440ml | 4.85 | 20 |
-| RB-BC-028 | Grapefruit Radler 2 | 440ml | 5.10 | 20 |
-| RB-BC-029 | Coconut Porter 1 | 330ml | 4.85 | 20 |
-| RB-BC-030 | Coconut Porter 2 | 330ml | 5.10 | 20 |
-| RB-BC-031 | Coconut Porter 1 | 440ml | 4.85 | 20 |
-| RB-BC-032 | Coconut Porter 2 | 440ml | 5.10 | 20 |
-| RB-BC-033 | Pine IPA 1 | 330ml | 4.85 | 20 |
-| RB-BC-034 | Pine IPA 2 | 330ml | 5.10 | 20 |
-| RB-BC-035 | Pine IPA 1 | 440ml | 4.85 | 20 |
-| RB-BC-036 | Pine IPA 2 | 440ml | 5.10 | 20 |
-| RB-BC-037 | Citrus Blonde 1 | 330ml | 4.85 | 20 |
-| RB-BC-038 | Citrus Blonde 2 | 330ml | 5.10 | 20 |
-| RB-BC-039 | Citrus Blonde 1 | 440ml | 4.85 | 20 |
-| RB-BC-040 | Citrus Blonde 2 | 440ml | 5.10 | 20 |
+| RB-BC-001 | Hazy Skyline IPA | 330ml | 4.90 | 18 |
+| RB-BC-002 | Hazy Skyline IPA | 440ml | 5.40 | 16 |
+| RB-BC-003 | Tropic Session IPA | 330ml | 4.70 | 18 |
+| RB-BC-004 | Tropic Session IPA | 440ml | 5.20 | 16 |
+| RB-BC-005 | Dark Tide Stout | 330ml | 5.10 | 14 |
+| RB-BC-006 | Dark Tide Stout | 440ml | 5.60 | 12 |
 
 ## Wine (24)
 
