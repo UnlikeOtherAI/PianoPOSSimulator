@@ -33,11 +33,12 @@ This document explains how the POS purchase simulator API is organized and how t
 
 ## Simulated Establishments
 
-The simulator represents three establishments:
+The simulator represents four establishments:
 
 1. Shop (retail) - open 7:00 to 20:00 GMT
 2. Pub - open 14:00 to 02:00 GMT
 3. Petrol station - open 00:00 to 24:00 GMT (always open)
+4. Burrito truck (La Mordida) - open Fri-Sun 11:00 to 22:00 GMT
 
 ## Purchase Simulation Rules
 

@@ -77,6 +77,17 @@ Each call to `/sim/trigger` should create exactly one fake sale for each establi
   - 8 truck fills per day, spread across daytime hours.
 - LPG bottles: 1-3 total per day, only during daytime.
 
+## Burrito Truck (La Mordida) Rules
+
+- Open Fri-Sun only.
+- Peak demand: 11:00 to 14:00 and 20:00 to 22:00.
+- Item mix target:
+  - 45% burritos
+  - 25% tacos
+  - 15% sides
+  - 15% drinks
+- Basket sizes: 1-3 items.
+
 ## Reasonable Sales Volume
 
 - Do not exceed any per-item `daily cap`.

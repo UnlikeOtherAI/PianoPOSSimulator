@@ -68,6 +68,7 @@ Build a Node.js POS purchase simulator that sends realistic payloads to downstre
 - Shop (retail): open 07:00 to 20:00 GMT
 - Pub: open 14:00 to 02:00 GMT (next day)
 - Petrol station: open 00:00 to 24:00 GMT
+- Burrito truck (La Mordida): open Fri-Sun 11:00 to 22:00 GMT
 
 ## Auth Simulation
 

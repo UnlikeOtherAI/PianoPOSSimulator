@@ -16,6 +16,12 @@ const ESTABLISHMENT_SCHEDULES = {
     close: 20 * 60,
     overnight: false,
   },
+  [Establishment.LA_MORDIDA]: {
+    open: 11 * 60,
+    close: 22 * 60,
+    overnight: false,
+    daysOpen: ["Friday", "Saturday", "Sunday"],
+  },
 };
 
 const getEdinburghMinutes = (now = new Date()) => {
@@ -61,6 +67,7 @@ class TriggerPlanner {
     plan[Establishment.ROCK_BOTTOM] = this.#pubCount(nowMinutes);
     plan[Establishment.SCOTTISH_DIESEL] = this.#petrolCount(nowMinutes);
     plan[Establishment.GET_NAKED] = this.#retailCount(nowMinutes);
+    plan[Establishment.LA_MORDIDA] = this.#truckCount(now, nowMinutes);
 
     return plan;
   }
@@ -127,6 +134,33 @@ class TriggerPlanner {
       { value: 0, weight: 40 },
       { value: 1, weight: 50 },
       { value: 2, weight: 10 },
+    ]);
+  }
+
+  #truckCount(now, nowMinutes) {
+    const schedule = ESTABLISHMENT_SCHEDULES[Establishment.LA_MORDIDA];
+    if (!schedule) return 0;
+    const dayName = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/London",
+      weekday: "long",
+    }).format(now);
+    if (!schedule.daysOpen.includes(dayName)) return 0;
+    if (!isOpenNow(schedule, nowMinutes)) return 0;
+
+    const lunch = nowMinutes >= 11 * 60 && nowMinutes <= 14 * 60;
+    const late = nowMinutes >= 20 * 60 && nowMinutes <= 22 * 60;
+    if (lunch || late) {
+      return pickWeighted([
+        { value: 1, weight: 40 },
+        { value: 2, weight: 40 },
+        { value: 3, weight: 20 },
+      ]);
+    }
+
+    return pickWeighted([
+      { value: 0, weight: 30 },
+      { value: 1, weight: 55 },
+      { value: 2, weight: 15 },
     ]);
   }
 }

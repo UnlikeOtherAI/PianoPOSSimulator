@@ -6,12 +6,14 @@ const Establishment = Object.freeze({
   ROCK_BOTTOM: "ROCK_BOTTOM",
   SCOTTISH_DIESEL: "SCOTTISH_DIESEL",
   GET_NAKED: "GET_NAKED",
+  LA_MORDIDA: "LA_MORDIDA",
 });
 
 const PAYMENT_METHODS = {
   ROCK_BOTTOM: ["card", "cash"],
   SCOTTISH_DIESEL: ["card", "cash", "invoice"],
   GET_NAKED: ["card", "cash"],
+  LA_MORDIDA: ["card", "cash"],
 };
 
 const __filename = fileURLToPath(import.meta.url);
@@ -27,6 +29,7 @@ const ESTABLISHMENT_IDS = {
   ROCK_BOTTOM: "urn:establishment:sim-pub-001",
   SCOTTISH_DIESEL: "urn:establishment:sim-petrol-001",
   GET_NAKED: "urn:establishment:sim-shop-001",
+  LA_MORDIDA: "urn:establishment:sim-truck-001",
 };
 
 const pickOne = (items) => items[Math.floor(Math.random() * items.length)];
@@ -124,6 +127,15 @@ class PurchaseGenerator {
     }
     if (this.establishment === Establishment.SCOTTISH_DIESEL) {
       return this.#buildPetrolItems({
+        now,
+        fiscalDate,
+        eventDetail,
+        sections,
+        slotKey,
+      });
+    }
+    if (this.establishment === Establishment.LA_MORDIDA) {
+      return this.#buildTruckItems({
         now,
         fiscalDate,
         eventDetail,
@@ -333,6 +345,53 @@ class PurchaseGenerator {
         this.#buildOrderItem({
           now,
           item: sizedItem,
+          quantity: 1,
+          fiscalDate,
+          eventDetail,
+        })
+      );
+    }
+    return items;
+  }
+
+  #buildTruckItems({ now, fiscalDate, eventDetail, sections, slotKey }) {
+    const burritoPool = this.#sectionRows(sections, ["Burritos"]);
+    const tacosPool = this.#sectionRows(sections, ["Tacos"]);
+    const sidesPool = this.#sectionRows(sections, ["Sides"]);
+    const drinksPool = this.#sectionRows(sections, ["Drinks"]);
+
+    const items = [];
+    const basketSize = pickWeighted([
+      { value: 1, weight: 55 },
+      { value: 2, weight: 30 },
+      { value: 3, weight: 15 },
+    ]);
+    const categoryChoices = [
+      { value: "burrito", weight: 45 },
+      { value: "tacos", weight: 25 },
+      { value: "sides", weight: 15 },
+      { value: "drinks", weight: 15 },
+    ];
+
+    for (let i = 0; i < basketSize; i += 1) {
+      const category = pickWeighted(categoryChoices);
+      const pool =
+        category === "burrito"
+          ? burritoPool
+          : category === "tacos"
+          ? tacosPool
+          : category === "sides"
+          ? sidesPool
+          : drinksPool;
+      const item = this.#pickWithMagic(pool, {
+        fiscalDate,
+        slotKey,
+        fallback: pool,
+      });
+      items.push(
+        this.#buildOrderItem({
+          now,
+          item,
           quantity: 1,
           fiscalDate,
           eventDetail,

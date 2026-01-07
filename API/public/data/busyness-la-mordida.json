@@ -1,0 +1,18 @@
+{
+  "id": "urn:establishment:sim-truck-001",
+  "name": "La Mordida",
+  "timezone": "Europe/London",
+  "open": "11:00",
+  "close": "22:00",
+  "daysOpen": ["Friday", "Saturday", "Sunday"],
+  "intervalMinutes": 5,
+  "notes": "Burrito truck peaks at lunch and late evening on weekend nights.",
+  "baselinePurchasesPer5Min": [
+    { "start": "00:00", "end": "11:00", "min": 0, "max": 0 },
+    { "start": "11:00", "end": "14:00", "min": 1, "max": 3 },
+    { "start": "14:00", "end": "17:00", "min": 0, "max": 2 },
+    { "start": "17:00", "end": "20:00", "min": 1, "max": 3 },
+    { "start": "20:00", "end": "22:00", "min": 1, "max": 4 },
+    { "start": "22:00", "end": "24:00", "min": 0, "max": 0 }
+  ]
+}
