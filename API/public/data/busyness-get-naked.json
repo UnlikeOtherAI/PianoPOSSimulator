@@ -1,0 +1,18 @@
+{
+  "id": "urn:establishment:sim-shop-001",
+  "name": "Get Naked",
+  "timezone": "Europe/London",
+  "open": "07:00",
+  "close": "20:00",
+  "intervalMinutes": 5,
+  "notes": "Clothing store traffic spikes at lunch and after work, low in early morning and late evening.",
+  "baselinePurchasesPer5Min": [
+    { "start": "00:00", "end": "07:00", "min": 0, "max": 0 },
+    { "start": "07:00", "end": "11:00", "min": 0, "max": 1 },
+    { "start": "11:00", "end": "13:00", "min": 1, "max": 2 },
+    { "start": "13:00", "end": "16:00", "min": 0, "max": 1 },
+    { "start": "16:00", "end": "19:00", "min": 1, "max": 2 },
+    { "start": "19:00", "end": "20:00", "min": 0, "max": 1 },
+    { "start": "20:00", "end": "24:00", "min": 0, "max": 0 }
+  ]
+}
