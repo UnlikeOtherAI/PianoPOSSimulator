@@ -511,19 +511,24 @@ const rootIndexHtml = `<!doctype html>
             ' logo" />'
           : "";
         titleEl.innerHTML = logoMarkup + "<span>" + data.title + "</span>";
-        itemsEl.innerHTML = data.sections
+        const sectionMarkup = data.sections
           .map((section) => {
             const items = section.items
-              .map((item) => `<li class="text-sm text-[#4b443b]">${item}</li>`)
+              .map((item) => '<li class="text-sm text-[#4b443b]">' + item + "</li>")
               .join("");
-            return `
-              <div class="rounded-xl border border-[#e2d6c2] bg-white px-4 py-4">
-                <h3 class="text-sm font-semibold uppercase tracking-widest text-[#1d1b16]">${section.title}</h3>
-                <ul class="mt-3 flex flex-col gap-2">${items}</ul>
-              </div>
-            `;
+            return (
+              '<div class="rounded-xl border border-[#e2d6c2] bg-white px-4 py-4">' +
+              '<h3 class="text-sm font-semibold uppercase tracking-widest text-[#1d1b16]">' +
+              section.title +
+              "</h3>" +
+              '<ul class="mt-3 flex flex-col gap-2">' +
+              items +
+              "</ul>" +
+              "</div>"
+            );
           })
           .join("");
+        itemsEl.innerHTML = sectionMarkup;
 
         tabButtons.forEach((button) => {
           const isActive = button.dataset.tab === key;
