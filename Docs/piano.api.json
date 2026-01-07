@@ -354,7 +354,22 @@
     "/api/v1/orders": {
       "put": {
         "operationId": "VisitRestController_submitOrders",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "establishmentId",
+            "in": "query",
+            "description": "Select the establishment for the simulated data.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "urn:establishment:sim-shop-001",
+                "urn:establishment:sim-pub-001",
+                "urn:establishment:sim-petrol-001"
+              ]
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -385,7 +400,22 @@
     "/api/v1/inventory/state": {
       "put": {
         "operationId": "InventoryRestController_importInventoryState",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "establishmentId",
+            "in": "query",
+            "description": "Select the establishment for the simulated data.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "urn:establishment:sim-shop-001",
+                "urn:establishment:sim-pub-001",
+                "urn:establishment:sim-petrol-001"
+              ]
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -454,7 +484,22 @@
     "/api/v1/documents": {
       "put": {
         "operationId": "DocumentsRestController_importDocuments",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "establishmentId",
+            "in": "query",
+            "description": "Select the establishment for the simulated data.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "urn:establishment:sim-shop-001",
+                "urn:establishment:sim-pub-001",
+                "urn:establishment:sim-petrol-001"
+              ]
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -1303,7 +1348,7 @@
           "street": {
             "type": "string",
             "description": "Street name",
-            "example": "Sokolovská"
+            "example": "Sokolovsk\u00e1"
           },
           "number": {
             "type": "string",
@@ -1328,7 +1373,7 @@
           "region": {
             "type": "string",
             "description": "Region name",
-            "example": "Moravskoslezský kraj"
+            "example": "Moravskoslezsk\u00fd kraj"
           },
           "country": {
             "type": "string",

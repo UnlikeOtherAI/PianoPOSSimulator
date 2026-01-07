@@ -15,6 +15,11 @@ Basic API scaffold in place with `/sim/trigger` returning `{ "ok": ":)" }`.
 
 ![OAuth simulator UI](API/public/assets/auth_screenshot.png)
 
+## Swagger UI
+
+- Local: `http://localhost:6080/swagger`
+- Deployed: `https://pianosim.unlikeotherai.com/swagger`
+
 ## Simulator Rules & Scenarios
 
 ### Shops and Hours (GMT)

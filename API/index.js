@@ -1,6 +1,8 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
+import swaggerUiDist from "swagger-ui-dist";
 
 const app = express();
 const port = process.env.PORT ?? 6080;
@@ -10,6 +12,36 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, "public")));
+
+const openApiPath = path.join(__dirname, "..", "Docs", "piano.api.json");
+const swaggerAssetPath = swaggerUiDist.getAbsoluteFSPath();
+
+const swaggerIndexHtml = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Piano SIM Swagger</title>
+    <link rel="stylesheet" href="./swagger-ui.css" />
+    <style>
+      body { margin: 0; background: #f4efe6; }
+      .swagger-ui .topbar { background: #1d1b16; }
+    </style>
+  </head>
+  <body>
+    <div id="swagger-ui"></div>
+    <script src="./swagger-ui-bundle.js"></script>
+    <script src="./swagger-ui-standalone-preset.js"></script>
+    <script>
+      window.ui = SwaggerUIBundle({
+        url: "./openapi.json",
+        dom_id: "#swagger-ui",
+        presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+        layout: "StandaloneLayout"
+      });
+    </script>
+  </body>
+</html>`;
 
 const SIM_ACCESS_TOKEN = "sim_access_token";
 const SIM_REFRESH_TOKEN = "sim_refresh_token";
@@ -196,6 +228,19 @@ app.get("/.well-known/oauth-protected-resource/mcp", protectedResourceMetadataHa
 app.post("/api/v1/auth/login", loginHandler);
 app.get("/api/v1/auth/whoami", whoAmIHandler);
 app.post("/api/v1/auth/pair", pairHandler);
+
+app.use("/swagger", express.static(swaggerAssetPath, { index: false }));
+app.get("/swagger", (req, res) => {
+  res.status(200).type("html").send(swaggerIndexHtml);
+});
+app.get("/swagger/openapi.json", (req, res) => {
+  try {
+    const spec = fs.readFileSync(openApiPath, "utf8");
+    res.status(200).type("json").send(spec);
+  } catch {
+    res.status(500).json({ error: "OpenAPI spec not available." });
+  }
+});
 
 app.listen(port, () => {
   console.log(`API simulator listening on port ${port}`);
