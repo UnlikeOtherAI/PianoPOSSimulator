@@ -284,6 +284,11 @@ class PurchaseGenerator {
       );
     }
 
+    const fuelItems = items.filter((item) => item.unit === "liter");
+    if (fuelItems.length > 1) {
+      const keep = fuelItems[0];
+      return [keep, ...items.filter((item) => item.unit !== "liter")];
+    }
     return items;
   }
 
