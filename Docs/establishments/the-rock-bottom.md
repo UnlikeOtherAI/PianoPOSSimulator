@@ -125,3 +125,223 @@ Columns: SKU | Item | Sizes | Price | Daily cap
 | RB-MR-01 | Rock Bottom Logo Tee | S, M, L, XL, XXL | 22.00 | 3 |
 | RB-MR-02 | Taproom Crew Tee | S, M, L, XL, XXL | 25.00 | 2 |
 | RB-MR-03 | Limited Gig Ticket (Presale) | N/A | 18.00 | 4 |
+
+
+## Bottled Beer (60)
+
+| SKU | Name | Size | Price | Daily cap |
+| --- | --- | --- | --- | --- |
+| RB-BB-001 | Harbor Lager 1 | 330ml | 5.00 | 18 |
+| RB-BB-002 | Harbor Lager 2 | 330ml | 5.20 | 18 |
+| RB-BB-003 | Harbor Lager 3 | 330ml | 5.40 | 18 |
+| RB-BB-004 | Harbor Lager 1 | 500ml | 5.00 | 18 |
+| RB-BB-005 | Harbor Lager 2 | 500ml | 5.20 | 18 |
+| RB-BB-006 | Harbor Lager 3 | 500ml | 5.40 | 18 |
+| RB-BB-007 | North Coast Pale 1 | 330ml | 5.00 | 18 |
+| RB-BB-008 | North Coast Pale 2 | 330ml | 5.20 | 18 |
+| RB-BB-009 | North Coast Pale 3 | 330ml | 5.40 | 18 |
+| RB-BB-010 | North Coast Pale 1 | 500ml | 5.00 | 18 |
+| RB-BB-011 | North Coast Pale 2 | 500ml | 5.20 | 18 |
+| RB-BB-012 | North Coast Pale 3 | 500ml | 5.40 | 18 |
+| RB-BB-013 | Midtown Pils 1 | 330ml | 5.00 | 18 |
+| RB-BB-014 | Midtown Pils 2 | 330ml | 5.20 | 18 |
+| RB-BB-015 | Midtown Pils 3 | 330ml | 5.40 | 18 |
+| RB-BB-016 | Midtown Pils 1 | 500ml | 5.00 | 18 |
+| RB-BB-017 | Midtown Pils 2 | 500ml | 5.20 | 18 |
+| RB-BB-018 | Midtown Pils 3 | 500ml | 5.40 | 18 |
+| RB-BB-019 | Red Brick Amber 1 | 330ml | 5.00 | 18 |
+| RB-BB-020 | Red Brick Amber 2 | 330ml | 5.20 | 18 |
+| RB-BB-021 | Red Brick Amber 3 | 330ml | 5.40 | 18 |
+| RB-BB-022 | Red Brick Amber 1 | 500ml | 5.00 | 18 |
+| RB-BB-023 | Red Brick Amber 2 | 500ml | 5.20 | 18 |
+| RB-BB-024 | Red Brick Amber 3 | 500ml | 5.40 | 18 |
+| RB-BB-025 | Forest IPA 1 | 330ml | 5.00 | 18 |
+| RB-BB-026 | Forest IPA 2 | 330ml | 5.20 | 18 |
+| RB-BB-027 | Forest IPA 3 | 330ml | 5.40 | 18 |
+| RB-BB-028 | Forest IPA 1 | 500ml | 5.00 | 18 |
+| RB-BB-029 | Forest IPA 2 | 500ml | 5.20 | 18 |
+| RB-BB-030 | Forest IPA 3 | 500ml | 5.40 | 18 |
+| RB-BB-031 | Golden Kolsch 1 | 330ml | 5.00 | 18 |
+| RB-BB-032 | Golden Kolsch 2 | 330ml | 5.20 | 18 |
+| RB-BB-033 | Golden Kolsch 3 | 330ml | 5.40 | 18 |
+| RB-BB-034 | Golden Kolsch 1 | 500ml | 5.00 | 18 |
+| RB-BB-035 | Golden Kolsch 2 | 500ml | 5.20 | 18 |
+| RB-BB-036 | Golden Kolsch 3 | 500ml | 5.40 | 18 |
+| RB-BB-037 | Seaside Wheat 1 | 330ml | 5.00 | 18 |
+| RB-BB-038 | Seaside Wheat 2 | 330ml | 5.20 | 18 |
+| RB-BB-039 | Seaside Wheat 3 | 330ml | 5.40 | 18 |
+| RB-BB-040 | Seaside Wheat 1 | 500ml | 5.00 | 18 |
+| RB-BB-041 | Seaside Wheat 2 | 500ml | 5.20 | 18 |
+| RB-BB-042 | Seaside Wheat 3 | 500ml | 5.40 | 18 |
+| RB-BB-043 | Nightfall Stout 1 | 330ml | 5.00 | 18 |
+| RB-BB-044 | Nightfall Stout 2 | 330ml | 5.20 | 18 |
+| RB-BB-045 | Nightfall Stout 3 | 330ml | 5.40 | 18 |
+| RB-BB-046 | Nightfall Stout 1 | 500ml | 5.00 | 18 |
+| RB-BB-047 | Nightfall Stout 2 | 500ml | 5.20 | 18 |
+| RB-BB-048 | Nightfall Stout 3 | 500ml | 5.40 | 18 |
+| RB-BB-049 | Copper Porter 1 | 330ml | 5.00 | 18 |
+| RB-BB-050 | Copper Porter 2 | 330ml | 5.20 | 18 |
+| RB-BB-051 | Copper Porter 3 | 330ml | 5.40 | 18 |
+| RB-BB-052 | Copper Porter 1 | 500ml | 5.00 | 18 |
+| RB-BB-053 | Copper Porter 2 | 500ml | 5.20 | 18 |
+| RB-BB-054 | Copper Porter 3 | 500ml | 5.40 | 18 |
+| RB-BB-055 | Citrus Pale 1 | 330ml | 5.00 | 18 |
+| RB-BB-056 | Citrus Pale 2 | 330ml | 5.20 | 18 |
+| RB-BB-057 | Citrus Pale 3 | 330ml | 5.40 | 18 |
+| RB-BB-058 | Citrus Pale 1 | 500ml | 5.00 | 18 |
+| RB-BB-059 | Citrus Pale 2 | 500ml | 5.20 | 18 |
+| RB-BB-060 | Citrus Pale 3 | 500ml | 5.40 | 18 |
+
+## Canned Beer (40)
+
+| SKU | Name | Size | Price | Daily cap |
+| --- | --- | --- | --- | --- |
+| RB-BC-001 | Hazy Skyline IPA 1 | 330ml | 4.85 | 20 |
+| RB-BC-002 | Hazy Skyline IPA 2 | 330ml | 5.10 | 20 |
+| RB-BC-003 | Hazy Skyline IPA 1 | 440ml | 4.85 | 20 |
+| RB-BC-004 | Hazy Skyline IPA 2 | 440ml | 5.10 | 20 |
+| RB-BC-005 | Tropic Session IPA 1 | 330ml | 4.85 | 20 |
+| RB-BC-006 | Tropic Session IPA 2 | 330ml | 5.10 | 20 |
+| RB-BC-007 | Tropic Session IPA 1 | 440ml | 4.85 | 20 |
+| RB-BC-008 | Tropic Session IPA 2 | 440ml | 5.10 | 20 |
+| RB-BC-009 | Dark Tide Stout 1 | 330ml | 4.85 | 20 |
+| RB-BC-010 | Dark Tide Stout 2 | 330ml | 5.10 | 20 |
+| RB-BC-011 | Dark Tide Stout 1 | 440ml | 4.85 | 20 |
+| RB-BC-012 | Dark Tide Stout 2 | 440ml | 5.10 | 20 |
+| RB-BC-013 | Rooftop Pils 1 | 330ml | 4.85 | 20 |
+| RB-BC-014 | Rooftop Pils 2 | 330ml | 5.10 | 20 |
+| RB-BC-015 | Rooftop Pils 1 | 440ml | 4.85 | 20 |
+| RB-BC-016 | Rooftop Pils 2 | 440ml | 5.10 | 20 |
+| RB-BC-017 | Crisp Lager 1 | 330ml | 4.85 | 20 |
+| RB-BC-018 | Crisp Lager 2 | 330ml | 5.10 | 20 |
+| RB-BC-019 | Crisp Lager 1 | 440ml | 4.85 | 20 |
+| RB-BC-020 | Crisp Lager 2 | 440ml | 5.10 | 20 |
+| RB-BC-021 | Sourberry Gose 1 | 330ml | 4.85 | 20 |
+| RB-BC-022 | Sourberry Gose 2 | 330ml | 5.10 | 20 |
+| RB-BC-023 | Sourberry Gose 1 | 440ml | 4.85 | 20 |
+| RB-BC-024 | Sourberry Gose 2 | 440ml | 5.10 | 20 |
+| RB-BC-025 | Grapefruit Radler 1 | 330ml | 4.85 | 20 |
+| RB-BC-026 | Grapefruit Radler 2 | 330ml | 5.10 | 20 |
+| RB-BC-027 | Grapefruit Radler 1 | 440ml | 4.85 | 20 |
+| RB-BC-028 | Grapefruit Radler 2 | 440ml | 5.10 | 20 |
+| RB-BC-029 | Coconut Porter 1 | 330ml | 4.85 | 20 |
+| RB-BC-030 | Coconut Porter 2 | 330ml | 5.10 | 20 |
+| RB-BC-031 | Coconut Porter 1 | 440ml | 4.85 | 20 |
+| RB-BC-032 | Coconut Porter 2 | 440ml | 5.10 | 20 |
+| RB-BC-033 | Pine IPA 1 | 330ml | 4.85 | 20 |
+| RB-BC-034 | Pine IPA 2 | 330ml | 5.10 | 20 |
+| RB-BC-035 | Pine IPA 1 | 440ml | 4.85 | 20 |
+| RB-BC-036 | Pine IPA 2 | 440ml | 5.10 | 20 |
+| RB-BC-037 | Citrus Blonde 1 | 330ml | 4.85 | 20 |
+| RB-BC-038 | Citrus Blonde 2 | 330ml | 5.10 | 20 |
+| RB-BC-039 | Citrus Blonde 1 | 440ml | 4.85 | 20 |
+| RB-BC-040 | Citrus Blonde 2 | 440ml | 5.10 | 20 |
+
+## Wine (24)
+
+| SKU | Name | Serve | Price | Daily cap |
+| --- | --- | --- | --- | --- |
+| RB-WN-001 | Cabernet Sauvignon | 175ml | 7.20 | 14 |
+| RB-WN-002 | Merlot | 175ml | 7.60 | 14 |
+| RB-WN-003 | Pinot Noir | 175ml | 8.00 | 14 |
+| RB-WN-004 | Shiraz | 175ml | 6.80 | 14 |
+| RB-WN-005 | Malbec | 175ml | 7.20 | 14 |
+| RB-WN-006 | Zinfandel | 175ml | 7.60 | 14 |
+| RB-WN-007 | Chardonnay | 175ml | 8.00 | 14 |
+| RB-WN-008 | Sauvignon Blanc | 175ml | 6.80 | 14 |
+| RB-WN-009 | Pinot Grigio | 175ml | 7.20 | 14 |
+| RB-WN-010 | Riesling | 175ml | 7.60 | 14 |
+| RB-WN-011 | Viognier | 175ml | 8.00 | 14 |
+| RB-WN-012 | Verdicchio | 175ml | 6.80 | 14 |
+| RB-WN-013 | Prosecco | 175ml | 7.20 | 14 |
+| RB-WN-014 | Cava | 175ml | 7.60 | 14 |
+| RB-WN-015 | Brut Rose | 175ml | 8.00 | 14 |
+| RB-WN-016 | Champagne | 175ml | 6.80 | 14 |
+| RB-WN-017 | Cabernet Sauvignon Reserve | 175ml | 8.30 | 10 |
+| RB-WN-018 | Merlot Reserve | 175ml | 8.80 | 10 |
+| RB-WN-019 | Pinot Noir Reserve | 175ml | 9.30 | 10 |
+| RB-WN-020 | Shiraz Reserve | 175ml | 7.80 | 10 |
+| RB-WN-021 | Malbec Reserve | 175ml | 8.30 | 10 |
+| RB-WN-022 | Zinfandel Reserve | 175ml | 8.80 | 10 |
+| RB-WN-023 | Chardonnay Reserve | 175ml | 9.30 | 10 |
+| RB-WN-024 | Sauvignon Blanc Reserve | 175ml | 7.80 | 10 |
+
+## Soft Drinks (20)
+
+| SKU | Name | Size | Price | Daily cap |
+| --- | --- | --- | --- | --- |
+| RB-SD-001 | Cola | 330ml | 3.00 | 30 |
+| RB-SD-002 | Diet Cola | 330ml | 3.20 | 30 |
+| RB-SD-003 | Lemonade | 330ml | 2.80 | 30 |
+| RB-SD-004 | Ginger Beer | 330ml | 3.00 | 30 |
+| RB-SD-005 | Tonic Water | 330ml | 3.20 | 30 |
+| RB-SD-006 | Soda Water | 330ml | 2.80 | 30 |
+| RB-SD-007 | Sparkling Water | 330ml | 3.00 | 30 |
+| RB-SD-008 | Still Water | 330ml | 3.20 | 30 |
+| RB-SD-009 | Orange Juice | 330ml | 2.80 | 30 |
+| RB-SD-010 | Apple Juice | 330ml | 3.00 | 30 |
+| RB-SD-011 | Cola Zero | 330ml | 2.80 | 30 |
+| RB-SD-012 | Diet Cola Zero | 330ml | 2.80 | 30 |
+| RB-SD-013 | Lemonade Zero | 330ml | 2.80 | 30 |
+| RB-SD-014 | Ginger Beer Zero | 330ml | 2.80 | 30 |
+| RB-SD-015 | Tonic Water Zero | 330ml | 2.80 | 30 |
+| RB-SD-016 | Soda Water Zero | 330ml | 2.80 | 30 |
+| RB-SD-017 | Sparkling Water Zero | 330ml | 2.80 | 30 |
+| RB-SD-018 | Still Water Zero | 330ml | 2.80 | 30 |
+| RB-SD-019 | Orange Juice Zero | 330ml | 2.80 | 30 |
+| RB-SD-020 | Apple Juice Zero | 330ml | 2.80 | 30 |
+
+## Bar Snacks (20)
+
+| SKU | Name | Serve | Price | Daily cap |
+| --- | --- | --- | --- | --- |
+| RB-BS-001 | Salted Nuts | bowl | 3.80 | 24 |
+| RB-BS-002 | Chilli Nuts | bowl | 4.10 | 24 |
+| RB-BS-003 | Olives | bowl | 3.50 | 24 |
+| RB-BS-004 | Crisps | bowl | 3.80 | 24 |
+| RB-BS-005 | Pretzels | bowl | 4.10 | 24 |
+| RB-BS-006 | Jerky | bowl | 3.50 | 24 |
+| RB-BS-007 | Popcorn | bowl | 3.80 | 24 |
+| RB-BS-008 | Cheese Bites | bowl | 4.10 | 24 |
+| RB-BS-009 | Mixed Nuts | bowl | 3.50 | 24 |
+| RB-BS-010 | Wasabi Peas | bowl | 3.80 | 24 |
+| RB-BS-011 | Salted Nuts Large | bowl | 4.20 | 20 |
+| RB-BS-012 | Chilli Nuts Large | bowl | 4.20 | 20 |
+| RB-BS-013 | Olives Large | bowl | 4.20 | 20 |
+| RB-BS-014 | Crisps Large | bowl | 4.20 | 20 |
+| RB-BS-015 | Pretzels Large | bowl | 4.20 | 20 |
+| RB-BS-016 | Jerky Large | bowl | 4.20 | 20 |
+| RB-BS-017 | Popcorn Large | bowl | 4.20 | 20 |
+| RB-BS-018 | Cheese Bites Large | bowl | 4.20 | 20 |
+| RB-BS-019 | Mixed Nuts Large | bowl | 4.20 | 20 |
+| RB-BS-020 | Wasabi Peas Large | bowl | 4.20 | 20 |
+
+## Hot Drinks (10)
+
+| SKU | Name | Serve | Price | Daily cap |
+| --- | --- | --- | --- | --- |
+| RB-HD-001 | Espresso | cup | 3.50 | 18 |
+| RB-HD-002 | Americano | cup | 3.80 | 18 |
+| RB-HD-003 | Flat White | cup | 3.20 | 18 |
+| RB-HD-004 | Cappuccino | cup | 3.50 | 18 |
+| RB-HD-005 | Latte | cup | 3.80 | 18 |
+| RB-HD-006 | Hot Chocolate | cup | 3.20 | 18 |
+| RB-HD-007 | Espresso Large | cup | 3.80 | 16 |
+| RB-HD-008 | Americano Large | cup | 3.80 | 16 |
+| RB-HD-009 | Flat White Large | cup | 3.80 | 16 |
+| RB-HD-010 | Cappuccino Large | cup | 3.80 | 16 |
+
+## Non-Alcoholic Cocktails (10)
+
+| SKU | Name | Serve | Price | Daily cap |
+| --- | --- | --- | --- | --- |
+| RB-NA-001 | No-ABV Spritz | 200ml | 6.50 | 16 |
+| RB-NA-002 | Citrus Cooler | 200ml | 6.00 | 16 |
+| RB-NA-003 | Ginger Mojito | 200ml | 6.50 | 16 |
+| RB-NA-004 | Berry Fizz | 200ml | 6.00 | 16 |
+| RB-NA-005 | Cucumber Tonic | 200ml | 6.50 | 16 |
+| RB-NA-006 | No-ABV Spritz Zero | 200ml | 6.50 | 14 |
+| RB-NA-007 | Citrus Cooler Zero | 200ml | 6.50 | 14 |
+| RB-NA-008 | Ginger Mojito Zero | 200ml | 6.50 | 14 |
+| RB-NA-009 | Berry Fizz Zero | 200ml | 6.50 | 14 |
+| RB-NA-010 | Cucumber Tonic Zero | 200ml | 6.50 | 14 |
