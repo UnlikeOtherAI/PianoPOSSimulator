@@ -1,167 +1,130 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 import { Establishment } from "./purchase-generator.js";
 
-const ESTABLISHMENT_SCHEDULES = {
-  [Establishment.ROCK_BOTTOM]: {
-    open: 14 * 60,
-    close: 2 * 60,
-    overnight: true,
-  },
-  [Establishment.SCOTTISH_DIESEL]: {
-    open: 0,
-    close: 24 * 60,
-    overnight: false,
-  },
-  [Establishment.GET_NAKED]: {
-    open: 7 * 60,
-    close: 20 * 60,
-    overnight: false,
-  },
-  [Establishment.LA_MORDIDA]: {
-    open: 11 * 60,
-    close: 22 * 60,
-    overnight: false,
-    daysOpen: ["Friday", "Saturday", "Sunday"],
-  },
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const PROFILE_PATHS = [
+  path.join(
+    __dirname,
+    "..",
+    "public",
+    "data",
+    "busyness-weekly-rock-bottom.json"
+  ),
+  path.join(
+    __dirname,
+    "..",
+    "public",
+    "data",
+    "busyness-weekly-scottish-diesel.json"
+  ),
+  path.join(
+    __dirname,
+    "..",
+    "public",
+    "data",
+    "busyness-weekly-get-naked.json"
+  ),
+  path.join(
+    __dirname,
+    "..",
+    "public",
+    "data",
+    "busyness-weekly-la-mordida.json"
+  ),
+];
+
+const loadProfiles = () =>
+  PROFILE_PATHS.map((profilePath) =>
+    JSON.parse(fs.readFileSync(profilePath, "utf8"))
+  );
+
+const PROFILES = loadProfiles();
+const PROFILE_BY_ID = PROFILES.reduce((acc, profile) => {
+  acc[profile.id] = profile;
+  return acc;
+}, {});
+
+const ESTABLISHMENT_IDS = {
+  [Establishment.ROCK_BOTTOM]: "urn:establishment:sim-pub-001",
+  [Establishment.SCOTTISH_DIESEL]: "urn:establishment:sim-petrol-001",
+  [Establishment.GET_NAKED]: "urn:establishment:sim-shop-001",
+  [Establishment.LA_MORDIDA]: "urn:establishment:sim-truck-001",
 };
 
-const getEdinburghMinutes = (now = new Date()) => {
+const getLocalTime = (now = new Date()) => {
   const parts = new Intl.DateTimeFormat("en-GB", {
     timeZone: "Europe/London",
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
+    weekday: "long",
   }).formatToParts(now);
   const hour = Number(parts.find((part) => part.type === "hour")?.value ?? 0);
-  const minute = Number(parts.find((part) => part.type === "minute")?.value ?? 0);
-  return hour * 60 + minute;
+  const minute = Number(
+    parts.find((part) => part.type === "minute")?.value ?? 0
+  );
+  const day = parts.find((part) => part.type === "weekday")?.value ?? "Monday";
+  return { day, hour, minute, minutes: hour * 60 + minute };
 };
 
-const isOpenNow = (schedule, nowMinutes) => {
-  if (!schedule) return false;
-  if (schedule.open === 0 && schedule.close === 24 * 60) return true;
-  if (schedule.overnight || schedule.close <= schedule.open) {
-    return nowMinutes >= schedule.open || nowMinutes < schedule.close;
+const poisson = (lambda) => {
+  if (lambda <= 0) return 0;
+  let count = 0;
+  let p = 1;
+  const limit = Math.exp(-lambda);
+  while (p > limit) {
+    count += 1;
+    p *= Math.random();
   }
-  return nowMinutes >= schedule.open && nowMinutes < schedule.close;
+  return Math.max(0, count - 1);
 };
 
-const pickWeighted = (choices) => {
-  const total = choices.reduce((sum, choice) => sum + choice.weight, 0);
-  let roll = Math.random() * total;
-  for (const choice of choices) {
-    roll -= choice.weight;
-    if (roll <= 0) return choice.value;
-  }
-  return choices[choices.length - 1].value;
+const getHourlyRange = (profile, day, hour) => {
+  const dayEntries = profile?.days?.[day] || [];
+  const entry = dayEntries.find((item) => item.hour === hour);
+  if (!entry) return { min: 0, max: 0 };
+  return { min: entry.min, max: entry.max };
+};
+
+const sampleCountForSlot = (profile, day, hour) => {
+  const { min, max } = getHourlyRange(profile, day, hour);
+  if (max <= 0) return 0;
+  const hourly = min + Math.random() * (max - min);
+  const expected = hourly / 12;
+  return poisson(expected);
 };
 
 class TriggerPlanner {
   getPlan(now = new Date()) {
-    const nowMinutes = getEdinburghMinutes(now);
-    const plan = {
-      [Establishment.ROCK_BOTTOM]: 0,
-      [Establishment.SCOTTISH_DIESEL]: 0,
-      [Establishment.GET_NAKED]: 0,
+    const { day, hour } = getLocalTime(now);
+    return {
+      [Establishment.ROCK_BOTTOM]: this.#countFor(
+        Establishment.ROCK_BOTTOM,
+        day,
+        hour
+      ),
+      [Establishment.SCOTTISH_DIESEL]: this.#countFor(
+        Establishment.SCOTTISH_DIESEL,
+        day,
+        hour
+      ),
+      [Establishment.GET_NAKED]: this.#countFor(Establishment.GET_NAKED, day, hour),
+      [Establishment.LA_MORDIDA]: this.#countFor(
+        Establishment.LA_MORDIDA,
+        day,
+        hour
+      ),
     };
-
-    plan[Establishment.ROCK_BOTTOM] = this.#pubCount(nowMinutes);
-    plan[Establishment.SCOTTISH_DIESEL] = this.#petrolCount(nowMinutes);
-    plan[Establishment.GET_NAKED] = this.#retailCount(nowMinutes);
-    plan[Establishment.LA_MORDIDA] = this.#truckCount(now, nowMinutes);
-
-    return plan;
   }
 
-  #pubCount(nowMinutes) {
-    const schedule = ESTABLISHMENT_SCHEDULES[Establishment.ROCK_BOTTOM];
-    if (!isOpenNow(schedule, nowMinutes)) return 0;
-
-    const happyHour = nowMinutes >= 18 * 60 && nowMinutes <= 21 * 60;
-    if (happyHour) {
-      return pickWeighted([
-        { value: 1, weight: 20 },
-        { value: 2, weight: 40 },
-        { value: 3, weight: 30 },
-        { value: 4, weight: 10 },
-      ]);
-    }
-
-    return pickWeighted([
-      { value: 0, weight: 15 },
-      { value: 1, weight: 50 },
-      { value: 2, weight: 25 },
-      { value: 3, weight: 10 },
-    ]);
-  }
-
-  #petrolCount(nowMinutes) {
-    const schedule = ESTABLISHMENT_SCHEDULES[Establishment.SCOTTISH_DIESEL];
-    if (!isOpenNow(schedule, nowMinutes)) return 0;
-
-    const daytime = nowMinutes >= 6 * 60 && nowMinutes <= 22 * 60;
-    if (daytime) {
-      return pickWeighted([
-        { value: 0, weight: 10 },
-        { value: 1, weight: 45 },
-        { value: 2, weight: 30 },
-        { value: 3, weight: 15 },
-      ]);
-    }
-
-    return pickWeighted([
-      { value: 0, weight: 35 },
-      { value: 1, weight: 55 },
-      { value: 2, weight: 10 },
-    ]);
-  }
-
-  #retailCount(nowMinutes) {
-    const schedule = ESTABLISHMENT_SCHEDULES[Establishment.GET_NAKED];
-    if (!isOpenNow(schedule, nowMinutes)) return 0;
-
-    const lunchtime = nowMinutes >= 11 * 60 && nowMinutes <= 13 * 60;
-    const afterWork = nowMinutes >= 16 * 60 && nowMinutes <= 19 * 60;
-    if (lunchtime || afterWork) {
-      return pickWeighted([
-        { value: 0, weight: 20 },
-        { value: 1, weight: 55 },
-        { value: 2, weight: 20 },
-        { value: 3, weight: 5 },
-      ]);
-    }
-
-    return pickWeighted([
-      { value: 0, weight: 40 },
-      { value: 1, weight: 50 },
-      { value: 2, weight: 10 },
-    ]);
-  }
-
-  #truckCount(now, nowMinutes) {
-    const schedule = ESTABLISHMENT_SCHEDULES[Establishment.LA_MORDIDA];
-    if (!schedule) return 0;
-    const dayName = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Europe/London",
-      weekday: "long",
-    }).format(now);
-    if (!schedule.daysOpen.includes(dayName)) return 0;
-    if (!isOpenNow(schedule, nowMinutes)) return 0;
-
-    const lunch = nowMinutes >= 11 * 60 && nowMinutes <= 14 * 60;
-    const late = nowMinutes >= 20 * 60 && nowMinutes <= 22 * 60;
-    if (lunch || late) {
-      return pickWeighted([
-        { value: 1, weight: 40 },
-        { value: 2, weight: 40 },
-        { value: 3, weight: 20 },
-      ]);
-    }
-
-    return pickWeighted([
-      { value: 0, weight: 30 },
-      { value: 1, weight: 55 },
-      { value: 2, weight: 15 },
-    ]);
+  #countFor(establishment, day, hour) {
+    const id = ESTABLISHMENT_IDS[establishment];
+    const profile = PROFILE_BY_ID[id];
+    return sampleCountForSlot(profile, day, hour);
   }
 }
 

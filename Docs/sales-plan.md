@@ -35,7 +35,8 @@ Each call to `/sim/trigger` should create exactly one fake sale for each establi
 
 ## Randomization Principles
 
-- Use weighted random selection with a deterministic seed (optional) for repeatable scenarios.
+- Use weekly busyness profiles (`API/public/data/busyness-weekly-*.json`) to estimate demand per hour.
+- Convert hourly min/max ranges into per-5-minute expectations and draw counts with a Poisson sample.
 - Favor core items (beer taps, fuel, tees) while allowing long-tail items at lower frequency.
 - Apply time-of-day weighting based on opening hours and expected peak times.
 
@@ -89,6 +90,8 @@ Each call to `/sim/trigger` should create exactly one fake sale for each establi
 - Basket sizes: 1-3 items.
 
 ## Reasonable Sales Volume
+
+- Weekly busyness files define hourly min/max per day; use them as the primary demand signal.
 
 - Do not exceed any per-item `daily cap`.
 - Use per-hour throttles so total sales volumes align with opening hours and the rate targets above.

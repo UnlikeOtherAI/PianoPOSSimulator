@@ -1,0 +1,864 @@
+{
+  "id": "urn:establishment:sim-pub-001",
+  "name": "The Rock Bottom",
+  "timezone": "Europe/London",
+  "open": "14:00",
+  "close": "02:00",
+  "intervalMinutes": 5,
+  "days": {
+    "Monday": [
+      {
+        "hour": 0,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 1,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 2,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 3,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 4,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 5,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 6,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 7,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 8,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 9,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 10,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 11,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 12,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 13,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 14,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 15,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 16,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 17,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 18,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 19,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 20,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 21,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 22,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 23,
+        "min": 4,
+        "max": 8
+      }
+    ],
+    "Tuesday": [
+      {
+        "hour": 0,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 1,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 2,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 3,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 4,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 5,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 6,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 7,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 8,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 9,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 10,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 11,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 12,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 13,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 14,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 15,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 16,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 17,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 18,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 19,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 20,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 21,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 22,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 23,
+        "min": 4,
+        "max": 8
+      }
+    ],
+    "Wednesday": [
+      {
+        "hour": 0,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 1,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 2,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 3,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 4,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 5,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 6,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 7,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 8,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 9,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 10,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 11,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 12,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 13,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 14,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 15,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 16,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 17,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 18,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 19,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 20,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 21,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 22,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 23,
+        "min": 4,
+        "max": 8
+      }
+    ],
+    "Thursday": [
+      {
+        "hour": 0,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 1,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 2,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 3,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 4,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 5,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 6,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 7,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 8,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 9,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 10,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 11,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 12,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 13,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 14,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 15,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 16,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 17,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 18,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 19,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 20,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 21,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 22,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 23,
+        "min": 4,
+        "max": 8
+      }
+    ],
+    "Sunday": [
+      {
+        "hour": 0,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 1,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 2,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 3,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 4,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 5,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 6,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 7,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 8,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 9,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 10,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 11,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 12,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 13,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 14,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 15,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 16,
+        "min": 2,
+        "max": 6
+      },
+      {
+        "hour": 17,
+        "min": 4,
+        "max": 8
+      },
+      {
+        "hour": 18,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 19,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 20,
+        "min": 8,
+        "max": 16
+      },
+      {
+        "hour": 21,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 22,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 23,
+        "min": 4,
+        "max": 8
+      }
+    ],
+    "Friday": [
+      {
+        "hour": 0,
+        "min": 12,
+        "max": 20
+      },
+      {
+        "hour": 1,
+        "min": 12,
+        "max": 20
+      },
+      {
+        "hour": 2,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 3,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 4,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 5,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 6,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 7,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 8,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 9,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 10,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 11,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 12,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 13,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 14,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 15,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 16,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 17,
+        "min": 10,
+        "max": 18
+      },
+      {
+        "hour": 18,
+        "min": 18,
+        "max": 30
+      },
+      {
+        "hour": 19,
+        "min": 18,
+        "max": 30
+      },
+      {
+        "hour": 20,
+        "min": 18,
+        "max": 30
+      },
+      {
+        "hour": 21,
+        "min": 16,
+        "max": 26
+      },
+      {
+        "hour": 22,
+        "min": 16,
+        "max": 26
+      },
+      {
+        "hour": 23,
+        "min": 12,
+        "max": 20
+      }
+    ],
+    "Saturday": [
+      {
+        "hour": 0,
+        "min": 12,
+        "max": 20
+      },
+      {
+        "hour": 1,
+        "min": 12,
+        "max": 20
+      },
+      {
+        "hour": 2,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 3,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 4,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 5,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 6,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 7,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 8,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 9,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 10,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 11,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 12,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 13,
+        "min": 0,
+        "max": 0
+      },
+      {
+        "hour": 14,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 15,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 16,
+        "min": 6,
+        "max": 12
+      },
+      {
+        "hour": 17,
+        "min": 10,
+        "max": 18
+      },
+      {
+        "hour": 18,
+        "min": 18,
+        "max": 30
+      },
+      {
+        "hour": 19,
+        "min": 18,
+        "max": 30
+      },
+      {
+        "hour": 20,
+        "min": 18,
+        "max": 30
+      },
+      {
+        "hour": 21,
+        "min": 16,
+        "max": 26
+      },
+      {
+        "hour": 22,
+        "min": 16,
+        "max": 26
+      },
+      {
+        "hour": 23,
+        "min": 12,
+        "max": 20
+      }
+    ]
+  }
+}
