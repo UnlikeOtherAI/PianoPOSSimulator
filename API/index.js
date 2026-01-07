@@ -220,7 +220,7 @@ const rootIndexHtml = `<!doctype html>
           <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>
               <h2 id="shop-title" class="flex items-center gap-3 text-xl font-semibold text-[#1d1b16]">The Rock Bottom</h2>
-              <p id="shop-meta" class="mt-2 text-sm text-[#4b443b]">Real pub in Falkirk, fake menu • Open 14:00 to 02:00 GMT</p>
+              <p id="shop-meta" class="mt-1 text-sm text-[#4b443b]">Real pub in Falkirk, fake menu</p>
             </div>
             <div class="flex flex-col items-start gap-2">
               <span id="shop-hours" class="rounded-full border border-[#1d1b16] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#1d1b16]">
@@ -257,7 +257,7 @@ const rootIndexHtml = `<!doctype html>
       const shops = {
         "rock-bottom": {
           title: "The Rock Bottom",
-          meta: "Real pub in Falkirk, fake menu • Open 14:00 to 02:00 GMT",
+          meta: "Real pub in Falkirk, fake menu",
           hours: "14:00-02:00 GMT",
           logo: "/businesses/rock_bottom.png",
           schedule: { openHour: 14, openMinute: 0, closeHour: 2, closeMinute: 0, overnight: true },
@@ -379,7 +379,7 @@ const rootIndexHtml = `<!doctype html>
         },
         "scottish-diesel": {
           title: "Scottish Diesel",
-          meta: "No fuel here, just selling air • Open 24/7",
+          meta: "No fuel here, just selling air",
           hours: "00:00-24:00 GMT",
           logo: "/businesses/scottish_diesel.png",
           schedule: { open24: true },
@@ -450,7 +450,7 @@ const rootIndexHtml = `<!doctype html>
         },
         "get-naked": {
           title: "Get Naked",
-          meta: "No need for clothes baby • Open 07:00 to 20:00 GMT",
+          meta: "No need for clothes baby",
           hours: "07:00-20:00 GMT",
           logo: "/businesses/get_naked.png",
           schedule: { openHour: 7, openMinute: 0, closeHour: 20, closeMinute: 0, overnight: false },
