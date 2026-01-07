@@ -11,7 +11,8 @@ ingress:
   - component:
       name: api
     match:
-      authority: {}
+      authority:
+        exact: pianosim.unlikeotherai.com
       path:
         prefix: /
 name: piano-sim
@@ -22,7 +23,8 @@ services:
   envs:
   - key: DATABASE_URL
     scope: RUN_TIME
-    value: <set-database-url>
+    type: SECRET
+    value: EV[1:2GgaIsWkkIqyA4hCSy6KVrdc/b6WhomG:fmofPvsEBpZ3JX0hmC1ZC/gpOnKXowbiIPfkfW/T6oajxuYWy7x1Sib3DX7eW+JSI+dedVX3d39+HC63lIrvgGeRJ/emM8/KIvpSKt0vSgnEG6ao+wC1BkzW2kL6BuqdhKEiN9uOG5tKRR+d0YaQgRV0BIrItX5hWqrbbrvlYhGyswtoFtKKlVeo]
   github:
     branch: main
     deploy_on_push: true

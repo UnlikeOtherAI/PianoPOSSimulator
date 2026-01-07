@@ -22,6 +22,7 @@
 - Never stage or commit files you didn’t edit.
 - Do not mention or ask about a dirty git status or unrelated changes in responses.
 - Run tests before pushing if code was changed.
+- Always commit your changes and push them.
 
 ## Project Conventions
 
