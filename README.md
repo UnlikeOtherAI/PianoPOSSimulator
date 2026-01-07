@@ -13,6 +13,8 @@ Node.js API simulator for the Piano integration API described in `Docs/piano.api
 
 Basic API scaffold in place with `/sim/trigger` returning `{ "ok": ":)" }`.
 
+![OAuth simulator UI](API/public/assets/auth_screenshot.png)
+
 ## Simulator Rules & Scenarios
 
 ### Shops and Hours (GMT)
