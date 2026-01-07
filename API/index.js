@@ -504,9 +504,13 @@ const rootIndexHtml = `<!doctype html>
         metaEl.textContent = data.meta;
         hoursEl.textContent = data.hours;
         const logoMarkup = data.logo
-          ? `<img class="h-12 w-12 rounded-full border border-[#e2d6c2] bg-white object-contain" src="${data.logo}" alt="${data.title} logo" />`
+          ? '<img class="h-12 w-12 rounded-full border border-[#e2d6c2] bg-white object-contain" src="' +
+            data.logo +
+            '" alt="' +
+            data.title +
+            ' logo" />'
           : "";
-        titleEl.innerHTML = `${logoMarkup}<span>${data.title}</span>`;
+        titleEl.innerHTML = logoMarkup + "<span>" + data.title + "</span>";
         itemsEl.innerHTML = data.sections
           .map((section) => {
             const items = section.items
