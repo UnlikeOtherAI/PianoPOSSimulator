@@ -1,16 +1,16 @@
 # PianoPOSSimulator
 
-Node.js POS purchase simulator that uses the Piano integration API in `Docs/piano/piano.api.json` as a reference payload spec. Intended for local development and CI workflows that need deterministic API behavior.
+Node.js POS purchase simulator that uses the Piano integration API in `Docs/piano/piano.api.json` as a reference payload spec. Intended for local development and CI workflows that need deterministic POS payloads.
 
 ## What This Is
 
-- A simulator for the Piano POS integration API.
-- Triggered in CI via a private endpoint (`/sim/trigger`).
+- A simulator for POS purchase payloads (Piano schema as reference only).
+- Triggered via `/sim/trigger`, which generates order data per establishment.
 - Live simulator: https://pianosim.unlikeotherai.com
 
 ## Status
 
-Basic API scaffold in place with `/sim/trigger` returning `{ "ok": ":)" }`.
+`/sim/trigger` returns generated orders per business (used by CI and the UI).
 
 ![OAuth simulator UI](API/public/assets/auth_screenshot.png)
 
@@ -18,6 +18,11 @@ Basic API scaffold in place with `/sim/trigger` returning `{ "ok": ":)" }`.
 
 - Local: `http://localhost:6080/swagger`
 - Deployed: `https://pianosim.unlikeotherai.com/swagger`
+
+## UI
+
+- Homepage tabs show each establishment with charts and menu.
+- "Make Sale" triggers `/sim/trigger` and shows generated purchases.
 
 ## Simulator Rules & Scenarios
 
@@ -35,29 +40,29 @@ Basic API scaffold in place with `/sim/trigger` returning `{ "ok": ":)" }`.
 
 ### Purchase Simulation Rules
 
-- Auth always succeeds and enables access to simulated data.
 - Purchases appear only during each establishment’s opening hours.
 - The pub crosses midnight; purchases can appear between 00:00 and 02:00 GMT.
+- `/sim/trigger` uses the weekly busyness profiles to determine how many purchases to generate.
 
-### Scenario Control
-
-- `/sim/trigger` seeds deterministic data for CI scenarios.
-- Scenarios are defined in `Docs/brief.md`.
-
-### Example Usage
+### Trigger Usage
 
 ```bash
-# OAuth authorize (UI)
-open "https://pianosim.unlikeotherai.com/oauth/authorize?redirect_uri=https://example.com/callback&state=demo"
-
-# Login for access token
-curl -s -X POST https://pianosim.unlikeotherai.com/api/v1/auth/login \\
+# Trigger all businesses
+curl -s -X POST https://pianosim.unlikeotherai.com/sim/trigger \\
   -H "Content-Type: application/json" \\
-  -d '{}'
+  -d '{"businessIds":[]}'
 
-# WhoAmI using fixed access token
-curl -s https://pianosim.unlikeotherai.com/api/v1/auth/whoami \\
-  -H "Authorization: Bearer sim_access_token"
+# Trigger specific businesses
+curl -s -X POST https://pianosim.unlikeotherai.com/sim/trigger \\
+  -H "Content-Type: application/json" \\
+  -d '{"businessIds":["urn:establishment:sim-pub-001","urn:establishment:sim-truck-001"]}'
+
+# Optional auth (if SIM_TRIGGER_USERNAME/SIM_TRIGGER_PASSWORD are set)
+curl -s -X POST https://pianosim.unlikeotherai.com/sim/trigger \\
+  -H "Content-Type: application/json" \\
+  -H "x-sim-username: $SIM_TRIGGER_USERNAME" \\
+  -H "x-sim-password: $SIM_TRIGGER_PASSWORD" \\
+  -d '{"businessIds":[]}'
 ```
 
 ## Local Setup

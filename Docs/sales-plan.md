@@ -21,17 +21,17 @@ This document defines how simulated sales should be generated across establishme
 - Magic number algorithm:
   - `base = 30 + (hash(date|establishment|item) % 61)` (range 30-90).
   - Adjust by price: very expensive items reduce the number; very cheap items increase it.
+  - Adjust by daily cap: low caps reduce the number; high caps slightly increase it.
   - Clamp to 5-95 to avoid extremes.
 - When selecting items, compute a per-slot roll `1-100` from `hash(date|establishment|item|slot|attempt)` and include the item only if `roll <= magicNumber`.
 - If all attempts fail, fall back to a random item from the same category.
 
 ## Trigger Behavior
 
-Each call to `/sim/trigger` should create exactly one fake sale for each establishment:
+Each call to `/sim/trigger` generates 0+ purchases per establishment based on the weekly busyness profiles:
 
-- Shop: one retail sale with 1-3 items.
-- Pub: one bar tab with 1-4 items (beers, spirits, cocktails, merch).
-- Petrol station: one transaction with fuel and/or snacks (rules below).
+- Counts are derived per 5-minute slot from the weekly min/max ranges.
+- If the establishment is closed for the current slot, no purchases are generated.
 
 ## Randomization Principles
 
@@ -77,6 +77,7 @@ Each call to `/sim/trigger` should create exactly one fake sale for each establi
   - Truck fill: 200-400 liters.
   - 8 truck fills per day, spread across daytime hours.
 - LPG bottles: 1-3 total per day, only during daytime.
+- Only one fuel line item is allowed per purchase.
 
 ## Burrito Truck (La Mordida) Rules
 

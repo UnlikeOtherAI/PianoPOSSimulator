@@ -8,13 +8,13 @@ Build a Node.js POS purchase simulator that sends realistic payloads to downstre
 
 - Provide a predictable POS purchase simulator that can push payloads to external backends.
 - Support GitHub Action-driven scenarios via `/sim/trigger`.
-- Store simulated state for repeatable data and realistic flows.
 - Keep payloads aligned with the Piano OpenAPI schemas (reference spec).
 
 ## Non-Goals
 
 - Production-grade auth/security (use test-only controls).
 - Full parity with real Piano business logic.
+- Database-backed simulator state.
 - Public documentation or OpenAPI listing for `/sim/trigger`.
 
 ## Inputs
@@ -27,41 +27,21 @@ Build a Node.js POS purchase simulator that sends realistic payloads to downstre
 
 ## High-Level Design
 
-- HTTP server exposes all OpenAPI paths with stubbed or stateful responses.
-- Scenario loader seeds simulator state and controls response behavior for tests.
-- `/sim/trigger` accepts a scenario payload and seeds data accordingly.
-
-## Endpoint Coverage Plan
-
-- Implement all paths in `Docs/piano/piano.api.json` with schema-accurate responses where required.
-- Prioritize the following endpoints for stateful behavior:
-  - `POST /api/v1/auth/pair` (creates establishments + credentials)
-  - `POST /api/v1/auth/login` (issues tokens for credentials)
-  - `GET /api/v1/auth/whoami` (returns linked establishment/user)
-  - `PUT /api/v1/orders` (stores orders, returns 202)
-  - `PUT /api/v1/documents` (stores documents, returns 202)
-  - `PUT /api/v1/inventory/state` (stores inventory, returns 202)
-- Remaining endpoints can return static, schema-valid fixtures.
+- HTTP server exposes `/sim/trigger` plus static assets for the UI.
+- `/sim/trigger` generates POS orders from menu and busyness profiles.
+- Generated orders follow the Piano payload shape as a reference spec.
 
 ## `/sim/trigger` (CI-only)
 
 - Not included in OpenAPI or public docs.
 - Called by GitHub Actions to reset and seed the simulator.
 - Request body fields:
-  - `scenario`: string (e.g., `happy-path`, `invalid-token`, `empty-establishment`)
-  - `seed`: optional integer for deterministic data
-  - `options`: optional overrides (counts, dates, error modes)
+  - `businessIds`: array of establishment IDs to generate orders for (empty array = all).
+  - `username`/`password`: optional, if credentials are required (also accepted via headers).
 - Behavior:
-  - Truncate simulator tables (non-destructive to schema).
-  - Seed establishments, credentials, and sample data based on scenario.
-  - Return a summary payload (counts, credentials, tokens).
-
-## Data Model (Initial)
-
-- establishments: id, source_id, name, metadata
-- credentials: establishment_id, client_id, client_secret
-- tokens: token, establishment_id, expires_at
-- orders/documents/inventory: raw payloads + created_at
+  - Validates requested business IDs against `API/public/data/items.json`.
+  - Uses weekly busyness profiles + magic number gating to generate realistic orders.
+  - Returns a payload that includes per-business orders.
 
 ## Simulated Establishments
 
@@ -72,38 +52,12 @@ Build a Node.js POS purchase simulator that sends realistic payloads to downstre
 
 ## Auth Simulation
 
-- Pairing creates credentials and always succeeds.
-- Login always succeeds and returns a fixed access token.
-- OAuth token endpoints always succeed and return fixed access/refresh tokens.
-- `Authorization: Bearer` token will be required later for data endpoints.
-- `whoami` returns a fixed account context.
+- Optional header/body auth for `/sim/trigger` using `SIM_TRIGGER_USERNAME` and `SIM_TRIGGER_PASSWORD`.
+- No OAuth or Piano auth endpoints are exposed.
 
-## Scenario Design
+## Data Sources
 
-- `happy-path`: valid pairing, login, and data ingestion flows.
-- `invalid-token`: seeded invalid/expired tokens for negative tests.
-- `empty-establishment`: no existing establishments, pairing required.
-- Allow override fields to tailor dates, counts, or failure modes.
-
-## Implementation Steps
-
-1. Scaffold Node.js API with `pnpm`, Express (or equivalent).
-2. Define simulator state storage.
-3. Implement `/sim/trigger` for scenario seeding.
-4. Implement auth endpoints (pair, login, whoami).
-5. Implement import endpoints (orders, documents, inventory).
-6. Add static fixtures for remaining endpoints.
-7. Add request validation against OpenAPI schemas.
-8. Add CI workflow usage notes and example payloads.
-
-## Testing
-
-- Unit tests for scenario seeding and auth flows.
-- Contract tests ensuring response schemas match OpenAPI.
-- CI test that calls `/sim/trigger` and runs a basic flow.
-
-## Open Questions
-
-- Which scenarios are needed in the first GitHub Action?
-- Expected token lifetime and refresh behavior?
-- Any endpoint-specific edge cases to model beyond schema validation?
+- Catalogs: `API/public/data/items.json`.
+- Busyness profiles:
+  - Daily segments: `API/public/data/busyness-*.json`
+  - Weekly distribution: `API/public/data/busyness-weekly-*.json`
