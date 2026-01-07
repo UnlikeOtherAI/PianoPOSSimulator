@@ -1,3 +1,7 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
 const Establishment = Object.freeze({
   ROCK_BOTTOM: "ROCK_BOTTOM",
   SCOTTISH_DIESEL: "SCOTTISH_DIESEL",
@@ -10,63 +14,19 @@ const PAYMENT_METHODS = {
   GET_NAKED: ["card", "cash"],
 };
 
-const ROCK_BOTTOM_CATALOG = {
-  beer: [
-    { name: "Stonecliff Hazy IPA", unit: "pint", price: 6.8 },
-    { name: "Black Harbor Stout", unit: "pint", price: 6.6 },
-    { name: "Northwind Pilsner", unit: "pint", price: 5.8 },
-    { name: "Citrus Grove Pale Ale", unit: "pint", price: 6.0 },
-  ],
-  cocktails: [
-    { name: "Harbor Negroni", unit: "cocktail", price: 10.0 },
-    { name: "Rock Bottom Old Fashioned", unit: "cocktail", price: 10.5 },
-    { name: "Midnight Espresso Martini", unit: "cocktail", price: 11.0 },
-  ],
-  spirits: [
-    { name: "North Quay London Dry", unit: "25ml", price: 4.8 },
-    { name: "Glen Row 12", unit: "25ml", price: 6.2 },
-  ],
-  merch: [{ name: "Taproom Crew Tee", unit: "item", price: 25.0 }],
-};
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const ITEMS_PATH = path.join(__dirname, "..", "public", "data", "items.json");
 
-const SCOTTISH_DIESEL_CATALOG = {
-  fuel: [
-    { name: "Unleaded 95 RON", unit: "liter", price: 1.56 },
-    { name: "Premium Unleaded 98 RON", unit: "liter", price: 1.68 },
-    { name: "Diesel B7", unit: "liter", price: 1.62 },
-    { name: "Premium Diesel B7+", unit: "liter", price: 1.72 },
-  ],
-  snacks: [
-    { name: "Walkers Ready Salted Crisps", unit: "pack", price: 1.2 },
-    { name: "Energy Drink Original", unit: "can", price: 1.6 },
-    { name: "Bottled Water", unit: "bottle", price: 1.1 },
-    { name: "Mars Bar", unit: "item", price: 0.95 },
-  ],
-  lpg: [
-    { name: "LPG Bottle 6 kg", unit: "bottle", price: 26.0 },
-    { name: "LPG Bottle 11 kg", unit: "bottle", price: 39.0 },
-  ],
-};
-
-const GET_NAKED_CATALOG = {
-  tees: [
-    { name: "Studio Logo Tee", unit: "item", price: 34.0 },
-    { name: "Mono Stitch Tee", unit: "item", price: 32.0 },
-    { name: "Contour Line Tee", unit: "item", price: 36.0 },
-  ],
-  bottoms: [
-    { name: "Slim Fit Chino", unit: "item", price: 88.0 },
-    { name: "Straight Denim", unit: "item", price: 110.0 },
-  ],
-  outerwear: [
-    { name: "Studio Hoodie", unit: "item", price: 82.0 },
-    { name: "Lightweight Bomber", unit: "item", price: 160.0 },
-  ],
-  accessories: [
-    { name: "Slim Leather Wallet", unit: "item", price: 65.0 },
-    { name: "Zip Card Wallet", unit: "item", price: 75.0 },
-  ],
-  sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+const ITEMS_CACHE = JSON.parse(fs.readFileSync(ITEMS_PATH, "utf8"));
+const ESTABLISHMENT_INDEX = ITEMS_CACHE.establishments.reduce((acc, item) => {
+  acc[item.id] = item;
+  return acc;
+}, {});
+const ESTABLISHMENT_IDS = {
+  ROCK_BOTTOM: "urn:establishment:sim-pub-001",
+  SCOTTISH_DIESEL: "urn:establishment:sim-petrol-001",
+  GET_NAKED: "urn:establishment:sim-shop-001",
 };
 
 const pickOne = (items) => items[Math.floor(Math.random() * items.length)];
@@ -92,10 +52,11 @@ const getDateParts = (now = new Date()) => {
 
 class PurchaseGenerator {
   constructor(establishment) {
-    if (!ITEM_CATALOG[establishment]) {
+    if (!ESTABLISHMENT_IDS[establishment]) {
       throw new Error(`Unsupported establishment: ${establishment}`);
     }
     this.establishment = establishment;
+    this.establishmentId = ESTABLISHMENT_IDS[establishment];
   }
 
   generateOrders() {
@@ -137,16 +98,31 @@ class PurchaseGenerator {
   }
 
   #buildItems({ now, fiscalDate, eventDetail }) {
+    const establishment = ESTABLISHMENT_INDEX[this.establishmentId];
+    const sections = establishment?.sections ?? [];
+
     if (this.establishment === Establishment.ROCK_BOTTOM) {
-      return this.#buildPubItems({ now, fiscalDate, eventDetail });
+      return this.#buildPubItems({ now, fiscalDate, eventDetail, sections });
     }
     if (this.establishment === Establishment.SCOTTISH_DIESEL) {
-      return this.#buildPetrolItems({ now, fiscalDate, eventDetail });
+      return this.#buildPetrolItems({ now, fiscalDate, eventDetail, sections });
     }
-    return this.#buildRetailItems({ now, fiscalDate, eventDetail });
+    return this.#buildRetailItems({ now, fiscalDate, eventDetail, sections });
   }
 
-  #buildPubItems({ now, fiscalDate, eventDetail }) {
+  #buildPubItems({ now, fiscalDate, eventDetail, sections }) {
+    const beerPool = this.#sectionRows(sections, [
+      "Beer Taps",
+      "Bottled Beer",
+      "Canned Beer",
+      "Cider",
+    ]);
+    const cocktailPool = this.#sectionRows(sections, ["Cocktails"]);
+    const spiritPool = this.#sectionRows(sections, ["Spirits"]);
+    const merchPool = this.#sectionRows(sections, ["Merch"]);
+    const snackPool = this.#sectionRows(sections, ["Bar Snacks", "Soft Drinks"]);
+    const winePool = this.#sectionRows(sections, ["Wine"]);
+
     const items = [];
     const basketSize = pickWeighted([
       { value: 1, weight: 40 },
@@ -154,27 +130,55 @@ class PurchaseGenerator {
       { value: 3, weight: 18 },
       { value: 4, weight: 7 },
     ]);
+
     for (let i = 0; i < basketSize; i += 1) {
       const category = pickWeighted([
-        { value: "beer", weight: 55 },
-        { value: "cocktails", weight: 25 },
+        { value: "beer", weight: 50 },
+        { value: "cocktails", weight: 20 },
         { value: "spirits", weight: 15 },
-        { value: "merch", weight: 5 },
+        { value: "snacks", weight: 7 },
+        { value: "wine", weight: 5 },
+        { value: "merch", weight: 3 },
       ]);
-      const item = pickOne(ROCK_BOTTOM_CATALOG[category]);
-      const quantity = 1;
+      const pool =
+        category === "beer"
+          ? beerPool
+          : category === "cocktails"
+          ? cocktailPool
+          : category === "spirits"
+          ? spiritPool
+          : category === "snacks"
+          ? snackPool
+          : category === "wine"
+          ? winePool
+          : merchPool;
+
+      const item = pickOne(pool);
       items.push(
-        this.#buildOrderItem({ now, item, quantity, fiscalDate, eventDetail })
+        this.#buildOrderItem({ now, item, quantity: 1, fiscalDate, eventDetail })
       );
     }
     return items;
   }
 
-  #buildPetrolItems({ now, fiscalDate, eventDetail }) {
+  #buildPetrolItems({ now, fiscalDate, eventDetail, sections }) {
+    const fuelPool = this.#sectionRows(sections, ["Fuel"]);
+    const snackPool = this.#sectionRows(sections, [
+      "Snacks",
+      "Drinks",
+      "Confectionery",
+      "Savory Snacks",
+      "Quick Meals",
+      "Travel Essentials",
+      "Seasonal",
+      "Hot Drinks",
+    ]);
+    const lpgPool = this.#sectionRows(sections, ["LPG", "LPG Gas Bottles"]);
+
     const items = [];
     const snackOnly = Math.random() < 0.1;
     if (!snackOnly) {
-      const fuel = pickOne(SCOTTISH_DIESEL_CATALOG.fuel);
+      const fuel = pickOne(fuelPool);
       const fuelLiters = pickWeighted([
         { value: pickInt(20, 60), weight: 60 },
         { value: pickInt(60, 90), weight: 25 },
@@ -190,27 +194,64 @@ class PurchaseGenerator {
         })
       );
     }
+
     const snacksCount = pickWeighted([
       { value: 0, weight: 50 },
       { value: 1, weight: 35 },
       { value: 2, weight: 15 },
     ]);
     for (let i = 0; i < snacksCount; i += 1) {
-      const snack = pickOne(SCOTTISH_DIESEL_CATALOG.snacks);
+      const snack = pickOne(snackPool);
       items.push(
-        this.#buildOrderItem({ now, item: snack, quantity: 1, fiscalDate, eventDetail })
+        this.#buildOrderItem({
+          now,
+          item: snack,
+          quantity: 1,
+          fiscalDate,
+          eventDetail,
+        })
       );
     }
+
     if (Math.random() < 0.04) {
-      const lpg = pickOne(SCOTTISH_DIESEL_CATALOG.lpg);
+      const lpg = pickOne(lpgPool);
       items.push(
-        this.#buildOrderItem({ now, item: lpg, quantity: 1, fiscalDate, eventDetail })
+        this.#buildOrderItem({
+          now,
+          item: lpg,
+          quantity: 1,
+          fiscalDate,
+          eventDetail,
+        })
       );
     }
+
     return items;
   }
 
-  #buildRetailItems({ now, fiscalDate, eventDetail }) {
+  #buildRetailItems({ now, fiscalDate, eventDetail, sections }) {
+    const allRows = this.#sectionRows(sections, [
+      "Gents Collection",
+      "Ladies Collection",
+      "Gents Colorways",
+      "Ladies Colorways",
+      "Gents Accessories",
+      "Ladies Accessories",
+    ]);
+
+    const teesPool = allRows.filter((item) =>
+      this.#matchesCategory(item, ["t-shirt", "tee"])
+    );
+    const bottomsPool = allRows.filter((item) =>
+      this.#matchesCategory(item, ["pants", "trouser", "skirt", "denim", "chino"])
+    );
+    const outerwearPool = allRows.filter((item) =>
+      this.#matchesCategory(item, ["hoodie", "jacket", "overshirt", "bomber"])
+    );
+    const accessoriesPool = allRows.filter((item) =>
+      this.#matchesCategory(item, ["wallet", "handbag", "accessory", "belt", "tote", "pouch"])
+    );
+
     const items = [];
     const basketSize = pickWeighted([
       { value: 1, weight: 55 },
@@ -223,15 +264,29 @@ class PurchaseGenerator {
       { value: "outerwear", weight: 5 },
       { value: "accessories", weight: 5 },
     ];
+
     for (let i = 0; i < basketSize; i += 1) {
       const category = pickWeighted(categoryChoices);
-      const item = pickOne(GET_NAKED_CATALOG[category]);
-      const sizedItem = {
-        ...item,
-        name: `${item.name} (${pickOne(GET_NAKED_CATALOG.sizes)})`,
-      };
+      const pool =
+        category === "tees"
+          ? teesPool
+          : category === "bottoms"
+          ? bottomsPool
+          : category === "outerwear"
+          ? outerwearPool
+          : accessoriesPool;
+      const item = pickOne(pool.length ? pool : allRows);
+      const sizedItem = item.size
+        ? { ...item, name: `${item.name} (${item.size})` }
+        : item;
       items.push(
-        this.#buildOrderItem({ now, item: sizedItem, quantity: 1, fiscalDate, eventDetail })
+        this.#buildOrderItem({
+          now,
+          item: sizedItem,
+          quantity: 1,
+          fiscalDate,
+          eventDetail,
+        })
       );
     }
     return items;
@@ -249,6 +304,60 @@ class PurchaseGenerator {
       totalGrossPrice,
       created: eventDetail,
     };
+  }
+
+  #sectionRows(sections, prefixes) {
+    const rows = [];
+    const matchers = prefixes.map((prefix) => prefix.toLowerCase());
+    for (const section of sections) {
+      if (!section?.title || !section?.rows) continue;
+      const title = section.title.toLowerCase();
+      if (!matchers.some((prefix) => title.startsWith(prefix))) {
+        continue;
+      }
+      for (const row of section.rows) {
+        const mapped = this.#mapRowToItem(section.headers, row);
+        if (mapped) rows.push(mapped);
+      }
+    }
+    return rows.length > 0
+      ? rows
+      : [{ name: "Unknown Item", unit: "item", price: 1.0 }];
+  }
+
+  #mapRowToItem(headers, row) {
+    if (!headers || !row) return null;
+    const headerMap = headers.map((header) => header.toLowerCase());
+    const pick = (name) => {
+      const idx = headerMap.indexOf(name);
+      return idx >= 0 ? row[idx] : null;
+    };
+
+    const name =
+      pick("name") ||
+      pick("item") ||
+      pick("fuel") ||
+      pick("id") ||
+      row[1];
+    const unit =
+      pick("unit") ||
+      pick("size") ||
+      pick("serve") ||
+      pick("pack size") ||
+      "item";
+    const size = pick("sizes") || pick("size") || null;
+    const priceRaw =
+      pick("price") || pick("price (per liter)") || pick("price (pint)") || "0";
+    const price = Number(String(priceRaw).replace(/[^0-9.]/g, "")) || 0;
+    const category = pick("category") || "";
+
+    if (!name) return null;
+    return { name, unit, price, category, size };
+  }
+
+  #matchesCategory(item, keywords) {
+    const haystack = `${item.category ?? ""} ${item.name ?? ""}`.toLowerCase();
+    return keywords.some((keyword) => haystack.includes(keyword));
   }
 }
 
