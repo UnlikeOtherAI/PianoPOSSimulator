@@ -442,12 +442,19 @@ class PurchaseGenerator {
     const seed = `${fiscalDate}|${this.establishmentId}|${item.name}`;
     const base = 30 + (hashString(seed) % 61);
     const price = Number(item.price) || 0;
+    const dailyCap = Number(item.dailyCap) || null;
     let modifier = 0;
     if (price >= 120) modifier -= 20;
     else if (price >= 60) modifier -= 12;
     else if (price >= 30) modifier -= 6;
     else if (price <= 5) modifier += 12;
     else if (price <= 10) modifier += 6;
+    if (dailyCap !== null) {
+      if (dailyCap <= 5) modifier -= 18;
+      else if (dailyCap <= 10) modifier -= 12;
+      else if (dailyCap <= 20) modifier -= 6;
+      else if (dailyCap >= 60) modifier += 4;
+    }
     return clamp(base + modifier, 5, 95);
   }
 
@@ -494,10 +501,12 @@ class PurchaseGenerator {
     const priceRaw =
       pick("price") || pick("price (per liter)") || pick("price (pint)") || "0";
     const price = Number(String(priceRaw).replace(/[^0-9.]/g, "")) || 0;
+    const dailyCapRaw = pick("daily cap");
+    const dailyCap = Number(String(dailyCapRaw).replace(/[^0-9.]/g, "")) || null;
     const category = pick("category") || "";
 
     if (!name) return null;
-    return { name, unit, price, category, size };
+    return { name, unit, price, category, size, dailyCap };
   }
 
   #matchesCategory(item, keywords) {
