@@ -187,7 +187,7 @@ const rootIndexHtml = `<!doctype html>
         <div class="mt-6 rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-8 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.12)]">
           <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>
-              <h2 id="shop-title" class="text-xl font-semibold text-[#1d1b16]">The Rock Bottom</h2>
+              <h2 id="shop-title" class="flex items-center gap-3 text-xl font-semibold text-[#1d1b16]">The Rock Bottom</h2>
               <p id="shop-meta" class="mt-2 text-sm text-[#4b443b]">Craft beer bar • Open 14:00 to 02:00 GMT</p>
             </div>
             <span id="shop-hours" class="rounded-full border border-[#1d1b16] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[#1d1b16]">
@@ -204,6 +204,7 @@ const rootIndexHtml = `<!doctype html>
           title: "The Rock Bottom",
           meta: "Craft beer bar • Open 14:00 to 02:00 GMT",
           hours: "14:00-02:00 GMT",
+          logo: "/businesses/rock_bottom.png",
           sections: [
             {
               title: "Beer Taps",
@@ -324,6 +325,7 @@ const rootIndexHtml = `<!doctype html>
           title: "Scottish Diesel",
           meta: "Petrol station • Open 24/7",
           hours: "00:00-24:00 GMT",
+          logo: "/businesses/scottish_diesel.png",
           sections: [
             {
               title: "Fuel",
@@ -393,6 +395,7 @@ const rootIndexHtml = `<!doctype html>
           title: "Get Naked",
           meta: "Designer apparel • Open 07:00 to 20:00 GMT",
           hours: "07:00-20:00 GMT",
+          logo: "/businesses/get_naked.png",
           sections: [
             {
               title: "Gents",
@@ -500,6 +503,10 @@ const rootIndexHtml = `<!doctype html>
         titleEl.textContent = data.title;
         metaEl.textContent = data.meta;
         hoursEl.textContent = data.hours;
+        const logoMarkup = data.logo
+          ? `<img class="h-12 w-12 rounded-full border border-[#e2d6c2] bg-white object-contain" src="${data.logo}" alt="${data.title} logo" />`
+          : "";
+        titleEl.innerHTML = `${logoMarkup}<span>${data.title}</span>`;
         itemsEl.innerHTML = data.sections
           .map((section) => {
             const items = section.items
