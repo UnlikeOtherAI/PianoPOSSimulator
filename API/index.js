@@ -143,8 +143,8 @@ const rootIndexHtml = `<!doctype html>
     <link rel="icon" href="/favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="min-h-screen bg-[#f7f2ea] flex items-center justify-center px-6">
-    <div class="w-full max-w-5xl">
+  <body class="min-h-screen bg-[#f7f2ea] flex flex-col items-center px-6">
+    <div class="w-full max-w-5xl flex-1 py-12">
       <div class="mx-auto w-full max-w-lg rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-10 py-12 text-center shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
         <img class="mx-auto mb-6 h-20 w-20" src="/assets/wolf.png" alt="Unlike Other AI" />
         <h1 class="text-3xl font-semibold tracking-wide text-[#1d1b16]">Piano SIM</h1>
@@ -198,6 +198,21 @@ const rootIndexHtml = `<!doctype html>
         </div>
       </section>
     </div>
+    <footer class="h-[75px] w-full bg-[#1d1b16] text-center text-[11px] uppercase tracking-[0.32em] text-[#f7f2ea]/70">
+      <div class="mx-auto flex h-full max-w-5xl items-center justify-center px-6">
+        <span>
+          Made in love in Scotland by
+          <a
+            class="ml-2 text-[#fffaf0] no-underline"
+            href="https://www.unlikeotherai.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Unlike Other AI
+          </a>
+        </span>
+      </div>
+    </footer>
     <script>
       const shops = {
         "rock-bottom": {
