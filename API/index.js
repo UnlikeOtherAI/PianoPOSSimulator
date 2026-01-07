@@ -142,6 +142,38 @@ const rootIndexHtml = `<!doctype html>
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" href="/favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .panel-animate-out {
+        animation: panelOut 0.35s ease-in forwards;
+      }
+      .panel-animate-in {
+        animation: panelIn 0.45s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+      }
+      @keyframes panelOut {
+        from {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateX(-40px);
+        }
+      }
+      @keyframes panelIn {
+        0% {
+          opacity: 0;
+          transform: translateX(40px) scale(0.98);
+        }
+        60% {
+          opacity: 1;
+          transform: translateX(-6px) scale(1.01);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0) scale(1);
+        }
+      }
+    </style>
   </head>
   <body class="min-h-screen bg-[#f7f2ea] flex flex-col items-center px-6">
     <div class="w-full max-w-5xl flex-1 py-12">
@@ -184,7 +216,7 @@ const rootIndexHtml = `<!doctype html>
             Get Naked
           </button>
         </div>
-        <div class="mt-6 rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-8 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.12)]">
+        <div id="shop-panel" class="mt-6 rounded-2xl border border-[#e2d6c2] bg-[#fffaf0] px-8 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.12)]">
           <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
             <div>
               <h2 id="shop-title" class="flex items-center gap-3 text-xl font-semibold text-[#1d1b16]">The Rock Bottom</h2>
@@ -523,6 +555,7 @@ const rootIndexHtml = `<!doctype html>
       const hoursEl = document.getElementById("shop-hours");
       const itemsEl = document.getElementById("shop-items");
       const statusEl = document.getElementById("shop-status");
+      const panelEl = document.getElementById("shop-panel");
       let currentShopKey = "rock-bottom";
 
       const getLondonMinutes = () => {
@@ -603,13 +636,33 @@ const rootIndexHtml = `<!doctype html>
         });
       };
 
+      const animateSwitch = (key) => {
+        if (!panelEl) {
+          renderShop(key);
+          return;
+        }
+        if (key === currentShopKey) return;
+        panelEl.classList.remove("panel-animate-in");
+        panelEl.classList.add("panel-animate-out");
+        const onEnd = () => {
+          renderShop(key);
+          panelEl.classList.remove("panel-animate-out");
+          void panelEl.offsetWidth;
+          panelEl.classList.add("panel-animate-in");
+        };
+        panelEl.addEventListener("animationend", onEnd, { once: true });
+      };
+
       tabButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          renderShop(button.dataset.tab);
+          animateSwitch(button.dataset.tab);
         });
       });
 
       renderShop("rock-bottom");
+      if (panelEl) {
+        panelEl.classList.add("panel-animate-in");
+      }
       setInterval(() => updateStatus(currentShopKey), 60000);
     </script>
   </body>
