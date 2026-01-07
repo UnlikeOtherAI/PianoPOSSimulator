@@ -561,7 +561,7 @@ const rootIndexHtml = `<!doctype html>
         metaEl.textContent = data.meta;
         hoursEl.textContent = data.hours;
         const logoMarkup = data.logo
-          ? '<img class="h-[72px] w-[72px] object-contain" src="' +
+          ? '<img class="h-[192px] w-[192px] object-contain" src="' +
             data.logo +
             '" alt="' +
             data.title +
