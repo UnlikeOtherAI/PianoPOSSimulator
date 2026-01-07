@@ -23,6 +23,12 @@ Basic API scaffold in place with `/sim/trigger` returning `{ "ok": ":)" }`.
 - Pub: 14:00 to 02:00 (next day)
 - Petrol station: 00:00 to 24:00 (always open)
 
+### Establishment IDs
+
+- Shop: `urn:establishment:sim-shop-001`
+- Pub: `urn:establishment:sim-pub-001`
+- Petrol station: `urn:establishment:sim-petrol-001`
+
 ### Purchase Simulation Rules
 
 - Auth always succeeds and enables access to simulated data.
@@ -33,6 +39,22 @@ Basic API scaffold in place with `/sim/trigger` returning `{ "ok": ":)" }`.
 
 - `/sim/trigger` seeds deterministic data for CI scenarios.
 - Scenarios are defined in `Docs/brief.md`.
+
+### Example Usage
+
+```bash
+# OAuth authorize (UI)
+open "https://pianosim.unlikeotherai.com/oauth/authorize?redirect_uri=https://example.com/callback&state=demo"
+
+# Login for access token
+curl -s -X POST https://pianosim.unlikeotherai.com/api/v1/auth/login \\
+  -H "Content-Type: application/json" \\
+  -d '{}'
+
+# WhoAmI using fixed access token
+curl -s https://pianosim.unlikeotherai.com/api/v1/auth/whoami \\
+  -H "Authorization: Bearer sim_access_token"
+```
 
 ## Local Setup
 
