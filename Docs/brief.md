@@ -8,7 +8,7 @@ Build a Node.js POS purchase simulator that sends realistic payloads to downstre
 
 - Provide a predictable POS purchase simulator that can push payloads to external backends.
 - Support GitHub Action-driven scenarios via `/sim/trigger`.
-- Store simulated state in PostgreSQL for repeatable data and realistic flows.
+- Store simulated state for repeatable data and realistic flows.
 - Keep payloads aligned with the Piano OpenAPI schemas (reference spec).
 
 ## Non-Goals
@@ -23,13 +23,12 @@ Build a Node.js POS purchase simulator that sends realistic payloads to downstre
 - Model reference: `Docs/piano/model-structure.md`.
 - Sales and catalog plan: `Docs/sales-plan.md` and `Docs/establishments/`.
 - Simulator endpoint: `/sim/trigger` (not in OpenAPI).
-- Runtime: Node.js API, package manager `pnpm`, database PostgreSQL (`psql`).
+- Runtime: Node.js API, package manager `pnpm`.
 
 ## High-Level Design
 
 - HTTP server exposes all OpenAPI paths with stubbed or stateful responses.
-- PostgreSQL stores establishments, credentials, tokens, and imported data.
-- Scenario loader seeds database and controls response behavior for tests.
+- Scenario loader seeds simulator state and controls response behavior for tests.
 - `/sim/trigger` accepts a scenario payload and seeds data accordingly.
 
 ## Endpoint Coverage Plan
@@ -88,7 +87,7 @@ Build a Node.js POS purchase simulator that sends realistic payloads to downstre
 ## Implementation Steps
 
 1. Scaffold Node.js API with `pnpm`, Express (or equivalent).
-2. Define database schema and migrations (PostgreSQL).
+2. Define simulator state storage.
 3. Implement `/sim/trigger` for scenario seeding.
 4. Implement auth endpoints (pair, login, whoami).
 5. Implement import endpoints (orders, documents, inventory).

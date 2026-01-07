@@ -5,7 +5,6 @@ Node.js POS purchase simulator that uses the Piano integration API in `Docs/pian
 ## What This Is
 
 - A simulator for the Piano POS integration API.
-- Backed by PostgreSQL for repeatable test data.
 - Triggered in CI via a private endpoint (`/sim/trigger`).
 - Live simulator: https://pianosim.unlikeotherai.com
 
@@ -64,7 +63,6 @@ curl -s https://pianosim.unlikeotherai.com/api/v1/auth/whoami \\
 ## Local Setup
 
 - Install deps: `make install`
-- Configure env: copy `API/.env.example` to `API/.env` and set `DATABASE_URL`
 - Run API (defaults to port 6080): `make launch`
 
 ## DigitalOcean App
