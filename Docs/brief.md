@@ -65,10 +65,11 @@ Build a Node.js API simulator that mimics the Piano integration API defined in `
 
 ## Auth Simulation
 
-- Pairing creates credentials.
-- Login validates credentials and returns short-lived tokens.
-- `Authorization: Bearer` token maps to an establishment.
-- `whoami` reads token to return establishment context.
+- Pairing creates credentials and always succeeds.
+- Login always succeeds and returns a fixed access token.
+- OAuth token endpoints always succeed and return fixed access/refresh tokens.
+- `Authorization: Bearer` token will be required later for data endpoints.
+- `whoami` returns a fixed account context.
 
 ## Scenario Design
 

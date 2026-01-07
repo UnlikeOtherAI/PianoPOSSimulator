@@ -37,6 +37,13 @@ This document summarizes the OpenAPI model shapes defined in `Docs/piano.api.jso
 - enums: `type` is `USER` or `APPLICATION`
 - notes: `tenantPermissions` and `establishmentPermissions` are free-form objects.
 
+### Simulator Tokens (Fixed)
+
+- access token: `sim_access_token`
+- refresh token: `sim_refresh_token`
+- authorization code: `sim_auth_code`
+- notes: these constants are returned by the auth endpoints and should be reused for all authenticated calls.
+
 ## Pairing Models
 
 ### EstablishmentAddressDto
