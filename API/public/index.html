@@ -105,6 +105,14 @@
               </div>
             </div>
           </div>
+          <div class="mt-8">
+            <div id="shop-section-tabs" class="flex flex-wrap gap-2 justify-center"></div>
+            <div class="mt-4 overflow-hidden rounded-xl border border-[#e2d6c2] bg-white">
+              <table class="w-full text-left text-sm text-[#4b443b]">
+                <tbody id="shop-section-rows"></tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </section>
       <div class="mt-[75px] flex justify-center">
@@ -137,12 +145,15 @@
       const itemsEl = document.getElementById("shop-items");
       const weekChartEl = document.getElementById("shop-week-chart");
       const hourChartEl = document.getElementById("shop-hour-chart");
+      const sectionTabsEl = document.getElementById("shop-section-tabs");
+      const sectionRowsEl = document.getElementById("shop-section-rows");
       let currentShop = null;
       let animationTimer = null;
       let dataCache = null;
       let weeklyChart = null;
       let hourlyChart = null;
       let chartToken = 0;
+      let currentSectionIndex = 0;
 
       const BUSYNESS_WEEKLY = {
         "urn:establishment:sim-pub-001": "/data/busyness-weekly-rock-bottom.json",
@@ -223,6 +234,132 @@
           );
           return Number((total / entries.length).toFixed(1));
         });
+      };
+
+      const formatPrice = (value) => {
+        const num = Number(value);
+        if (Number.isNaN(num)) return value;
+        return num.toFixed(2);
+      };
+
+      const findIndex = (headers, candidates) =>
+        headers.findIndex((header) =>
+          candidates.some((cand) => header.toLowerCase() === cand)
+        );
+
+      const findPriceIndices = (headers) =>
+        headers
+          .map((header, index) => ({ header, index }))
+          .filter((item) => item.header.toLowerCase().includes("price"))
+          .map((item) => item.index);
+
+      const renderSectionRows = (establishment, sectionIndex) => {
+        const section = establishment?.sections?.[sectionIndex];
+        if (!section) {
+          sectionRowsEl.innerHTML = "";
+          return;
+        }
+        const nameIndex = findIndex(section.headers, ["name", "item"]);
+        const codeIndex = 0;
+        const rawCodeLabel = section.headers[codeIndex] || "Code";
+        const codeLabel = rawCodeLabel.split(" ")[0];
+        const priceIndices = findPriceIndices(section.headers);
+        const primaryPriceIndex = priceIndices[0] ?? section.headers.length - 1;
+        const secondaryPriceIndex = priceIndices[1];
+        const vatIndex = section.headers.findIndex(
+          (header) => header.toLowerCase() === "vatrate"
+        );
+
+        sectionRowsEl.innerHTML = section.rows
+          .map((row, idx) => {
+            const name = row[nameIndex >= 0 ? nameIndex : 1] ?? row[1] ?? row[0];
+            const codeValue = row[codeIndex] ?? "";
+            const priceValue = row[primaryPriceIndex] ?? "";
+            const vatRate = vatIndex >= 0 ? Number(row[vatIndex]) : null;
+            const isVatRegistered = Boolean(establishment.vatRegistered);
+            const hasVat = isVatRegistered && vatRate && vatRate > 0;
+            const priceNum = Number(priceValue);
+            const exVat = hasVat && !Number.isNaN(priceNum)
+              ? priceNum / (1 + vatRate)
+              : null;
+            const secondaryPrice =
+              secondaryPriceIndex !== undefined ? row[secondaryPriceIndex] : null;
+            const secondaryLabel =
+              secondaryPriceIndex !== undefined
+                ? section.headers[secondaryPriceIndex]
+                : null;
+            const rowClass = idx % 2 === 0 ? "bg-[#fcfaf6]" : "bg-white";
+
+            return (
+              '<tr class="' +
+              rowClass +
+              '">' +
+              '<td class="px-4 py-3">' +
+              '<div class="font-semibold text-[#1d1b16]">' +
+              name +
+              "</div>" +
+              '<div class="text-[11px] uppercase tracking-[0.22em] text-[#7a6f62]">' +
+              codeLabel +
+              " " +
+              codeValue +
+              "</div>" +
+              (secondaryPrice && secondaryLabel
+                ? '<div class="mt-1 text-[11px] text-[#7a6f62]">' +
+                  secondaryLabel +
+                  ": £" +
+                  formatPrice(secondaryPrice) +
+                  "</div>"
+                : "") +
+              "</td>" +
+              '<td class="px-4 py-3 text-right">' +
+              '<div class="text-base font-semibold text-[#1d1b16]">£' +
+              formatPrice(priceValue) +
+              (hasVat ? " (inc VAT)" : "") +
+              "</div>" +
+              (exVat !== null
+                ? '<div class="text-[11px] uppercase tracking-[0.22em] text-[#7a6f62]">£' +
+                  formatPrice(exVat) +
+                  " ex VAT</div>"
+                : "") +
+              "</td>" +
+              "</tr>"
+            );
+          })
+          .join("");
+      };
+
+      const renderSectionTabs = (establishment) => {
+        const sections = establishment?.sections || [];
+        if (!sections.length) {
+          sectionTabsEl.innerHTML = "";
+          sectionRowsEl.innerHTML = "";
+          return;
+        }
+        currentSectionIndex = Math.min(currentSectionIndex, sections.length - 1);
+        sectionTabsEl.innerHTML = sections
+          .map(
+            (section, idx) =>
+              '<button data-index="' +
+              idx +
+              '" class="rounded-full border border-[#1d1b16] px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#1d1b16]">' +
+              section.title +
+              "</button>"
+          )
+          .join("");
+        Array.from(sectionTabsEl.querySelectorAll("button")).forEach((button) => {
+          const idx = Number(button.dataset.index);
+          const isActive = idx === currentSectionIndex;
+          button.classList.toggle("bg-[#1d1b16]", isActive);
+          button.classList.toggle("text-[#fffaf0]", isActive);
+          button.style.backgroundColor = isActive ? "#1d1b16" : "transparent";
+          button.style.color = isActive ? "#fffaf0" : "#1d1b16";
+          button.addEventListener("click", () => {
+            currentSectionIndex = idx;
+            renderSectionTabs(establishment);
+            renderSectionRows(establishment, currentSectionIndex);
+          });
+        });
+        renderSectionRows(establishment, currentSectionIndex);
       };
 
       const renderCharts = async (establishment) => {
@@ -417,6 +554,7 @@
         updateTabs(establishment.id);
         itemsEl.textContent = "";
         renderCharts(establishment);
+        renderSectionTabs(establishment);
       };
 
       const animateSwitch = (establishment) => {
