@@ -18,38 +18,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" href="/favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .panel-animate-out {
-        animation: panelOut 0.25s ease-in forwards;
-      }
-      .panel-animate-in {
-        animation: panelIn 0.45s cubic-bezier(0.2, 0.9, 0.2, 1) both;
-      }
-      @keyframes panelOut {
-        from {
-          opacity: 1;
-          transform: translateX(0);
-        }
-        to {
-          opacity: 0;
-          transform: translateX(-40px);
-        }
-      }
-      @keyframes panelIn {
-        0% {
-          opacity: 0;
-          transform: translateX(40px) scale(0.98);
-        }
-        60% {
-          opacity: 1;
-          transform: translateX(-6px) scale(1.01);
-        }
-        100% {
-          opacity: 1;
-          transform: translateX(0) scale(1);
-        }
-      }
-    </style>
   </head>
   <body class="min-h-screen bg-[#f7f2ea] flex flex-col items-center px-6">
     <div class="w-full max-w-5xl flex-1 py-12">
@@ -131,7 +99,6 @@
       const statusEl = document.getElementById("shop-status");
       const itemsEl = document.getElementById("shop-items");
       let currentShop = null;
-      let animationTimer = null;
       let dataCache = null;
 
       const fetchData = async () => {
@@ -233,26 +200,6 @@
           .join("");
       };
 
-      const animateSwitch = (establishment) => {
-        if (!panelEl) {
-          renderEstablishment(establishment);
-          return;
-        }
-        if (currentShop && establishment.id === currentShop.id) return;
-        updateTabs(establishment.id);
-        if (animationTimer) {
-          clearTimeout(animationTimer);
-        }
-        panelEl.classList.remove("panel-animate-in");
-        panelEl.classList.add("panel-animate-out");
-        animationTimer = setTimeout(() => {
-          renderEstablishment(establishment);
-          panelEl.classList.remove("panel-animate-out");
-          void panelEl.offsetWidth;
-          panelEl.classList.add("panel-animate-in");
-        }, 240);
-      };
-
       const renderTabs = (establishments) => {
         tabsEl.innerHTML = establishments
           .map(
@@ -271,7 +218,7 @@
               (est) => est.id === button.dataset.id
             );
             if (selected) {
-              animateSwitch(selected);
+              renderEstablishment(selected);
             }
           });
         });
@@ -283,7 +230,6 @@
         renderTabs(establishments);
         if (establishments.length > 0) {
           renderEstablishment(establishments[0]);
-          panelEl.classList.add("panel-animate-in");
           setInterval(() => updateStatus(currentShop), 60000);
         }
       };
