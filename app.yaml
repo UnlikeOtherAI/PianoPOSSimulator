@@ -18,13 +18,16 @@ ingress:
 name: piano-sim
 region: lon
 services:
-- build_command: corepack enable pnpm && pnpm -C API install --frozen-lockfile
+- build_command: corepack enable pnpm && pnpm install --frozen-lockfile
   environment_slug: node-js
   envs:
   - key: DATABASE_URL
     scope: RUN_TIME
     type: SECRET
-    value: EV[1:2GgaIsWkkIqyA4hCSy6KVrdc/b6WhomG:fmofPvsEBpZ3JX0hmC1ZC/gpOnKXowbiIPfkfW/T6oajxuYWy7x1Sib3DX7eW+JSI+dedVX3d39+HC63lIrvgGeRJ/emM8/KIvpSKt0vSgnEG6ao+wC1BkzW2kL6BuqdhKEiN9uOG5tKRR+d0YaQgRV0BIrItX5hWqrbbrvlYhGyswtoFtKKlVeo]
+    value: EV[1:uEatIx1S60WppSxPfe31xncQMIdk330d:EgINQkxDVzvGq7qZhIb461quct9saPqVDi7GA2HMYLIRQ6k8LghepCTU+xVZlh0aK7jbTsvAVoz6aWo3ZjXt9sZPTPAutLcqpe2OgsvnGvqP69wK+hYox8fhJnsSWcz4ftzglpLD27VcS7q5S3yEwZeMQN96zTCiIfG9sjvaeBWpweDkYedSEytn]
+  - key: PORT
+    scope: RUN_AND_BUILD_TIME
+    value: "8080"
   github:
     branch: main
     deploy_on_push: true
@@ -33,5 +36,5 @@ services:
   instance_count: 1
   instance_size_slug: apps-s-1vcpu-0.5gb
   name: api
-  run_command: pnpm -C API start
-  source_dir: .
+  run_command: pnpm start
+  source_dir: API
